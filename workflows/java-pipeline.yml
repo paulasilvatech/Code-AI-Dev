@@ -1,0 +1,175 @@
+name: Java CI/CD with AI-Assisted Optimization
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'java-examples/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'java-examples/**'
+
+jobs:
+  code-quality:
+    name: AI-Assisted Code Quality Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      pull-requests: write
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+          
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: java
+          
+      - name: Analyze Code with GitHub Advanced Security
+        uses: github/codeql-action/analyze@v2
+        
+      - name: Run Dependency Security Scan
+        uses: dependency-check/Dependency-Check_Action@main
+        with:
+          project: 'Java Enterprise App'
+          path: 'java-examples'
+          format: 'HTML'
+          args: >
+            --failOnCVSS 7
+            --enableExperimental
+        
+      - name: AI-Assisted Performance Analysis
+        if: github.event_name == 'pull_request'
+        run: |
+          # This step would integrate with Azure AI Foundry for performance analysis
+          echo "Running AI-assisted performance analysis..."
+          # Install AI Foundry CLI (placeholder)
+          pip install azure-ai-foundry-cli
+          # Analyze code with AI for performance optimization opportunities
+          azure-ai-foundry code-analyze --repo-path ./java-examples --language java --focus performance
+          
+      - name: Generate AI Optimization Suggestions
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // This script would parse AI suggestions and add them as PR comments
+            const fs = require('fs');
+            
+            try {
+              // Read AI analysis results (placeholder)
+              const aiResults = fs.readFileSync('./ai-analysis-results.json', 'utf8');
+              const suggestions = JSON.parse(aiResults);
+              
+              // Add suggestions as PR comments
+              for (const suggestion of suggestions) {
+                await github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: `## AI Optimization Suggestion\n\n${suggestion.description}\n\n\`\`\`java\n${suggestion.code}\n\`\`\`\n\nEstimated performance improvement: ${suggestion.improvement}`
+                });
+              }
+            } catch (error) {
+              console.error('Error generating AI suggestions:', error);
+            }
+
+  build-and-test:
+    name: Build and Test
+    needs: code-quality
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+          
+      - name: Build with Maven
+        run: mvn -B package --file java-examples/pom.xml
+        
+      - name: Run Tests
+        run: mvn test --file java-examples/pom.xml
+        
+      - name: Performance Testing
+        run: |
+          # Run JMeter or other performance tests
+          echo "Running performance tests..."
+          # Install JMeter (placeholder)
+          wget https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.5.tgz
+          tar -xzf apache-jmeter-5.5.tgz
+          # Run performance tests
+          ./apache-jmeter-5.5/bin/jmeter -n -t java-examples/performance-tests/test-plan.jmx -l results.jtl
+          
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: results.jtl
+
+  deploy:
+    name: Deploy
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          
+      - name: Build with Maven
+        run: mvn -B package --file java-examples/pom.xml -DskipTests
+        
+      - name: Deploy to Azure
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'java-enterprise-app'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: './java-examples/target/*.jar'
+          
+      - name: Post-deployment Performance Monitoring
+        run: |
+          # This step would integrate with Azure AI Foundry for performance monitoring
+          echo "Setting up AI-assisted performance monitoring..."
+          # Install AI Foundry CLI (placeholder)
+          pip install azure-ai-foundry-cli
+          # Set up monitoring
+          azure-ai-foundry monitoring-setup --app-name java-enterprise-app --resource-group example-rg
+          
+      - name: Send Deployment Notification
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          payload: |
+            {
+              "text": "Java Enterprise App deployed with AI-optimized code!",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Java Enterprise App Deployment Complete*\n\nThe application has been deployed with AI-assisted optimizations. Performance monitoring has been set up."
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 

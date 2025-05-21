@@ -1,0 +1,330 @@
+trigger:
+  branches:
+    include:
+    - main
+    - develop
+  paths:
+    include:
+    - java-examples/**
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  - name: MAVEN_CACHE_FOLDER
+    value: $(Pipeline.Workspace)/.m2/repository
+  - name: AZURE_AI_FOUNDRY_KEY
+    value: $(aiFoundryKey)
+  - name: JAVA_VERSION
+    value: '17'
+
+stages:
+- stage: CodeQuality
+  displayName: 'Code Quality Analysis'
+  jobs:
+  - job: AIAssistedCodeQuality
+    displayName: 'AI-Assisted Quality Analysis'
+    timeoutInMinutes: 20
+    
+    steps:
+    - task: JavaToolInstaller@0
+      inputs:
+        versionSpec: '$(JAVA_VERSION)'
+        jdkArchitectureOption: 'x64'
+        jdkSourceOption: 'PreInstalled'
+      displayName: 'Set up JDK $(JAVA_VERSION)'
+    
+    - task: Cache@2
+      inputs:
+        key: 'maven | "$(Agent.OS)" | java-examples/pom.xml'
+        restoreKeys: |
+          maven | "$(Agent.OS)"
+        path: $(MAVEN_CACHE_FOLDER)
+      displayName: 'Cache Maven packages'
+    
+    - task: Maven@3
+      inputs:
+        mavenPomFile: 'java-examples/pom.xml'
+        goals: 'verify'
+        options: '-B -DskipTests'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '$(JAVA_VERSION)'
+        mavenVersionOption: 'Default'
+        mavenOptions: '-Xmx3072m -DskipTests'
+        mavenAuthenticateFeed: false
+      displayName: 'Build with Maven'
+    
+    - task: SonarCloudPrepare@1
+      inputs:
+        SonarCloud: 'SonarCloud'
+        organization: '$(SonarCloudOrganization)'
+        scannerMode: 'Other'
+        extraProperties: |
+          sonar.projectKey=$(SonarProjectKey)
+          sonar.projectName=$(SonarProjectName)
+          sonar.sources=java-examples/src/main
+          sonar.tests=java-examples/src/test
+      displayName: 'Prepare SonarCloud Analysis'
+    
+    - task: Maven@3
+      inputs:
+        mavenPomFile: 'java-examples/pom.xml'
+        goals: 'package sonar:sonar'
+        options: '-Dsonar.host.url=https://sonarcloud.io'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '$(JAVA_VERSION)'
+        mavenVersionOption: 'Default'
+        mavenOptions: '-Xmx3072m'
+        mavenAuthenticateFeed: false
+      displayName: 'Run SonarCloud Analysis'
+    
+    - task: SonarCloudPublish@1
+      inputs:
+        pollingTimeoutSec: '300'
+      displayName: 'Publish SonarCloud Results'
+    
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Install Azure AI Foundry CLI
+          dotnet tool install -g azure-ai-foundry-cli
+          
+          # Run AI code analysis
+          azure-ai-foundry code-analyze --repo-path ./java-examples --language java --focus performance --output-file ./ai-analysis-results.json
+        workingDirectory: '$(System.DefaultWorkingDirectory)'
+      displayName: 'AI-Assisted Performance Analysis'
+      env:
+        AZURE_AI_FOUNDRY_KEY: $(AZURE_AI_FOUNDRY_KEY)
+    
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(System.DefaultWorkingDirectory)/ai-analysis-results.json'
+        ArtifactName: 'ai-optimization-report'
+        publishLocation: 'Container'
+      displayName: 'Publish AI Analysis Results'
+
+- stage: SecurityScan
+  displayName: 'Security Scanning'
+  dependsOn: []
+  jobs:
+  - job: DependencyCheck
+    displayName: 'Dependency Security Check'
+    steps:
+    - task: JavaToolInstaller@0
+      inputs:
+        versionSpec: '$(JAVA_VERSION)'
+        jdkArchitectureOption: 'x64'
+        jdkSourceOption: 'PreInstalled'
+      displayName: 'Set up JDK $(JAVA_VERSION)'
+    
+    - task: dependency-check-build-task@5
+      inputs:
+        projectName: 'Java Enterprise App'
+        scanPath: '$(System.DefaultWorkingDirectory)/java-examples'
+        format: 'HTML,SARIF'
+        failOnCVSS: '7'
+      displayName: 'OWASP Dependency Check'
+    
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(System.DefaultWorkingDirectory)/dependency-check-report.html'
+        ArtifactName: 'DependencyCheckReport'
+        publishLocation: 'Container'
+      displayName: 'Publish Dependency Check Report'
+    
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(System.DefaultWorkingDirectory)/dependency-check-report.sarif'
+        ArtifactName: 'CodeAnalysisLogs'
+        publishLocation: 'Container'
+      displayName: 'Publish SARIF Results'
+  
+  - job: SecretScanning
+    displayName: 'Secret Detection'
+    steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '3.10'
+        addToPath: true
+      displayName: 'Install Python'
+    
+    - script: |
+        pip install detect-secrets
+        detect-secrets scan --baseline .secrets.baseline java-examples/
+      displayName: 'Scan for Secrets'
+    
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(System.DefaultWorkingDirectory)/.secrets.baseline'
+        ArtifactName: 'SecretScanningResults'
+        publishLocation: 'Container'
+      displayName: 'Publish Secret Scanning Results'
+
+  - job: MicrosoftDefenderScan
+    displayName: 'Microsoft Defender Scan'
+    steps:
+    - task: MicrosoftSecurityDevOps@1
+      displayName: 'Run Microsoft Defender for DevOps Scan'
+      inputs:
+        categories: 'java,secrets'
+
+- stage: Build
+  displayName: 'Build and Test'
+  dependsOn: [CodeQuality, SecurityScan]
+  jobs:
+  - job: BuildAndTest
+    displayName: 'Build and Run Tests'
+    steps:
+    - task: JavaToolInstaller@0
+      inputs:
+        versionSpec: '$(JAVA_VERSION)'
+        jdkArchitectureOption: 'x64'
+        jdkSourceOption: 'PreInstalled'
+      displayName: 'Set up JDK $(JAVA_VERSION)'
+    
+    - task: Cache@2
+      inputs:
+        key: 'maven | "$(Agent.OS)" | java-examples/pom.xml'
+        restoreKeys: |
+          maven | "$(Agent.OS)"
+        path: $(MAVEN_CACHE_FOLDER)
+      displayName: 'Cache Maven packages'
+    
+    - task: Maven@3
+      inputs:
+        mavenPomFile: 'java-examples/pom.xml'
+        goals: 'package'
+        options: '-B'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '$(JAVA_VERSION)'
+        mavenVersionOption: 'Default'
+        mavenOptions: '-Xmx3072m'
+        mavenAuthenticateFeed: false
+      displayName: 'Build and Test with Maven'
+    
+    - task: CopyFiles@2
+      inputs:
+        sourceFolder: '$(System.DefaultWorkingDirectory)'
+        contents: 'java-examples/target/*.jar'
+        targetFolder: '$(Build.ArtifactStagingDirectory)'
+      displayName: 'Copy JAR files'
+    
+    - task: PublishBuildArtifacts@1
+      inputs:
+        pathToPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: 'JavaAppArtifacts'
+        publishLocation: 'Container'
+      displayName: 'Publish Build Artifacts'
+
+- stage: AIOptimization
+  displayName: 'AI-Assisted Optimization'
+  dependsOn: [Build]
+  jobs:
+  - job: AutomatedOptimization
+    displayName: 'AI-Driven Code Optimization'
+    steps:
+    - task: DownloadBuildArtifacts@1
+      inputs:
+        buildType: 'current'
+        downloadType: 'single'
+        artifactName: 'ai-optimization-report'
+        downloadPath: '$(System.ArtifactsDirectory)'
+      displayName: 'Download AI Analysis Results'
+    
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Process AI analysis results and generate optimization PRs
+          
+          # Install GitHub CLI
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+          sudo apt update
+          sudo apt install gh
+          
+          # Authenticate with GitHub
+          echo "$(GitHubToken)" | gh auth login --with-token
+          
+          # Install GitHub Copilot Agent CLI
+          gh extension install github/gh-copilot-agent
+          
+          # Create branch for optimization
+          git checkout -b ai-optimization-$(Build.BuildId)
+          
+          # Read AI analysis results
+          $aiResults = Get-Content -Path "$(System.ArtifactsDirectory)/ai-optimization-report/ai-analysis-results.json" | ConvertFrom-Json
+          
+          # Iterate through findings and create tasks for Copilot Agent
+          foreach ($finding in $aiResults.findings) {
+            Write-Host "Processing finding: $($finding.description)"
+            
+            # Create a task for GitHub Copilot Agent
+            gh copilot-agent task create --repo=$(Build.Repository.Name) --description="Fix performance issue: $($finding.description) in file $($finding.filePath)" --priority=high
+          }
+          
+          # Check for any changes
+          if (git status --porcelain) {
+            # Commit changes
+            git config --global user.email "ai-assistant@example.com"
+            git config --global user.name "AI Optimization Assistant"
+            git add .
+            git commit -m "AI-assisted code optimization [skip ci]"
+            
+            # Push changes and create PR
+            git push origin ai-optimization-$(Build.BuildId)
+            gh pr create --title "AI-assisted optimization" --body "This PR contains AI-assisted optimizations based on performance analysis. Each change includes a detailed explanation of the improvement." --base main
+          } else {
+            Write-Host "No optimization changes required"
+          }
+        workingDirectory: '$(System.DefaultWorkingDirectory)'
+      displayName: 'Process AI Optimization Suggestions'
+      env:
+        GitHubToken: $(GitHubPAT)
+        AZURE_AI_FOUNDRY_KEY: $(AZURE_AI_FOUNDRY_KEY)
+
+- stage: Deploy
+  displayName: 'Deploy'
+  dependsOn: [Build]
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  jobs:
+  - deployment: DeployToAzure
+    displayName: 'Deploy to Azure App Service'
+    environment: 'Production'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadBuildArtifacts@1
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: 'JavaAppArtifacts'
+              downloadPath: '$(System.ArtifactsDirectory)'
+            displayName: 'Download Build Artifacts'
+          
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: 'Azure Subscription'
+              appType: 'webAppLinux'
+              appName: 'java-enterprise-app'
+              package: '$(System.ArtifactsDirectory)/JavaAppArtifacts/java-examples/target/*.jar'
+              runtimeStack: 'JAVA|17-java17'
+            displayName: 'Deploy to Azure App Service'
+          
+          - task: PowerShell@2
+            inputs:
+              targetType: 'inline'
+              script: |
+                # Setup AI monitoring
+                dotnet tool install -g azure-ai-foundry-cli
+                azure-ai-foundry monitoring-setup --app-name java-enterprise-app --resource-group example-rg
+              workingDirectory: '$(System.DefaultWorkingDirectory)'
+            displayName: 'Setup AI Performance Monitoring'
+            env:
+              AZURE_AI_FOUNDRY_KEY: $(AZURE_AI_FOUNDRY_KEY) 

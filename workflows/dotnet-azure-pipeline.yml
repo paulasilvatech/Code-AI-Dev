@@ -1,0 +1,405 @@
+trigger:
+  branches:
+    include:
+    - main
+    - develop
+  paths:
+    include:
+    - dotnet-examples/**
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  - name: DOTNET_VERSION
+    value: '8.0.x'
+  - name: AZURE_AI_FOUNDRY_KEY
+    value: $(aiFoundryKey)
+  - name: SOLUTION_PATH
+    value: 'dotnet-examples/Enterprise.sln'
+  - name: WEB_PROJECT_PATH
+    value: 'dotnet-examples/Enterprise.Web/Enterprise.Web.csproj'
+  - name: TESTS_PATH
+    value: 'dotnet-examples/*Tests/*.csproj'
+  - name: BENCHMARK_PROJECT_PATH
+    value: 'dotnet-examples/Enterprise.Benchmarks/Enterprise.Benchmarks.csproj'
+
+stages:
+- stage: CodeQuality
+  displayName: 'Code Quality Analysis'
+  jobs:
+  - job: AIAssistedCodeQuality
+    displayName: 'AI-Assisted Quality Analysis'
+    timeoutInMinutes: 20
+    
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '$(DOTNET_VERSION)'
+      displayName: 'Use .NET $(DOTNET_VERSION)'
+    
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'restore'
+        projects: '$(SOLUTION_PATH)'
+        feedsToUse: 'select'
+      displayName: 'Restore NuGet packages'
+    
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'build'
+        projects: '$(SOLUTION_PATH)'
+        arguments: '--configuration Release --no-restore'
+      displayName: 'Build solution'
+    
+    - task: ResharperCli@2
+      inputs:
+        solutionOrProjectPath: '$(SOLUTION_PATH)'
+        failBuildLevelSelector: 'Warning'
+        resultsOutputFilePath: '$(Build.ArtifactStagingDirectory)/code-inspection.xml'
+      displayName: 'Run code quality analysis'
+    
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)/code-inspection.xml'
+        ArtifactName: 'CodeQualityReport'
+        publishLocation: 'Container'
+      displayName: 'Publish Code Quality Report'
+    
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Install Azure AI Foundry CLI
+          dotnet tool install -g azure-ai-foundry-cli
+          
+          # Run AI code analysis
+          azure-ai-foundry code-analyze --repo-path ./dotnet-examples --language csharp --focus performance --output-file ./ai-analysis-results.json
+        workingDirectory: '$(System.DefaultWorkingDirectory)'
+      displayName: 'AI-Assisted Performance Analysis'
+      env:
+        AZURE_AI_FOUNDRY_KEY: $(AZURE_AI_FOUNDRY_KEY)
+    
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(System.DefaultWorkingDirectory)/ai-analysis-results.json'
+        ArtifactName: 'ai-optimization-report'
+        publishLocation: 'Container'
+      displayName: 'Publish AI Analysis Results'
+
+- stage: SecurityScan
+  displayName: 'Security Scanning'
+  dependsOn: []
+  jobs:
+  - job: DependencyCheck
+    displayName: 'Dependency Security Check'
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '$(DOTNET_VERSION)'
+      displayName: 'Use .NET $(DOTNET_VERSION)'
+    
+    - task: CredScan@3
+      displayName: 'Run CredScan'
+      inputs:
+        outputFormat: 'sarif'
+        suppressionsFile: '.credscan'
+        verboseOutput: true
+    
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'custom'
+        custom: 'tool'
+        arguments: 'install --global dotnet-outdated-tool'
+      displayName: 'Install dotnet-outdated'
+    
+    - script: |
+        dotnet-outdated -o csv > outdated-packages.csv
+      displayName: 'Check for outdated NuGet packages'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/dotnet-examples'
+    
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(System.DefaultWorkingDirectory)/dotnet-examples/outdated-packages.csv'
+        ArtifactName: 'OutdatedPackages'
+        publishLocation: 'Container'
+      displayName: 'Publish Outdated Packages Report'
+  
+  - job: MicrosoftDefenderScan
+    displayName: 'Microsoft Defender Scan'
+    steps:
+    - task: MicrosoftSecurityDevOps@1
+      displayName: 'Run Microsoft Defender for DevOps Scan'
+      inputs:
+        categories: 'dotnet,secrets'
+    
+    - task: PublishSecurityAnalysisLogs@3
+      inputs:
+        ArtifactName: 'CodeAnalysisLogs'
+        ArtifactType: 'Container'
+      displayName: 'Publish Security Analysis Logs'
+
+- stage: Build
+  displayName: 'Build and Test'
+  dependsOn: [CodeQuality, SecurityScan]
+  jobs:
+  - job: BuildAndTest
+    displayName: 'Build and Run Tests'
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '$(DOTNET_VERSION)'
+      displayName: 'Use .NET $(DOTNET_VERSION)'
+    
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'restore'
+        projects: '$(SOLUTION_PATH)'
+        feedsToUse: 'select'
+      displayName: 'Restore NuGet packages'
+    
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'build'
+        projects: '$(SOLUTION_PATH)'
+        arguments: '--configuration Release --no-restore'
+      displayName: 'Build solution'
+    
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'test'
+        projects: '$(TESTS_PATH)'
+        arguments: '--configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory $(Agent.TempDirectory)/TestResults'
+      displayName: 'Run tests'
+    
+    - task: PublishCodeCoverageResults@2
+      inputs:
+        summaryFileLocation: '$(Agent.TempDirectory)/TestResults/**/coverage.cobertura.xml'
+        failIfCoverageEmpty: true
+      displayName: 'Publish code coverage'
+    
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'publish'
+        publishWebProjects: false
+        projects: '$(WEB_PROJECT_PATH)'
+        arguments: '--configuration Release --output $(Build.ArtifactStagingDirectory)'
+        zipAfterPublish: true
+        modifyOutputPath: true
+      displayName: 'Publish web project'
+    
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'WebApp'
+        publishLocation: 'Container'
+      displayName: 'Publish artifacts'
+    
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'run'
+        projects: '$(BENCHMARK_PROJECT_PATH)'
+        arguments: '--configuration Release -- --filter * --exportJson $(Build.ArtifactStagingDirectory)/benchmarks.json'
+      displayName: 'Run benchmarks'
+      continueOnError: true
+    
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)/benchmarks.json'
+        ArtifactName: 'PerformanceBenchmarks'
+        publishLocation: 'Container'
+      displayName: 'Publish benchmark results'
+      continueOnError: true
+
+- stage: AIOptimization
+  displayName: 'AI-Assisted Optimization'
+  dependsOn: [Build]
+  jobs:
+  - job: AutomatedOptimization
+    displayName: 'AI-Driven Code Optimization'
+    steps:
+    - task: DownloadBuildArtifacts@1
+      inputs:
+        buildType: 'current'
+        downloadType: 'single'
+        artifactName: 'ai-optimization-report'
+        downloadPath: '$(System.ArtifactsDirectory)'
+      displayName: 'Download AI Analysis Results'
+    
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '$(DOTNET_VERSION)'
+      displayName: 'Use .NET $(DOTNET_VERSION)'
+    
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Process AI analysis results and generate optimization PRs
+          
+          # Install GitHub CLI
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+          sudo apt update
+          sudo apt install gh
+          
+          # Authenticate with GitHub
+          echo "$(GitHubToken)" | gh auth login --with-token
+          
+          # Install GitHub Copilot Agent CLI
+          gh extension install github/gh-copilot-agent
+          
+          # Create branch for optimization
+          git checkout -b ai-optimization-dotnet-$(Build.BuildId)
+          
+          # Read AI analysis results
+          $aiResults = Get-Content -Path "$(System.ArtifactsDirectory)/ai-optimization-report/ai-analysis-results.json" | ConvertFrom-Json
+          
+          # Iterate through findings and create tasks for Copilot Agent
+          foreach ($finding in $aiResults.findings) {
+            Write-Host "Processing finding: $($finding.description)"
+            
+            # Create a task for GitHub Copilot Agent
+            gh copilot-agent task create --repo=$(Build.Repository.Name) --description="Fix performance issue: $($finding.description) in file $($finding.filePath)" --priority=high
+          }
+          
+          # Check for any changes
+          if (git status --porcelain) {
+            # Commit changes
+            git config --global user.email "ai-assistant@example.com"
+            git config --global user.name "AI Optimization Assistant"
+            git add .
+            git commit -m "AI-assisted code optimization for .NET [skip ci]"
+            
+            # Push changes and create PR
+            git push origin ai-optimization-dotnet-$(Build.BuildId)
+            gh pr create --title "AI-assisted .NET optimization" --body "This PR contains AI-assisted optimizations based on performance analysis. Each change includes a detailed explanation of the improvement." --base main
+          } else {
+            Write-Host "No optimization changes required"
+          }
+        workingDirectory: '$(System.DefaultWorkingDirectory)'
+      displayName: 'Process AI Optimization Suggestions'
+      env:
+        GitHubToken: $(GitHubPAT)
+        AZURE_AI_FOUNDRY_KEY: $(AZURE_AI_FOUNDRY_KEY)
+
+- stage: Deploy
+  displayName: 'Deploy'
+  dependsOn: [Build]
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  jobs:
+  - deployment: DeployToAzure
+    displayName: 'Deploy to Azure App Service'
+    environment: 'Production'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadBuildArtifacts@1
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: 'WebApp'
+              downloadPath: '$(System.ArtifactsDirectory)'
+            displayName: 'Download Build Artifacts'
+          
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: 'Azure Subscription'
+              appType: 'webApp'
+              appName: 'dotnet-enterprise-app'
+              package: '$(System.ArtifactsDirectory)/WebApp/*.zip'
+              deploymentMethod: 'auto'
+            displayName: 'Deploy to Azure App Service'
+          
+          - task: PowerShell@2
+            inputs:
+              targetType: 'inline'
+              script: |
+                # Setup AI monitoring
+                dotnet tool install -g azure-ai-foundry-cli
+                azure-ai-foundry monitoring-setup --app-name dotnet-enterprise-app --resource-group example-rg
+              workingDirectory: '$(System.DefaultWorkingDirectory)'
+            displayName: 'Setup AI Performance Monitoring'
+            env:
+              AZURE_AI_FOUNDRY_KEY: $(AZURE_AI_FOUNDRY_KEY)
+              
+  - job: NotifyDeployment
+    dependsOn: DeployToAzure
+    displayName: 'Send Deployment Notification'
+    steps:
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: 'Azure Subscription'
+        scriptType: 'pscore'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          # Create an Application Insights query for monitoring
+          $aiQuery = @"
+          requests
+          | where cloud_RoleName == 'dotnet-enterprise-app'
+          | where timestamp > ago(1h)
+          | summarize count(), avg(duration), percentiles(duration, 50, 95, 99) by bin(timestamp, 5m)
+          | render timechart
+          "@
+          
+          # Generate a dashboard link
+          $dashboardUrl = "https://portal.azure.com/#@your-tenant.onmicrosoft.com/dashboard/arm/subscriptions/your-subscription-id/resourceGroups/example-rg/providers/Microsoft.Portal/dashboards/appmonitoring"
+          
+          # Send a Teams notification
+          $body = @{
+            "@type" = "MessageCard"
+            "@context" = "http://schema.org/extensions"
+            "themeColor" = "0076D7"
+            "summary" = ".NET Enterprise App Deployed"
+            "sections" = @(
+              @{
+                "activityTitle" = ".NET Enterprise App Deployment Complete"
+                "activitySubtitle" = "AI-optimized version has been deployed to production"
+                "facts" = @(
+                  @{
+                    "name" = "App Name"
+                    "value" = "dotnet-enterprise-app"
+                  },
+                  @{
+                    "name" = "Environment"
+                    "value" = "Production"
+                  },
+                  @{
+                    "name" = "Build"
+                    "value" = "$(Build.BuildNumber)"
+                  }
+                )
+                "markdown" = $true
+              }
+            )
+            "potentialAction" = @(
+              @{
+                "@type" = "OpenUri"
+                "name" = "View Application"
+                "targets" = @(
+                  @{
+                    "os" = "default"
+                    "uri" = "https://dotnet-enterprise-app.azurewebsites.net"
+                  }
+                )
+              },
+              @{
+                "@type" = "OpenUri"
+                "name" = "View Monitoring Dashboard"
+                "targets" = @(
+                  @{
+                    "os" = "default"
+                    "uri" = $dashboardUrl
+                  }
+                )
+              }
+            )
+          } | ConvertTo-Json -Depth 10
+          
+          Invoke-RestMethod -Uri "$(TeamsWebhookUrl)" -Method Post -Body $body -ContentType "application/json"
+      displayName: 'Send Teams Notification' 

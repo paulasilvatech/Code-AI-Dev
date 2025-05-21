@@ -1,0 +1,171 @@
+name: .NET CI/CD with AI-Assisted Optimization
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'dotnet-examples/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'dotnet-examples/**'
+
+jobs:
+  code-quality:
+    name: AI-Assisted Code Quality Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      pull-requests: write
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+          
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: csharp
+          
+      - name: Analyze Code with GitHub Advanced Security
+        uses: github/codeql-action/analyze@v2
+        
+      - name: Run Security Scan
+        uses: github/ossar-action@v1
+        id: ossar
+        
+      - name: Upload OSSAR results
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: ${{ steps.ossar.outputs.sarifFile }}
+        
+      - name: AI-Assisted Performance Analysis
+        if: github.event_name == 'pull_request'
+        run: |
+          # This step would integrate with Azure AI Foundry for performance analysis
+          echo "Running AI-assisted performance analysis..."
+          # Install AI Foundry CLI (placeholder)
+          pip install azure-ai-foundry-cli
+          # Analyze code with AI for performance optimization opportunities
+          azure-ai-foundry code-analyze --repo-path ./dotnet-examples --language csharp --focus performance
+          
+      - name: Generate AI Optimization Suggestions
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // This script would parse AI suggestions and add them as PR comments
+            const fs = require('fs');
+            
+            try {
+              // Read AI analysis results (placeholder)
+              const aiResults = fs.readFileSync('./ai-analysis-results.json', 'utf8');
+              const suggestions = JSON.parse(aiResults);
+              
+              // Add suggestions as PR comments
+              for (const suggestion of suggestions) {
+                await github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: `## AI Optimization Suggestion\n\n${suggestion.description}\n\n\`\`\`csharp\n${suggestion.code}\n\`\`\`\n\nEstimated performance improvement: ${suggestion.improvement}`
+                });
+              }
+            } catch (error) {
+              console.error('Error generating AI suggestions:', error);
+            }
+
+  build-and-test:
+    name: Build and Test
+    needs: code-quality
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+          
+      - name: Restore dependencies
+        run: dotnet restore dotnet-examples/Enterprise.sln
+        
+      - name: Build
+        run: dotnet build dotnet-examples/Enterprise.sln --configuration Release --no-restore
+        
+      - name: Test
+        run: dotnet test dotnet-examples/Enterprise.sln --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+        
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-coverage
+          path: ./coverage
+          
+      - name: Performance Testing
+        run: |
+          # Run benchmark tests
+          echo "Running performance benchmarks..."
+          # Install BenchmarkDotNet (placeholder)
+          dotnet add package BenchmarkDotNet
+          # Run performance tests
+          dotnet run --project dotnet-examples/Enterprise.Benchmarks/Enterprise.Benchmarks.csproj -c Release
+
+  deploy:
+    name: Deploy
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+          
+      - name: Publish
+        run: dotnet publish dotnet-examples/Enterprise.Web/Enterprise.Web.csproj -c Release -o ./publish
+        
+      - name: Deploy to Azure
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'dotnet-enterprise-app'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_DOTNET }}
+          package: './publish'
+          
+      - name: Post-deployment Performance Monitoring
+        run: |
+          # This step would integrate with Azure AI Foundry for performance monitoring
+          echo "Setting up AI-assisted performance monitoring..."
+          # Install AI Foundry CLI (placeholder)
+          pip install azure-ai-foundry-cli
+          # Set up monitoring
+          azure-ai-foundry monitoring-setup --app-name dotnet-enterprise-app --resource-group example-rg
+          
+      - name: Send Deployment Notification
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          payload: |
+            {
+              "text": ".NET Enterprise App deployed with AI-optimized code!",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*.NET Enterprise App Deployment Complete*\n\nThe application has been deployed with AI-assisted optimizations. Performance monitoring has been set up."
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 
