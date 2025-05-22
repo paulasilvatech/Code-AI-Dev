@@ -7,7 +7,7 @@ Welcome to the **Enterprise Code AI Playbook** Workshop! This hands-on workshop 
 ## Agentic DevOps Workflow - AI-Assisted Development Implementation
 
 <div align="center">
-  <img src="docs/images/agentic-devops-flow-diagram.svg" alt="Agentic DevOps Flow Diagram" width="700">
+  <img src="agentic-devops-flow-diagram.svg" alt="Agentic DevOps Flow Diagram" width="700">
 </div>
 
 ## 🌐 Official Workshop Website: [code-ai.dev](https://code-ai.dev)
@@ -27,7 +27,7 @@ As a developer in today's enterprise environment, you face a critical challenge:
 This workshop provides hands-on guidance to implement AI-assisted development using modern tools and practices. We'll demonstrate how GitHub Copilot, Azure AI, and agentic workflows can transform your development efficiency.
 
 <div align="center">
-  <img src="docs/images/multi-agent-architecture-diagram.svg" alt="Multi-Agent Architecture" width="700">
+  <img src="multi-agent-architecture-diagram.svg" alt="Multi-Agent Architecture" width="700">
 </div>
 
 > "AI-assisted development is not about replacing developers, but about amplifying their abilities to solve complex problems faster and more effectively."
