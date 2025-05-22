@@ -1,177 +1,173 @@
-# 🚀 Enterprise Code AI Playbook
+# 🚀 Enterprise AI-Assisted Code Optimization Workshop
 
-[![Official Website](https://img.shields.io/badge/Official_Website-agentic--ops.dev-blue)](https://agentic-ops.dev) [![GitHub Stars](https://img.shields.io/github/stars/paulanunes85/Code-AI-Dev?style=social)](https://github.com/paulanunes85/Code-AI-Dev/stargazers) [![License: MIT](https://img.shields.io/badge/license-MIT-brightgreen)](LICENSE)
+Welcome to the **Enterprise Code AI Playbook** Workshop! This hands-on workshop guides you through implementing comprehensive AI-assisted development solutions for enterprise applications using GitHub Copilot, Azure AI tools, and agentic DevOps practices.
+
+[![Official Website](https://img.shields.io/badge/Official_Website-code--ai.dev-blue)](https://code-ai.dev) [![GitHub Stars](https://img.shields.io/github/stars/paulanunes85/Code-AI-Dev?style=social)](https://github.com/paulanunes85/Code-AI-Dev/stargazers) [![License: MIT](https://img.shields.io/badge/license-MIT-brightgreen)](LICENSE)
+
+## Agentic DevOps Workflow - AI-Assisted Development Implementation
 
 <div align="center">
   <img src="docs/images/agentic-devops-flow-diagram.svg" alt="Agentic DevOps Flow Diagram" width="700">
-  <h3><a href="https://code-ai.dev" target="_blank">🌐 Official Workshop Website: code-ai.dev</a></h3>
 </div>
 
-## 📖 The Journey to AI-Powered Development
+## 🌐 Official Workshop Website: [code-ai.dev](https://code-ai.dev)
 
-Welcome to the Enterprise Code AI Playbook! This repository takes you on a transformative journey from traditional development to the world of AI-assisted optimization and agentic DevOps.
+## 📖 The Journey to AI-Enhanced Development
 
-As a developer in today's fast-paced enterprise environment, you face a critical challenge: **most of your time isn't spent creating new value**. Studies show developers spend:
-- **60%** of time on non-coding tasks (planning, meetings, research)
-- **30%** on maintaining existing code (bug fixes, refactoring)
-- **Only 10%** writing new code
+Welcome to the Enterprise AI-Assisted Code Optimization Workshop! This repository takes you on a transformative journey from traditional development to the world of AI-assisted optimization and agentic DevOps.
 
-This playbook provides a hands-on guide to revolutionize this ratio through AI-assisted development. We'll demonstrate techniques for both Java and .NET (C#) codebases using GitHub Copilot and Azure AI tools.
+As a developer in today's enterprise environment, you face a critical challenge: **most of your time isn't spent creating new value**. According to our development productivity research:
 
-> *"AI-assisted development is not about replacing developers, but about amplifying their abilities to solve complex problems faster and more effectively."*
+* **60%** of time spent on non-coding tasks (planning, meetings, research)
+* **30%** on maintaining existing code (bug fixes, refactoring)  
+* **Only 10%** writing new code that delivers business value
+* High cognitive load from context switching between different tasks
+* Reactive problem-solving instead of proactive optimization
 
-### 🌟 Business Impact
-
-Organizations implementing these techniques report:
-- **50-70%** reduction in routine development tasks
-- **30-40%** improvement in code quality metrics
-- **25-35%** faster time-to-market for new features
-- **40-60%** reduction in security vulnerabilities
+This workshop provides hands-on guidance to implement AI-assisted development using modern tools and practices. We'll demonstrate how GitHub Copilot, Azure AI, and agentic workflows can transform your development efficiency.
 
 <div align="center">
   <img src="docs/images/multi-agent-architecture-diagram.svg" alt="Multi-Agent Architecture" width="700">
 </div>
 
-## 🧭 Your Learning Path
+> "AI-assisted development is not about replacing developers, but about amplifying their abilities to solve complex problems faster and more effectively."
 
-This repository is organized as a progressive learning journey:
+## ⭐ Business Impact
 
-### 1️⃣ First Steps: Understanding the Foundation
-Begin by exploring the [Agentic DevOps Framework](docs/guides/agentic-devops-framework.md) to understand the paradigm shift in development where AI agents become full team members. Then, assess your organization using the [AI-Native Maturity Model](docs/guides/ai-native-maturity-model.md) to identify your starting point and growth path.
+Organizations implementing comprehensive AI-assisted development report significant benefits:
 
-### 2️⃣ Hands-On Experience: Workshop Series
-Choose your path through our workshop series, based on your experience level and available time:
+* **Faster Development Velocity**: Reduce routine development tasks by 50-70%
+* **Higher Code Quality**: 30-40% improvement in code quality metrics  
+* **Accelerated Time-to-Market**: 25-35% faster feature delivery
+* **Enhanced Security**: 40-60% reduction in security vulnerabilities
+* **Developer Satisfaction**: Shift from 60% maintenance work to 70% value creation
 
-#### [Basic Workshop (90 minutes)](docs/workshops/workshop-guide.md#1-beginner-workshop-60-minutes)
-Perfect for developers new to AI-assisted optimization. You'll:
-- Set up GitHub Copilot
-- Optimize string handling performance
-- Fix security vulnerabilities
-- Create a simple REST API
+Advanced AI adoption enables the progression through four maturity stages:
 
-#### [Intermediate Workshop (2 hours)](docs/workshops/workshop-guide.md#2-intermediate-workshop-90-minutes)
-For those with some AI tool experience, diving deeper into:
-- Advanced Copilot features
-- Security integration
-- Performance optimization at scale
-- CI/CD integration
+1. **Manual**: Traditional development processes
+2. **Assisted**: AI-powered code completion and suggestions
+3. **Augmented**: Intelligent workflows and automated optimization
+4. **Autonomous**: Self-optimizing systems and agentic operations
 
-#### [Advanced Workshop (3 hours)](docs/workshops/workshop-guide.md#3-advanced-workshop-3-hours)
-For experienced developers and architects, covering:
-- Agentic DevOps architecture
-- Azure AI integration
-- Enterprise governance
-- Intelligent operations
+## 📋 Workshop Structure
 
-### 3️⃣ Real-World Application: Practical Examples
-Apply what you've learned to real-world scenarios with our practical examples:
-- [Java optimization examples](java-examples/) - Spring Boot performance and security improvements
-- [.NET optimization examples](dotnet-examples/) - C# and ASP.NET Core enhancements
-- [CI/CD workflow examples](workflows/) - Agentic automation patterns
+The workshop is organized into progressive modules, allowing you to choose the depth of coverage based on your time and experience:
 
-### 4️⃣ Enterprise Implementation: Governance and Scaling
-Learn how to implement these techniques at scale with:
-- Security integration best practices
-- Enterprise governance frameworks
-- ROI measurement techniques
-- Organization-wide adoption strategies
+| Level          | Duration | Focus                           | Best For                               |
+| -------------- | -------- | ------------------------------- | -------------------------------------- |
+| **Essential**  | 90 min   | Core concepts and basic setup   | Beginners, time-constrained sessions  |
+| **Standard**   | 2 hours  | Complete AI workflow implementation | Intermediate users, standard workshops |
+| **Advanced**   | 3+ hours | Enterprise-scale solutions      | Experienced practitioners, deep dives  |
+
+## 🗺️ Learning Path
+
+### 1️⃣ Foundation to AI-Assisted Development
+
+* Understanding the AI development paradigm
+* GitHub Copilot fundamentals and capabilities
+* Setting up your AI-enhanced development environment
+
+### 2️⃣ Beginning Your AI Development Journey
+
+* Workshop preparation and tool setup
+* Creating your first AI-assisted optimization
+* Exploring GitHub Copilot fundamentals
+
+### 3️⃣ Code Optimization and Security
+
+* Performance optimization techniques
+* Security vulnerability detection and remediation
+* Using AI for code quality improvements
+
+### 4️⃣ Advanced GitHub Copilot Features
+
+* Copilot Chat and workspace features
+* Custom AI workflows and automation
+* Advanced code generation patterns
+
+### 5️⃣ Enterprise Integration
+
+* CI/CD pipeline integration
+* Azure AI services integration
+* Enterprise governance and compliance
+
+### 6️⃣ Agentic DevOps Implementation
+
+* GitHub Copilot Coding Agent setup
+* Autonomous development workflows
+* Multi-agent collaboration patterns
+
+### 7️⃣ Production Optimization
+
+* Performance monitoring and optimization
+* AI-powered incident response
+* Continuous improvement strategies
+
+### 8️⃣ Hands-On Challenge Labs
+
+* Real-world optimization scenarios
+* End-to-end implementation exercises
+* Java and .NET practical examples
+
+### 🧩 Troubleshooting Guide
+
+* Common setup issues and solutions
+* Advanced debugging techniques
+* Performance optimization strategies
+
+## 🔑 Prerequisites
+
+### Required Accounts
+
+* GitHub account with GitHub Copilot access (trial available)
+* Azure subscription (free tier available)
+* Access to development environment (VS Code recommended)
+
+### Technical Requirements
+
+* Development environment: VS Code, Git, Node.js/Java/.NET
+* Basic understanding of software development
+* Familiarity with either Java or C# programming
 
 ## 🛠️ Getting Started
 
-To begin your journey with this playbook:
+1. **Fork and Clone this Repository**
+   ```bash
+   git clone https://github.com/YourUsername/Code-AI-Dev.git
+   cd Code-AI-Dev
+   ```
 
-1. Read the comprehensive [Introduction to AI-Assisted Development](docs/guides/ai-dev-introduction.md)
-2. Set up your environment following our [prerequisite guide](#prerequisites)
-3. Start with the [Basic Workshop](docs/workshops/complete_workshop_guide.md#basic-workshop-90-minutes)
-4. Progress to more advanced topics as your comfort level grows
+2. **Register for Workshop Access**
+   * Visit [code-ai.dev](https://code-ai.dev) to register
+   * Set up GitHub Copilot access
 
-If you encounter any issues during setup or workshops, our [Troubleshooting Guide](docs/guides/troubleshooting.md) provides solutions to common problems.
+3. **Follow the Workshop Structure**
+   * Start with Foundation to AI-Assisted Development
+   * Progress through the modules based on your experience level
+   * Use the Troubleshooting Guide if needed
 
-## ✅ Prerequisites
+## 🌟 Key Features
 
-### For All Workshops
+* **AI-Enhanced Development**: Learn to implement GitHub Copilot for intelligent code optimization
+* **Multi-Language Support**: Build skills with both Java and .NET examples
+* **Real-World Scenarios**: Practice with authentic production-like challenges
+* **Progressive Learning**: Start from basics and advance to enterprise-scale solutions
+* **Agentic Workflows**: Use AI agents to automate development processes
 
-- GitHub account 
-- GitHub Copilot access (Free trial, Individual plan, or Enterprise plan)
-- Internet connection
-- Basic programming knowledge
+## 📱 Connect With Us
 
-### For Beginner Workshop (60 minutes)
+* **Official Website**: [code-ai.dev](https://code-ai.dev)
 
-- Visual Studio Code or other supported IDE installed
-- Basic understanding of either Java or C#
+## 🔗 Related Repositories
 
-### For Intermediate Workshop (90 minutes)
+### Azure AI Ops Observability Workshop
 
-- Development environment set up for:
-  - Java 17+ and Spring Boot 3.x OR
-  - .NET 8+ and ASP.NET Core
-- Familiarity with web application development
-- Basic understanding of code optimization principles
+A comprehensive guide for implementing AI-enhanced observability solutions for cloud applications. This workshop provides hands-on guidance for Azure Monitor, Application Insights, and Azure SRE Agent implementation with practical workflows and enterprise-scale solutions.
 
-### For Advanced Workshop (3 hours)
+### Design-to-Code Playbook
 
-- Complete development environments for both:
-  - Java 17+ and Spring Boot 3.x
-  - .NET 8+ and ASP.NET Core
-- Azure account (Free tier or paid)
-- Familiarity with:
-  - GitHub Actions or Azure DevOps Pipelines
-  - Enterprise application architecture
-  - Performance benchmarking concepts
-
-## 🧠 Theoretical Foundation
-
-### Understanding AI-Assisted Code Optimization
-
-AI-assisted code optimization uses machine learning models to analyze, understand, and improve existing code. These tools can:
-
-1. **Identify Performance Bottlenecks**: Recognize patterns in code that may lead to performance issues
-2. **Suggest Architectural Improvements**: Recommend higher-level structural changes
-3. **Implement Security Best Practices**: Detect and remediate security vulnerabilities
-4. **Enhance Code Readability**: Refactor code for better maintainability
-
-### Agentic DevOps Framework
-
-Agentic DevOps represents a paradigm shift in software development, where AI-powered agents operate as full members of development teams, automating, optimizing, and accelerating every stage of the software lifecycle.
-
-Key components include:
-- **GitHub Models**: Enabling AI capabilities for all developers
-- **GitHub Copilot Components**: Agent Mode, Coding Agent, and App Modernization
-- **SRE Agent**: AI-powered monitoring and optimization in production
-
-### AI-Native Maturity Model
-
-The AI-Native Software Delivery Maturity Model provides a framework for organizations to evaluate and plan their AI adoption journey across three dimensions:
-- **Developer Productivity**: From occasional AI usage to strategic AI advisors
-- **DevOps Lifecycle**: From manual processes to enterprise-scale agentic implementation
-- **Application Platform**: From traditional applications to multi-agent AI systems
-
-### GitHub Copilot Coding Agent
-
-The latest evolution of GitHub Copilot includes a powerful coding agent that can autonomously work on code tasks. Key features include:
-
-- **Issue-Based Workflow**: Assign GitHub issues directly to Copilot, which then works on them asynchronously
-- **Autonomous Environment Setup**: The agent bootstraps a virtual machine, clones repositories, and configures environments automatically
-- **Advanced Code Understanding**: Uses retrieval augmented generation (RAG) powered by GitHub code search to analyze codebases
-- **Pull Request Integration**: Creates draft PRs with detailed descriptions and reasoning for changes
-- **Security Controls**: Only pushes to branches it created, requires code reviews, and has limited internet access
-- **Model Context Protocol (MCP)**: Connects with external data sources and capabilities beyond GitHub
-
-## 📂 Repository Structure
-
-This repository is organized to guide you through your learning journey:
-
-- `/docs` - Comprehensive documentation:
-  - `/docs/guides` - In-depth concept explanations
-  - `/docs/workshops` - Hands-on workshop materials
-  - `/docs/presentations` - Presentation materials for teams
-  - `/docs/images` - Visual aids and diagrams
-- `/java-examples` - Practical optimization examples for Java
-- `/dotnet-examples` - Parallel examples for .NET developers
-- `/workflows` - CI/CD and automation patterns
-- `/alternative-setups` - Options for users with limited access
+A complete guide for transforming Figma designs into production-ready code. This playbook provides a structured approach to converting design assets into high-quality, accessible, and maintainable code with modern tools and AI assistance.
 
 ## 👤 Credits
 
-This Azure AI Ops Observability Workshop was developed by [Paula Silva](https://github.com/paulanunes85), Developer Productivity Global Black Belt at Microsoft Americas. The workshop provides a comprehensive approach to implementing AI-assisted development practices and agentic DevOps workflows for modern software applications.
+This Enterprise AI-Assisted Code Optimization Workshop was developed by Paula Silva, Developer Productivity Global Black Belt at Microsoft Americas. The workshop provides a comprehensive approach to implementing AI-assisted development practices and agentic DevOps workflows for modern software applications.
