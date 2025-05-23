@@ -119,9 +119,9 @@ The workshop is organized into progressive modules, allowing you to choose the d
 
 ### Required Accounts
 
-* GitHub account with GitHub Copilot access (trial available)
-* Azure subscription (free tier available)
-* Access to development environment (VS Code recommended)
+- Create [Azure Free Account](https://go.microsoft.com/fwlink/?linkid=859151)
+- GitHub account with [GitHub Copilot Free](https://code.visualstudio.com/docs/copilot/setup-simplified)
+- Download [VS Code](https://visualstudio.microsoft.com/downloads/)
 
 ### Technical Requirements
 
@@ -160,14 +160,15 @@ The workshop is organized into progressive modules, allowing you to choose the d
 
 ## 🔗 Related Repositories
 
-### Azure AI Ops Observability Workshop
+### [Design-to-Code](https://github.com/paulasilvatech/Design-to-Code-Dev)
+A comprehensive guide for transforming Figma designs into production-ready code. This playbook provides a structured approach to converting design assets into high-quality, accessible, and maintainable code with practical workflows, code examples, and hands-on exercises using modern tools like VS Code, GitHub Copilot, and Azure AI.
 
-A comprehensive guide for implementing AI-enhanced observability solutions for cloud applications. This workshop provides hands-on guidance for Azure Monitor, Application Insights, and Azure SRE Agent implementation with practical workflows and enterprise-scale solutions.
+### [AI Code Development](https://github.com/paulasilvatech/Code-AI-Dev)
+A complete guide for leveraging AI tools like GitHub Copilot to optimize and improve code quality in enterprise environments. This repository covers advanced AI-assisted workflows, refactoring techniques, code optimization strategies, and best practices for integrating AI tools into your development process.
 
-### Design-to-Code Playbook
-
-A complete guide for transforming Figma designs into production-ready code. This playbook provides a structured approach to converting design assets into high-quality, accessible, and maintainable code with modern tools and AI assistance.
+### [Agentic Operations & Observability](https://github.com/paulasilvatech/Agentic-Ops-Dev)
+A hands-on workshop for implementing comprehensive observability solutions for cloud applications using Azure Monitor, Application Insights, and AI-powered tools like Azure SRE Agent. This repository guides you through the journey from traditional monitoring to AI-enhanced observability, covering the three pillars (metrics, logs, traces), multi-cloud integration, and agentic DevOps practices.
 
 ## 👤 Credits
 
-This Enterprise AI-Assisted Code Optimization Workshop was developed by Paula Silva, Developer Productivity Global Black Belt at Microsoft Americas. The workshop provides a comprehensive approach to implementing AI-assisted development practices and agentic DevOps workflows for modern software applications.
+This Enterprise AI-Assisted Code Optimization Workshop was developed by [Paula Silva](https://github.com/paulanunes85), Developer Productivity [Global Black Belt at Microsoft Americas](https://www.linkedin.com/in/paulanunes/). The workshop provides a comprehensive approach to implementing AI-assisted development practices and agentic DevOps workflows for modern software applications.
