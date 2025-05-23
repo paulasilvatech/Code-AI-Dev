@@ -837,7 +837,7 @@ import java.util.Arrays;
 
 public class StringExample {
     public static void main(String[] args) {
-        // 📊 Create test data
+        // Create test data
         List<String> names = Arrays.asList(
             "Alice", "Bob", "Charlie", "David", "Eve", 
             "Frank", "Grace", "Henry", "Ivy", "Jack"
@@ -872,7 +872,7 @@ class StringExample
 {
     static void Main() 
     {
-        // 📊 Create test data
+        // Create test data
         List<string> names = new List<string> {
             "Alice", "Bob", "Charlie", "David", "Eve", 
             "Frank", "Grace", "Henry", "Ivy", "Jack"
@@ -955,13 +955,13 @@ foreach (string name in names)
 string optimizedResult = sb.ToString();
 
 stopwatch.Stop();
-Console.WriteLine($"📊 Result: {optimizedResult}");
-Console.WriteLine($"⏱️ Time taken: {stopwatch.ElapsedTicks} ticks");
+Console.WriteLine($"Result: {optimizedResult}");
+Console.WriteLine($"Time taken: {stopwatch.ElapsedTicks} ticks");
 
-// 📈 Performance comparison
-Console.WriteLine("\n📊 PERFORMANCE ANALYSIS:");
-Console.WriteLine($"🐌 String concatenation: Creates {names.Count} intermediate string objects");
-Console.WriteLine("🚀 StringBuilder: Uses internal buffer, much more efficient");
+// Performance comparison
+Console.WriteLine("\nPERFORMANCE ANALYSIS:");
+Console.WriteLine($"String concatenation: Creates {names.Count} intermediate string objects");
+Console.WriteLine("StringBuilder: Uses internal buffer, much more efficient");
 ```
 
 #### 📊 Performance Comparison Table
@@ -991,22 +991,22 @@ Console.WriteLine("🚀 StringBuilder: Uses internal buffer, much more efficient
 public class StringPerformanceComparison {
     
     public static void main(String[] args) {
-        // 📊 Test different dataset sizes
+        // Test different dataset sizes
         int[] sizes = {100, 1000, 5000, 10000};
         
         for (int size : sizes) {
-            System.out.println("\n📊 Testing with " + size + " items:");
+            System.out.println("\nTesting with " + size + " items:");
             List<String> testData = generateTestData(size);
             
-            // 🐌 Test string concatenation
+            // Test string concatenation
             long stringConcatTime = testStringConcatenation(testData);
             
-            // 🚀 Test StringBuilder
+            // Test StringBuilder
             long stringBuilderTime = testStringBuilder(testData);
             
             // 📈 Performance analysis
             double improvement = (double) stringConcatTime / stringBuilderTime;
-            System.out.printf("⚡ StringBuilder is %.2fx faster%n", improvement);
+            System.out.printf("StringBuilder is %.2fx faster%n", improvement);
         }
     }
     
@@ -1026,7 +1026,7 @@ public class StringPerformanceComparison {
         }
         long endTime = System.nanoTime();
         
-        System.out.println("🐌 String concatenation: " + (endTime - startTime) / 1_000_000 + " ms");
+        System.out.println("String concatenation: " + (endTime - startTime) / 1_000_000 + " ms");
         return endTime - startTime;
     }
     
@@ -1039,7 +1039,7 @@ public class StringPerformanceComparison {
         String result = sb.toString();
         long endTime = System.nanoTime();
         
-        System.out.println("🚀 StringBuilder: " + (endTime - startTime) / 1_000_000 + " ms");
+        System.out.println("StringBuilder: " + (endTime - startTime) / 1_000_000 + " ms");
         return endTime - startTime;
     }
 }
@@ -1084,7 +1084,7 @@ public class DatabaseExample {
                 "jdbc:h2:mem:testdb", "user", "password"
             );
             
-            // 🚨 DANGEROUS: Direct string concatenation in SQL
+            // DANGEROUS: Direct string concatenation in SQL
             String query = "SELECT * FROM users WHERE username = '" + username + "'";
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
@@ -1093,7 +1093,7 @@ public class DatabaseExample {
                 return new User(rs.getString("username"), rs.getString("email"));
             }
         } catch (SQLException e) {
-            e.printStackTrace(); // 🚨 Poor error handling
+            e.printStackTrace(); // Poor error handling
         }
         return null;
     }
@@ -1132,7 +1132,7 @@ class DatabaseExample
             );
             connection.Open();
             
-            // 🚨 DANGEROUS: Direct string interpolation in SQL
+            // DANGEROUS: Direct string interpolation in SQL
             string query = $"SELECT * FROM users WHERE username = '{username}'";
             using var command = new SqlCommand(query, connection);
             using var reader = command.ExecuteReader();
@@ -1144,7 +1144,7 @@ class DatabaseExample
         } 
         catch (Exception e) 
         {
-            Console.WriteLine($"Error: {e.Message}"); // 🚨 Poor error handling
+            Console.WriteLine($"Error: {e.Message}"); // Poor error handling
         }
         return null;
     }
@@ -1231,19 +1231,19 @@ public class SecureDatabaseExample {
     
     private static final Logger LOGGER = Logger.getLogger(SecureDatabaseExample.class.getName());
     
-    // ✅ SECURE: Using parameterized queries
+    // SECURE: Using parameterized queries
     public User findUser(String username) {
-        // 🛡️ Input validation
+        // Input validation
         if (username == null || username.trim().isEmpty()) {
             throw new IllegalArgumentException("Username cannot be null or empty");
         }
         
-        // 🛡️ Additional validation
+        // Additional validation
         if (username.length() > 50) {
             throw new IllegalArgumentException("Username too long");
         }
         
-        // 🚫 Blacklist dangerous characters
+        // Blacklist dangerous characters
         if (username.contains("'") || username.contains(";") || username.contains("--")) {
             throw new IllegalArgumentException("Username contains invalid characters");
         }
@@ -1251,11 +1251,11 @@ public class SecureDatabaseExample {
         try (Connection conn = DriverManager.getConnection(
                 "jdbc:h2:mem:testdb", "user", "password");
              
-             // ✅ SECURE: Parameterized query prevents SQL injection
+             // SECURE: Parameterized query prevents SQL injection
              PreparedStatement stmt = conn.prepareStatement(
                 "SELECT username, email FROM users WHERE username = ?")) {
                 
-            stmt.setString(1, username);  // 🛡️ Safe parameter binding
+            stmt.setString(1, username);  // Safe parameter binding
             
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -1264,7 +1264,7 @@ public class SecureDatabaseExample {
             }
             
         } catch (SQLException e) {
-            // 🛡️ Secure error handling - don't expose details
+            // Secure error handling - don't expose details
             LOGGER.log(Level.SEVERE, "Database error occurred", e);
             throw new RuntimeException("Database operation failed");
         }
@@ -1272,7 +1272,7 @@ public class SecureDatabaseExample {
         return null;
     }
     
-    // 🛡️ Additional security method
+    // Additional security method
     public boolean isValidUsername(String username) {
         return username != null && 
                !username.trim().isEmpty() && 
@@ -1299,22 +1299,22 @@ class SecureDatabaseExample
         _logger = logger;
     }
     
-    // ✅ SECURE: Using parameterized queries
+    // SECURE: Using parameterized queries
     public User FindUser(string username) 
     {
-        // 🛡️ Input validation
+        // Input validation
         if (string.IsNullOrWhiteSpace(username))
         {
             throw new ArgumentException("Username cannot be null or empty");
         }
         
-        // 🛡️ Additional validation
+        // Additional validation
         if (username.Length > 50)
         {
             throw new ArgumentException("Username too long");
         }
         
-        // 🛡️ Pattern validation
+        // Pattern validation
         if (!IsValidUsername(username))
         {
             throw new ArgumentException("Username contains invalid characters");
@@ -1326,11 +1326,11 @@ class SecureDatabaseExample
                 "Server=.;Database=TestDB;Integrated Security=true");
             connection.Open();
             
-            // ✅ SECURE: Parameterized query prevents SQL injection
+            // SECURE: Parameterized query prevents SQL injection
             string query = "SELECT username, email FROM users WHERE username = @username";
             using var command = new SqlCommand(query, connection);
             
-            command.Parameters.AddWithValue("@username", username); // 🛡️ Safe parameter binding
+            command.Parameters.AddWithValue("@username", username); // Safe parameter binding
             
             using var reader = command.ExecuteReader();
             if (reader.Read()) 
@@ -1340,7 +1340,7 @@ class SecureDatabaseExample
         } 
         catch (SqlException e) 
         {
-            // 🛡️ Secure error handling - don't expose details
+            // Secure error handling - don't expose details
             _logger.LogError(e, "Database error occurred");
             throw new InvalidOperationException("Database operation failed");
         }
@@ -1348,7 +1348,7 @@ class SecureDatabaseExample
         return null;
     }
     
-    // 🛡️ Username validation method
+    // Username validation method
     private bool IsValidUsername(string username)
     {
         return !string.IsNullOrWhiteSpace(username) && 
@@ -1392,7 +1392,7 @@ public class InputValidator {
     private static final int MAX_USERNAME_LENGTH = 50;
     private static final String VALID_USERNAME_PATTERN = "^[a-zA-Z0-9_.-]+$";
     
-    // 🛡️ SQL injection patterns to detect
+    // SQL injection patterns to detect
     private static final String[] SQL_INJECTION_PATTERNS = {
         "'", "\"", ";", "--", "/*", "*/", "xp_", "sp_", 
         "union", "select", "insert", "delete", "update", 
@@ -1400,22 +1400,22 @@ public class InputValidator {
     };
     
     public static void validateUsername(String username) {
-        // 🔍 Null and empty validation
+        // Null and empty validation
         if (username == null || username.trim().isEmpty()) {
             throw new IllegalArgumentException("Username cannot be null or empty");
         }
         
-        // 📏 Length validation
+        // Length validation
         if (username.length() > MAX_USERNAME_LENGTH) {
             throw new IllegalArgumentException("Username exceeds maximum length of " + MAX_USERNAME_LENGTH);
         }
         
-        // 🎯 Pattern validation
+        // Pattern validation
         if (!username.matches(VALID_USERNAME_PATTERN)) {
             throw new IllegalArgumentException("Username contains invalid characters. Only letters, numbers, dots, hyphens, and underscores allowed.");
         }
         
-        // 🛡️ SQL injection detection
+        // SQL injection detection
         String lowercaseUsername = username.toLowerCase();
         for (String pattern : SQL_INJECTION_PATTERNS) {
             if (lowercaseUsername.contains(pattern.toLowerCase())) {
@@ -1424,24 +1424,24 @@ public class InputValidator {
         }
     }
     
-    // 🧪 Test method
+    // Test method
     public static void main(String[] args) {
         String[] testCases = {
-            "valid_user123",     // ✅ Valid
-            "user.name-test",    // ✅ Valid
+            "valid_user123",     // Valid
+            "user.name-test",    // Valid
             "",                  // ❌ Empty
             null,                // ❌ Null
             "user'; DROP TABLE", // ❌ SQL injection
             "very_long_username_that_exceeds_the_maximum_allowed_length_limit", // ❌ Too long
-            "user@domain.com",   // ❌ Invalid character (@)
+            "user@domain.com",   // Invalid character (@)
         };
         
         for (String testCase : testCases) {
             try {
                 validateUsername(testCase);
-                System.out.println("✅ Valid: " + testCase);
+                System.out.println("Valid: " + testCase);
             } catch (Exception e) {
-                System.out.println("❌ Invalid: " + testCase + " - " + e.getMessage());
+                System.out.println("Invalid: " + testCase + " - " + e.getMessage());
             }
         }
     }
