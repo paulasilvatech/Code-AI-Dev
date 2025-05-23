@@ -1,6 +1,13 @@
-# 🏗️ Enterprise AI-Assisted Development Workshop Structure
+# 🤖 AI-Powered Development Workshop Guide
+## 🏗️ Module 4: Enterprise Workshop Structure
 
 > **🎯 Complete workshop framework for transforming teams from traditional to AI-powered development**
+
+**Module Information:**
+- 📊 **Difficulty:** Instructor/Advanced
+- ⏱️ **Duration:** 30 minutes (review)
+- 🎯 **Focus:** Workshop planning and execution
+- 📈 **Objective:** Design effective AI development workshops
 
 ---
 
@@ -563,3 +570,15 @@ journey
 | **🥇 Excellent Success** | Ready to implement in production | 90% express confidence to use AI at work |
 
 **🚀 Ready to transform your development team?** Use this structure to deliver world-class AI development workshops that create lasting impact and measurable business value.
+
+---
+
+## 🧭 Navigation
+
+| Previous | Up | Next |
+|----------|----|----- |
+| [⬅️ Module 3: Troubleshooting](troubleshooting_guide.md) | [📖 Main README](../README.md) | [➡️ Module 5: Reorganization Checklist](reorganization-checklist.md) |
+
+**Workshop Progress**: Module 4 of 6 • **Estimated Time**: 30 minutes (review)
+
+**Quick Links**: [🚀 Module 1: Introduction](ai-dev-introduction.md) | [📚 Module 2: Workshop](complete_workshop_guide.md) | [🆘 Module 3: Troubleshooting](troubleshooting_guide.md)

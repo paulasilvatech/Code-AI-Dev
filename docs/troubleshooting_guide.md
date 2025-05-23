@@ -1,6 +1,13 @@
-# 🆘 Workshop Troubleshooting Guide
+# 🤖 AI-Powered Development Workshop Guide
+## 🆘 Module 3: Workshop Troubleshooting Guide
 
 > **🎯 Quick solutions for common issues during your AI-assisted development journey**
+
+**Module Information:**
+- 📊 **Difficulty:** All Levels
+- ⏱️ **Duration:** As needed
+- 🎯 **Focus:** Problem resolution and support
+- 📈 **Objective:** Resolve technical issues quickly
 
 ---
 
@@ -561,6 +568,18 @@ top -p $(pgrep code)
 # Windows: dir C:\ 
 # Mac/Linux: df -h
 ```
+
+---
+
+## 🧭 Navigation
+
+| Previous | Up | Next |
+|----------|----|----- |
+| [⬅️ Module 2: Complete Workshop](complete_workshop_guide.md) | [📖 Main README](../README.md) | [➡️ Module 4: Workshop Structure](workshop_structure.md) |
+
+**Workshop Progress**: Module 3 of 6 • **Estimated Time**: As needed
+
+**Quick Links**: [🚀 Module 1: Introduction](ai-dev-introduction.md) | [📚 Module 2: Workshop](complete_workshop_guide.md) | [🏗️ Module 4: Structure](workshop_structure.md)
 
 ---
 
