@@ -1,6 +1,6 @@
-# 🚀 Code AI Development
+# 🚀 AI Code Development
 
-Welcome to the **Enterprise Code AI Playbook** Workshop! This hands-on workshop guides you through implementing comprehensive AI-assisted development solutions for enterprise applications using GitHub Copilot, Azure AI tools, and agentic DevOps practices.
+Welcome to the **AI Code Development** Workshop! This hands-on workshop guides you through implementing comprehensive AI-assisted development solutions for enterprise applications using GitHub Copilot, Azure AI tools, and agentic DevOps practices.
 
 [![Official Website](https://img.shields.io/badge/Official_Website-code--ai.dev-blue)](https://code-ai.dev) [![GitHub Stars](https://img.shields.io/github/stars/paulanunes85/Code-AI-Dev?style=social)](https://github.com/paulanunes85/Code-AI-Dev/stargazers) [![License: MIT](https://img.shields.io/badge/license-MIT-brightgreen)](LICENSE)
 
