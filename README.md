@@ -61,37 +61,37 @@ The workshop is organized into progressive modules, allowing you to choose the d
 
 ## 🗺️ Learning Path
 
-### 1️⃣ Foundation to AI-Assisted Development
+### Module 1: [Introduction to AI-Powered DevOps](complete_workshop_guide.md#module-1-introduction-to-ai-powered-devops)
 
 * Understanding the AI development paradigm
 * GitHub Copilot fundamentals and capabilities
 * Setting up your AI-enhanced development environment
 
-### 2️⃣ Beginning Your AI Development Journey
+### Module 2: [Setting Up Your AI Development Environment](complete_workshop_guide.md#module-2-setting-up-your-ai-development-environment)
 
 * Workshop preparation and tool setup
 * Creating your first AI-assisted optimization
 * Exploring GitHub Copilot fundamentals
 
-### 3️⃣ Code Optimization and Security
+### Module 3: [Building Your First AI Agent](complete_workshop_guide.md#module-3-building-your-first-ai-agent)
 
 * Performance optimization techniques
 * Security vulnerability detection and remediation
 * Using AI for code quality improvements
 
-### 4️⃣ Advanced GitHub Copilot Features
+### Module 4: [Multi-Agent Orchestration](complete_workshop_guide.md#module-4-multi-agent-orchestration)
 
 * Copilot Chat and workspace features
 * Custom AI workflows and automation
 * Advanced code generation patterns
 
-### 5️⃣ Enterprise Integration
+### Module 5: [Advanced AI DevOps Patterns](complete_workshop_guide.md#module-5-advanced-ai-devops-patterns)
 
 * CI/CD pipeline integration
 * Azure AI services integration
 * Enterprise governance and compliance
 
-### 6️⃣ Agentic DevOps Implementation
+### Module 6: [Real-World Implementation](complete_workshop_guide.md#module-6-real-world-implementation)
 
 * GitHub Copilot Coding Agent setup
 * Autonomous development workflows
