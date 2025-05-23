@@ -1,4 +1,4 @@
-# 🚀 Code AI Development Workshop
+# 🚀 Code AI SDLCM Workshop
 
 Welcome to the **Enterprise Code AI Playbook** Workshop! This hands-on workshop guides you through implementing comprehensive AI-assisted development solutions for enterprise applications using GitHub Copilot, Azure AI tools, and agentic DevOps practices.
 
