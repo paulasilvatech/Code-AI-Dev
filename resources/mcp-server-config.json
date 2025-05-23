@@ -1,0 +1,205 @@
+{
+  "name": "ai-workshop-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP Server for AI-Powered Development Workshop",
+  "protocol_version": "0.1.0",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true,
+    "sampling": true
+  },
+  "tools": [
+    {
+      "name": "code_review",
+      "description": "AI-powered code review tool",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Code to review"
+          },
+          "language": {
+            "type": "string",
+            "description": "Programming language"
+          },
+          "reviewType": {
+            "type": "string",
+            "enum": ["security", "performance", "quality", "all"],
+            "default": "all"
+          }
+        },
+        "required": ["code", "language"]
+      }
+    },
+    {
+      "name": "generate_tests",
+      "description": "Generate unit tests for code",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Code to generate tests for"
+          },
+          "framework": {
+            "type": "string",
+            "enum": ["jest", "pytest", "junit", "nunit"],
+            "description": "Testing framework"
+          },
+          "coverage": {
+            "type": "string",
+            "enum": ["basic", "comprehensive", "edge-cases"],
+            "default": "comprehensive"
+          }
+        },
+        "required": ["code", "framework"]
+      }
+    },
+    {
+      "name": "optimize_code",
+      "description": "Optimize code for performance",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Code to optimize"
+          },
+          "targetMetric": {
+            "type": "string",
+            "enum": ["speed", "memory", "both"],
+            "default": "both"
+          },
+          "constraints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Optimization constraints"
+          }
+        },
+        "required": ["code"]
+      }
+    },
+    {
+      "name": "security_scan",
+      "description": "Scan code for security vulnerabilities",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Code to scan"
+          },
+          "scanType": {
+            "type": "string",
+            "enum": ["SAST", "secrets", "dependencies", "all"],
+            "default": "all"
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["all", "high", "critical"],
+            "default": "all"
+          }
+        },
+        "required": ["code"]
+      }
+    },
+    {
+      "name": "generate_documentation",
+      "description": "Generate documentation from code",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Code to document"
+          },
+          "style": {
+            "type": "string",
+            "enum": ["markdown", "jsdoc", "sphinx", "docstring"],
+            "default": "markdown"
+          },
+          "includeExamples": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "required": ["code"]
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "workshop://templates/copilot",
+      "name": "GitHub Copilot Templates",
+      "description": "Prompt engineering templates for GitHub Copilot",
+      "mimeType": "text/markdown"
+    },
+    {
+      "uri": "workshop://templates/agents",
+      "name": "AI Agent Templates",
+      "description": "Templates for building AI agents",
+      "mimeType": "text/markdown"
+    },
+    {
+      "uri": "workshop://examples/optimization",
+      "name": "Code Optimization Examples",
+      "description": "Before/after optimization examples",
+      "mimeType": "text/markdown"
+    }
+  ],
+  "prompts": [
+    {
+      "name": "refactor_for_performance",
+      "description": "Refactor code for better performance",
+      "arguments": [
+        {
+          "name": "code",
+          "description": "Code to refactor",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "implement_security_best_practices",
+      "description": "Apply security best practices to code",
+      "arguments": [
+        {
+          "name": "code",
+          "description": "Code to secure",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "generate_api_from_spec",
+      "description": "Generate API implementation from OpenAPI spec",
+      "arguments": [
+        {
+          "name": "spec",
+          "description": "OpenAPI specification",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "configuration": {
+    "azure": {
+      "endpoint": "${AZURE_OPENAI_ENDPOINT}",
+      "apiKey": "${AZURE_OPENAI_API_KEY}",
+      "deploymentName": "gpt-4",
+      "apiVersion": "2024-02-01"
+    },
+    "github": {
+      "token": "${GITHUB_TOKEN}",
+      "copilotEndpoint": "https://api.github.com/copilot"
+    },
+    "rateLimit": {
+      "maxRequestsPerMinute": 60,
+      "maxTokensPerMinute": 90000
+    }
+  }
+} 
