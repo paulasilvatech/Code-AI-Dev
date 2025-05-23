@@ -644,11 +644,11 @@ pie title Developer Time Distribution
 #### ☕ For Java Users
 
 ```java
-// 🎯 Type this comment exactly:
+// Type this comment exactly:
 // Create a simple calculator class with add, subtract, multiply, and divide methods
 
 /* 
-🤖 AI will suggest something like this:
+AI will suggest something like this:
 */
 public class Calculator {
     
@@ -689,11 +689,11 @@ public class Calculator {
 #### 🔷 For C# Users
 
 ```csharp
-// 🎯 Type this comment exactly:
+// Type this comment exactly:
 // Create a simple calculator class with add, subtract, multiply, and divide methods
 
 /* 
-🤖 AI will suggest something like this:
+AI will suggest something like this:
 */
 using System;
 
@@ -766,11 +766,11 @@ public class Calculator
 #### 🎯 Interactive AI Testing
 
 ```java
-// 🎯 Test the AI's understanding - Add this comment:
+// Test the AI's understanding - Add this comment:
 // Add a method to calculate percentage
 
 /* 
-🤖 Expected AI suggestion:
+Expected AI suggestion:
 */
 public double calculatePercentage(double value, double total) {
     if (total == 0) {
@@ -781,11 +781,11 @@ public double calculatePercentage(double value, double total) {
 ```
 
 ```java
-// 🎯 Test AI's attention to detail - Add this comment:
+// Test AI's attention to detail - Add this comment:
 // TODO: Add input validation to prevent division by zero
 
 /* 
-🤖 AI should recognize that division by zero is already handled
+AI should recognize that division by zero is already handled
 and might suggest additional validation like:
 */
 public double divideWithValidation(double dividend, double divisor) {
@@ -843,20 +843,20 @@ public class StringExample {
             "Frank", "Grace", "Henry", "Ivy", "Jack"
         );
         
-        // ❌ INEFFICIENT: String concatenation in loop
-        System.out.println("🐌 Testing INEFFICIENT approach...");
+        // INEFFICIENT: String concatenation in loop
+        System.out.println("Testing INEFFICIENT approach...");
         long startTime = System.nanoTime();
         
         String result = "";
         for (String name : names) {
-            result = result + name + ", ";  // 🚨 Creates new String object each time!
+            result = result + name + ", ";  // Creates new String object each time!
         }
         
         long endTime = System.nanoTime();
-        System.out.println("📊 Result: " + result);
-        System.out.println("⏱️ Time taken: " + (endTime - startTime) + " nanoseconds");
+        System.out.println("Result: " + result);
+        System.out.println("Time taken: " + (endTime - startTime) + " nanoseconds");
         
-        // 🎯 Now let's see the AI optimization suggestion...
+        // Now let's see the AI optimization suggestion...
     }
 }
 ```
@@ -878,21 +878,21 @@ class StringExample
             "Frank", "Grace", "Henry", "Ivy", "Jack"
         };
         
-        // ❌ INEFFICIENT: String concatenation in loop
-        Console.WriteLine("🐌 Testing INEFFICIENT approach...");
+        // INEFFICIENT: String concatenation in loop
+        Console.WriteLine("Testing INEFFICIENT approach...");
         Stopwatch stopwatch = Stopwatch.StartNew();
         
         string result = "";
         foreach (string name in names) 
         {
-            result = result + name + ", ";  // 🚨 Creates new string object each time!
+            result = result + name + ", ";  // Creates new string object each time!
         }
         
         stopwatch.Stop();
-        Console.WriteLine($"📊 Result: {result}");
-        Console.WriteLine($"⏱️ Time taken: {stopwatch.ElapsedTicks} ticks");
+        Console.WriteLine($"Result: {result}");
+        Console.WriteLine($"Time taken: {stopwatch.ElapsedTicks} ticks");
         
-        // 🎯 Now let's see the AI optimization suggestion...
+        // Now let's see the AI optimization suggestion...
     }
 }
 ```
@@ -911,7 +911,7 @@ class StringExample
 3. **✍️ Add this comment** above the loop:
 
 ```java
-// 🎯 Optimize this string concatenation for better performance
+// Optimize this string concatenation for better performance
 // Use StringBuilder for efficient string building
 ```
 
@@ -920,8 +920,8 @@ class StringExample
 ##### ☕ Java Optimized Version
 
 ```java
-// ✅ OPTIMIZED: Using StringBuilder
-System.out.println("🚀 Testing OPTIMIZED approach...");
+// OPTIMIZED: Using StringBuilder
+System.out.println("Testing OPTIMIZED approach...");
 startTime = System.nanoTime();
 
 StringBuilder sb = new StringBuilder();
@@ -931,20 +931,20 @@ for (String name : names) {
 String optimizedResult = sb.toString();
 
 endTime = System.nanoTime();
-System.out.println("📊 Result: " + optimizedResult);
-System.out.println("⏱️ Time taken: " + (endTime - startTime) + " nanoseconds");
+System.out.println("Result: " + optimizedResult);
+System.out.println("Time taken: " + (endTime - startTime) + " nanoseconds");
 
-// 📈 Performance comparison
-System.out.println("\n📊 PERFORMANCE ANALYSIS:");
-System.out.println("🐌 String concatenation: Creates " + names.size() + " intermediate String objects");
-System.out.println("🚀 StringBuilder: Uses internal buffer, much more efficient");
+// Performance comparison
+System.out.println("\nPERFORMANCE ANALYSIS:");
+System.out.println("String concatenation: Creates " + names.size() + " intermediate String objects");
+System.out.println("StringBuilder: Uses internal buffer, much more efficient");
 ```
 
 ##### 🔷 C# Optimized Version
 
 ```csharp
-// ✅ OPTIMIZED: Using StringBuilder
-Console.WriteLine("🚀 Testing OPTIMIZED approach...");
+// OPTIMIZED: Using StringBuilder
+Console.WriteLine("Testing OPTIMIZED approach...");
 stopwatch.Restart();
 
 StringBuilder sb = new StringBuilder();
@@ -980,7 +980,7 @@ Console.WriteLine("🚀 StringBuilder: Uses internal buffer, much more efficient
 #### 🎯 Add Comprehensive Timing Code
 
 ```java
-// 🎯 Add this comment to get AI suggestions:
+// Add this comment to get AI suggestions:
 // Add comprehensive timing to compare string concatenation vs StringBuilder performance
 // Include memory usage analysis and test with different dataset sizes
 ```

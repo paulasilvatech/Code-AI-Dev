@@ -162,10 +162,10 @@ Solution Preview (7 min):
 #### 💻 Expected Code Output
 
 ```java
-// 🎯 Students will type this comment:
+// Students will type this comment:
 // Create a simple calculator class with add, subtract, multiply, and divide methods
 
-// 🤖 AI will generate:
+// AI will generate:
 public class Calculator {
     public double add(double a, double b) { return a + b; }
     public double subtract(double a, double b) { return a - b; }
