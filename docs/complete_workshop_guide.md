@@ -3,6 +3,21 @@
 
 > **💡 Welcome to the comprehensive AI-powered DevOps workshop!** This guide will take you from traditional development to mastering AI-assisted workflows that can increase your productivity by 50-70%.
 
+## 📁 Workshop Resources Overview
+
+> **🔧 All automation scripts, code examples, and templates are available in the `/resources` directory**
+
+| 🛠️ Resource Type | 📂 Location | 📖 Description |
+|------------------|-------------|----------------|
+| **🤖 Setup Scripts** | [`/resources/setup-azure-infrastructure.sh`](/resources/setup-azure-infrastructure.sh) | Automated Azure infrastructure setup |
+| **⚙️ PowerShell Setup** | [`/resources/setup-azure-infrastructure.ps1`](/resources/setup-azure-infrastructure.ps1) | Windows PowerShell automation |
+| **🧪 Validation Tools** | [`/resources/validate-setup.sh`](/resources/validate-setup.sh) | Environment validation script |
+| **🗂️ Configuration Files** | [`/resources/appsettings.json`](/resources/appsettings.json), [`/resources/application.properties`](/resources/application.properties) | Sample configuration templates |
+| **💻 Code Examples** | [`/resources/DatabaseConnection.java`](/resources/DatabaseConnection.java), [`/resources/DatabaseConnection.cs`](/resources/DatabaseConnection.cs) | Real-world code examples |
+| **🔄 CI/CD Pipelines** | [`/resources/azure-devops-pipeline.yml`](/resources/azure-devops-pipeline.yml), [`/resources/github-actions-workflow.yml`](/resources/github-actions-workflow.yml) | Production-ready pipeline templates |
+| **🤖 Multi-Agent System** | [`/resources/multi_agent_orchestrator.py`](/resources/multi_agent_orchestrator.py) | Advanced orchestration example |
+| **🧹 Cleanup Tools** | [`/resources/cleanup-azure-infrastructure.sh`](/resources/cleanup-azure-infrastructure.sh) | Infrastructure cleanup automation |
+
 ---
 
 ## 📋 Table of Contents
@@ -128,7 +143,10 @@ graph LR
 ### 🛠️ Key Topics Covered
 
 - 🔄 **CI/CD Pipeline Integration with AI Tools**
+  - 📁 Reference: [`/resources/azure-devops-pipeline.yml`](/resources/azure-devops-pipeline.yml) - Complete Azure DevOps pipeline
+  - 📁 Reference: [`/resources/github-actions-workflow.yml`](/resources/github-actions-workflow.yml) - GitHub Actions workflow
 - ☁️ **Azure AI Services Integration**
+  - 📁 Reference: [`/resources/setup-azure-infrastructure.sh`](/resources/setup-azure-infrastructure.sh) - Automated setup script
 - 📋 **Enterprise Governance and Compliance**
 - 📈 **Scalability and Performance Considerations**
 
@@ -151,7 +169,9 @@ graph LR
 
 - 🤖 **GitHub Copilot Coding Agent Configuration**
 - 🔄 **Autonomous Workflow Implementation**
+  - 📁 Reference: [`/resources/multi_agent_orchestrator.py`](/resources/multi_agent_orchestrator.py) - Multi-agent system example
 - 🚀 **Production Deployment Strategies**
+  - 📁 Reference: [`/resources/azure-devops-pipeline.yml`](/resources/azure-devops-pipeline.yml) - Production pipeline
 - 📊 **Monitoring and Optimization of AI-Powered Systems**
 
 ---
@@ -196,11 +216,25 @@ graph LR
 - 🌍 **Real-World Optimization Scenarios**
 - 🔄 **End-to-End Implementation Exercises**
 - 💻 **Multi-Language Practical Examples (Java and .NET)**
+  - 📁 Reference: [`/resources/DatabaseConnection.java`](/resources/DatabaseConnection.java) - Java example
+  - 📁 Reference: [`/resources/DatabaseConnection.cs`](/resources/DatabaseConnection.cs) - C# example
+  - 📁 Reference: [`/resources/application.properties`](/resources/application.properties) - Java configuration
+  - 📁 Reference: [`/resources/appsettings.json`](/resources/appsettings.json) - .NET configuration
 - 🧠 **Problem-Solving with AI Assistance**
 
 ---
 
 ## 🛠️ Pre-Workshop Preparation
+
+> **📁 Automation Resources:** Before starting, explore the automation tools available in [`/resources/`](/resources/) to accelerate your setup process.
+
+### 🚀 Quick Setup with Automation Scripts
+
+| 🛠️ Script | 🎯 Purpose | 💻 Command |
+|-----------|------------|-------------|
+| **🏗️ Azure Setup** | Complete infrastructure setup | `bash resources/setup-azure-infrastructure.sh` |
+| **✅ Environment Validation** | Verify all prerequisites | `bash resources/validate-setup.sh` |
+| **🧹 Cleanup** | Remove test infrastructure | `bash resources/cleanup-azure-infrastructure.sh` |
 
 ### 🎯 What You'll Learn
 
@@ -583,6 +617,52 @@ git config --list
 
 ---
 
+## 🛠️ Automation Resources Quick Start
+
+> **🚀 Skip manual setup with our pre-built automation tools!**
+
+### 📁 Available Resources
+
+| 🎯 Category | 📄 File | 📋 Description | 💻 Usage |
+|-------------|---------|----------------|----------|
+| **🏗️ Infrastructure** | [`setup-azure-infrastructure.sh`](/resources/setup-azure-infrastructure.sh) | Complete Azure setup | `bash resources/setup-azure-infrastructure.sh` |
+| **🪟 Windows Setup** | [`setup-azure-infrastructure.ps1`](/resources/setup-azure-infrastructure.ps1) | PowerShell automation | `.\resources\setup-azure-infrastructure.ps1` |
+| **✅ Validation** | [`validate-setup.sh`](/resources/validate-setup.sh) | Environment checker | `bash resources/validate-setup.sh` |
+| **🔄 CI/CD Pipeline** | [`azure-devops-pipeline.yml`](/resources/azure-devops-pipeline.yml) | Azure DevOps template | Copy to your repository |
+| **⚙️ GitHub Actions** | [`github-actions-workflow.yml`](/resources/github-actions-workflow.yml) | GitHub workflow | Copy to `.github/workflows/` |
+| **☕ Java Example** | [`DatabaseConnection.java`](/resources/DatabaseConnection.java) | Production Java code | Reference implementation |
+| **🔷 C# Example** | [`DatabaseConnection.cs`](/resources/DatabaseConnection.cs) | Production C# code | Reference implementation |
+| **⚙️ Java Config** | [`application.properties`](/resources/application.properties) | Spring Boot config | Copy to `src/main/resources/` |
+| **⚙️ .NET Config** | [`appsettings.json`](/resources/appsettings.json) | .NET Core config | Copy to project root |
+| **🤖 Multi-Agent** | [`multi_agent_orchestrator.py`](/resources/multi_agent_orchestrator.py) | AI orchestration | Advanced example |
+| **🧹 Cleanup** | [`cleanup-azure-infrastructure.sh`](/resources/cleanup-azure-infrastructure.sh) | Remove test resources | `bash resources/cleanup-azure-infrastructure.sh` |
+
+### 🚀 Quick Setup Commands
+
+```bash
+# 1. Clone the workshop repository (if not already done)
+git clone https://github.com/your-repo/Code-AI-Dev.git
+cd Code-AI-Dev
+
+# 2. Run the validation script to check prerequisites
+bash resources/validate-setup.sh
+
+# 3. Set up Azure infrastructure (optional - for advanced workshops)
+bash resources/setup-azure-infrastructure.sh
+
+# 4. Copy configuration templates to your project
+cp resources/application.properties your-java-project/src/main/resources/
+cp resources/appsettings.json your-dotnet-project/
+
+# 5. Set up CI/CD pipelines
+cp resources/azure-devops-pipeline.yml your-project/
+cp resources/github-actions-workflow.yml your-project/.github/workflows/
+```
+
+> 💡 **Pro Tip:** All scripts include detailed comments and error handling. Review them to understand the automation process!
+
+---
+
 ## 🌱 Basic Workshop (90 minutes)
 
 ### 🎯 Introduction: Understanding Agentic DevOps (15 minutes)
@@ -643,6 +723,8 @@ pie title Developer Time Distribution
 
 #### ☕ For Java Users
 
+> **📁 Reference:** See [`/resources/DatabaseConnection.java`](/resources/DatabaseConnection.java) for a complete production-ready example
+
 ```java
 // Type this comment exactly:
 // Create a simple calculator class with add, subtract, multiply, and divide methods
@@ -687,6 +769,8 @@ public class Calculator {
 ```
 
 #### 🔷 For C# Users
+
+> **📁 Reference:** See [`/resources/DatabaseConnection.cs`](/resources/DatabaseConnection.cs) for a complete production-ready example
 
 ```csharp
 // Type this comment exactly:
@@ -1072,6 +1156,8 @@ public class StringPerformanceComparison {
 
 #### ☕ Java - Vulnerable Code Example
 
+> **📁 Reference:** Compare with the secure implementation in [`/resources/DatabaseConnection.java`](/resources/DatabaseConnection.java)
+
 ```java
 import java.sql.*;
 
@@ -1115,6 +1201,8 @@ public class DatabaseExample {
 ```
 
 #### 🔷 C# - Vulnerable Code Example
+
+> **📁 Reference:** Compare with the secure implementation in [`/resources/DatabaseConnection.cs`](/resources/DatabaseConnection.cs)
 
 ```csharp
 using System;
