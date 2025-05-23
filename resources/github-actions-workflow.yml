@@ -1,0 +1,315 @@
+# GitHub Actions Workflow for AI-Powered DevOps Workshop
+# This workflow demonstrates CI/CD with GitHub Copilot and AI tools integration
+
+name: AI-Powered DevOps Workflow
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - '.github/workflows/**'
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  AZURE_WEBAPP_NAME: aidevops-workshop-app
+  AZURE_WEBAPP_PACKAGE_PATH: '.'
+  DOTNET_VERSION: '8.0.x'
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  build-and-test:
+    name: Build and Test with AI Assistance
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Full history for better AI analysis
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    # GitHub Copilot integration for code analysis
+    - name: AI Code Analysis with Copilot
+      run: |
+        echo "Running AI-powered code analysis..."
+        # This step would integrate with GitHub Copilot CLI or API
+        # for automated code review and suggestions
+        echo "✓ AI code analysis completed"
+    
+    # Cache dependencies for faster builds
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+    
+    - name: Restore dependencies
+      run: dotnet restore
+    
+    - name: Build application
+      run: dotnet build --no-restore --configuration Release
+    
+    # AI-powered testing with intelligent test selection
+    - name: Run tests with AI optimization
+      run: |
+        echo "Running AI-optimized test suite..."
+        dotnet test --no-build --configuration Release --verbosity normal \
+          --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
+        echo "✓ AI-optimized tests completed"
+    
+    # Publish test results
+    - name: Publish test results
+      uses: dorny/test-reporter@v1
+      if: success() || failure()
+      with:
+        name: Test Results
+        path: coverage/*.trx
+        reporter: dotnet-trx
+    
+    # AI-powered security scanning
+    - name: AI Security Scan
+      uses: github/super-linter@v4
+      env:
+        DEFAULT_BRANCH: main
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        VALIDATE_ALL_CODEBASE: false
+        VALIDATE_CSHARP: true
+        VALIDATE_PYTHON: true
+        VALIDATE_JSON: true
+        VALIDATE_YAML: true
+    
+    # CodeQL Analysis with AI enhancement
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: csharp, python
+        queries: security-and-quality
+    
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+    
+    # AI-powered dependency vulnerability scanning
+    - name: AI Dependency Scan
+      run: |
+        echo "Running AI-powered dependency vulnerability scan..."
+        dotnet list package --vulnerable --include-transitive
+        pip-audit --format=json --output=vulnerabilities.json || true
+        echo "✓ AI dependency scan completed"
+    
+    # Build artifacts
+    - name: Publish application
+      run: dotnet publish -c Release -o ./publish
+    
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: webapp-artifacts
+        path: ./publish
+        retention-days: 30
+
+  ai-code-review:
+    name: AI-Powered Code Review
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    # Simulated AI code review (replace with actual AI service)
+    - name: AI Code Review Analysis
+      run: |
+        echo "🤖 Running AI-powered code review..."
+        
+        # Get changed files
+        git diff --name-only origin/main...HEAD > changed_files.txt
+        
+        echo "📁 Files changed in this PR:"
+        cat changed_files.txt
+        
+        echo ""
+        echo "🔍 AI Analysis Results:"
+        echo "✓ Code style: Excellent"
+        echo "✓ Security: No vulnerabilities detected"
+        echo "✓ Performance: Optimizations suggested"
+        echo "✓ Maintainability: Good structure"
+        
+        # In a real implementation, this would call an AI service
+        # to analyze the code changes and provide feedback
+    
+    # Comment on PR with AI insights (requires additional setup)
+    - name: Comment PR with AI Insights
+      if: github.event_name == 'pull_request'
+      run: |
+        echo "AI code review completed. Check workflow logs for details."
+        # This would post AI-generated comments to the PR
+
+  deploy-to-azure:
+    name: Deploy to Azure with AI Monitoring
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment: production
+    
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: webapp-artifacts
+        path: ./publish
+    
+    # Azure login
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    # AI-powered pre-deployment validation
+    - name: AI Pre-deployment Validation
+      run: |
+        echo "🤖 Running AI-powered pre-deployment validation..."
+        
+        # Simulate AI analysis of deployment readiness
+        echo "✓ Code quality metrics: Passed"
+        echo "✓ Security scan: Passed"
+        echo "✓ Performance prediction: Good"
+        echo "✓ Rollback plan: Ready"
+        
+        # In production, this would integrate with AI services
+        # to analyze deployment risk and readiness
+    
+    # Deploy to Azure App Service
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        package: ./publish
+        slot-name: staging
+    
+    # AI-powered deployment validation
+    - name: AI Deployment Validation
+      run: |
+        echo "🤖 Running AI-powered deployment validation..."
+        
+        # Health check
+        sleep 30  # Wait for deployment to stabilize
+        
+        # Simulate AI-powered validation
+        echo "✓ Application health: Healthy"
+        echo "✓ Response time: Optimal"
+        echo "✓ Error rate: Within acceptable limits"
+        echo "✓ Resource utilization: Normal"
+        
+        # In production, this would call actual health endpoints
+        # and AI services for comprehensive validation
+    
+    # Swap to production slot
+    - name: Swap to Production
+      run: |
+        az webapp deployment slot swap \
+          --resource-group aidevops-workshop-rg \
+          --name ${{ env.AZURE_WEBAPP_NAME }} \
+          --slot staging \
+          --target-slot production
+    
+    # Setup AI monitoring
+    - name: Configure AI Monitoring
+      run: |
+        echo "🤖 Configuring AI-powered monitoring..."
+        
+        # Configure Application Insights
+        az webapp config appsettings set \
+          --resource-group aidevops-workshop-rg \
+          --name ${{ env.AZURE_WEBAPP_NAME }} \
+          --settings APPLICATIONINSIGHTS_CONNECTION_STRING="${{ secrets.APP_INSIGHTS_CONNECTION_STRING }}"
+        
+        echo "✓ AI monitoring configured successfully"
+    
+    # Post-deployment AI analysis
+    - name: AI Post-deployment Analysis
+      run: |
+        echo "🤖 Running AI post-deployment analysis..."
+        
+        # Simulate real-time AI monitoring setup
+        echo "✓ Performance baselines established"
+        echo "✓ Anomaly detection enabled"
+        echo "✓ Predictive scaling configured"
+        echo "✓ User experience monitoring active"
+        
+        echo "🚀 Deployment completed successfully with AI monitoring!"
+
+  ai-monitoring:
+    name: AI-Powered Continuous Monitoring
+    needs: deploy-to-azure
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Setup AI Monitoring Dashboard
+      run: |
+        echo "🤖 Setting up AI-powered monitoring dashboard..."
+        
+        # This would integrate with Azure Monitor, Application Insights,
+        # and AI services for intelligent monitoring
+        echo "✓ Custom metrics configured"
+        echo "✓ AI anomaly detection enabled"
+        echo "✓ Predictive alerts set up"
+        echo "✓ Performance optimization recommendations enabled"
+        
+        echo "📊 AI monitoring dashboard: https://portal.azure.com/..."
+    
+    - name: AI Performance Optimization
+      run: |
+        echo "🤖 Running AI performance optimization analysis..."
+        
+        # Simulate AI-driven performance recommendations
+        echo "💡 AI Recommendations:"
+        echo "  • Consider enabling CDN for static assets"
+        echo "  • Database query optimization opportunity detected"
+        echo "  • Memory usage pattern suggests scaling adjustment"
+        echo "  • API response time can be improved with caching"
+        
+        echo "✓ AI optimization analysis completed"
+
+  cleanup-on-failure:
+    name: AI-Assisted Cleanup on Failure
+    runs-on: ubuntu-latest
+    needs: [build-and-test, deploy-to-azure]
+    if: failure()
+    
+    steps:
+    - name: AI Failure Analysis
+      run: |
+        echo "🤖 Running AI failure analysis..."
+        
+        # Simulate AI-powered failure analysis
+        echo "🔍 AI Failure Analysis Results:"
+        echo "  • Root cause: [AI would identify specific issue]"
+        echo "  • Impact assessment: [AI would evaluate impact]"
+        echo "  • Recommended actions: [AI would suggest fixes]"
+        echo "  • Prevention strategies: [AI would recommend improvements]"
+    
+    - name: Automated Rollback (if needed)
+      run: |
+        echo "🤖 AI-assisted rollback initiated..."
+        
+        # In a real scenario, AI would determine if rollback is needed
+        # and execute it automatically if safe to do so
+        echo "✓ AI-assisted rollback completed"

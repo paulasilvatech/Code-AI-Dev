@@ -1,0 +1,275 @@
+# Azure DevOps Pipeline Template for AI-Powered DevOps Workshop
+# This pipeline demonstrates CI/CD integration with AI tools
+
+trigger:
+  branches:
+    include:
+    - main
+    - develop
+  paths:
+    include:
+    - src/*
+    - tests/*
+
+variables:
+  # Workshop configuration
+  azureSubscription: 'workshop-service-connection'
+  resourceGroupName: 'aidevops-workshop-rg'
+  webAppName: 'aidevops-workshop-app'
+  
+  # Build configuration
+  buildConfiguration: 'Release'
+  dotNetFramework: 'net8.0'
+  dotNetVersion: '8.0.x'
+  
+  # AI/ML configuration
+  pythonVersion: '3.11'
+  
+stages:
+- stage: Build
+  displayName: 'Build and Test'
+  jobs:
+  - job: BuildJob
+    displayName: 'Build Application'
+    pool:
+      vmImage: 'ubuntu-latest'
+    
+    steps:
+    - task: UseDotNet@2
+      displayName: 'Use .NET SDK'
+      inputs:
+        packageType: 'sdk'
+        version: $(dotNetVersion)
+    
+    - task: UsePythonVersion@0
+      displayName: 'Use Python'
+      inputs:
+        versionSpec: $(pythonVersion)
+        addToPath: true
+    
+    # Install GitHub Copilot CLI for AI assistance
+    - script: |
+        npm install -g @githubnext/github-copilot-cli
+      displayName: 'Install GitHub Copilot CLI'
+      condition: false  # Disabled by default, enable if Copilot CLI is available
+    
+    # Restore dependencies
+    - task: DotNetCoreCLI@2
+      displayName: 'Restore NuGet packages'
+      inputs:
+        command: 'restore'
+        projects: '**/*.csproj'
+    
+    # Build application
+    - task: DotNetCoreCLI@2
+      displayName: 'Build application'
+      inputs:
+        command: 'build'
+        projects: '**/*.csproj'
+        arguments: '--configuration $(buildConfiguration) --no-restore'
+    
+    # Run unit tests
+    - task: DotNetCoreCLI@2
+      displayName: 'Run unit tests'
+      inputs:
+        command: 'test'
+        projects: '**/tests/**/*.csproj'
+        arguments: '--configuration $(buildConfiguration) --no-build --verbosity normal --collect:"XPlat Code Coverage"'
+    
+    # Publish test results
+    - task: PublishCodeCoverageResults@1
+      displayName: 'Publish code coverage'
+      inputs:
+        codeCoverageTool: 'Cobertura'
+        summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+    
+    # Security scan with AI-powered analysis
+    - task: securityCodeScan@2
+      displayName: 'Security code scan'
+      inputs:
+        scanType: 'filesystem'
+        target: '$(Build.SourcesDirectory)'
+      condition: false  # Enable if Security Code Scan extension is installed
+    
+    # AI-powered code quality analysis
+    - script: |
+        echo "Running AI-powered code quality analysis..."
+        # This would integrate with tools like SonarQube with AI capabilities
+        # or custom AI models for code analysis
+      displayName: 'AI Code Quality Analysis'
+    
+    # Package application
+    - task: DotNetCoreCLI@2
+      displayName: 'Publish application'
+      inputs:
+        command: 'publish'
+        publishWebProjects: true
+        arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+        zipAfterPublish: true
+    
+    # Publish build artifacts
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish artifacts'
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+
+- stage: Deploy_Development
+  displayName: 'Deploy to Development'
+  dependsOn: Build
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+  
+  jobs:
+  - deployment: DeployToDev
+    displayName: 'Deploy to Development Environment'
+    pool:
+      vmImage: 'ubuntu-latest'
+    environment: 'development'
+    
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: drop
+          
+          # Azure App Service deployment with AI monitoring
+          - task: AzureWebApp@1
+            displayName: 'Deploy to Azure App Service'
+            inputs:
+              azureSubscription: $(azureSubscription)
+              appType: 'webApp'
+              appName: '$(webAppName)-dev'
+              package: '$(Pipeline.Workspace)/drop/**/*.zip'
+              deploymentMethod: 'auto'
+          
+          # Configure Application Insights for AI-powered monitoring
+          - task: AzureCLI@2
+            displayName: 'Configure AI Monitoring'
+            inputs:
+              azureSubscription: $(azureSubscription)
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                # Update app settings with Application Insights
+                az webapp config appsettings set \
+                  --resource-group $(resourceGroupName) \
+                  --name $(webAppName)-dev \
+                  --settings APPLICATIONINSIGHTS_CONNECTION_STRING="InstrumentationKey=$(appInsightsKey)"
+          
+          # Run smoke tests
+          - script: |
+              echo "Running smoke tests against development environment..."
+              curl -f https://$(webAppName)-dev.azurewebsites.net/health || exit 1
+            displayName: 'Smoke Tests'
+
+- stage: Deploy_Production
+  displayName: 'Deploy to Production'
+  dependsOn: Build
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  
+  jobs:
+  - deployment: DeployToProd
+    displayName: 'Deploy to Production Environment'
+    pool:
+      vmImage: 'ubuntu-latest'
+    environment: 'production'
+    
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: drop
+          
+          # AI-powered deployment validation
+          - script: |
+              echo "Running AI-powered pre-deployment validation..."
+              # This could integrate with AI models that analyze:
+              # - Code changes for risk assessment
+              # - Performance impact prediction
+              # - Security vulnerability detection
+            displayName: 'AI Pre-deployment Validation'
+          
+          # Blue-green deployment with AI monitoring
+          - task: AzureWebApp@1
+            displayName: 'Deploy to Production (Blue-Green)'
+            inputs:
+              azureSubscription: $(azureSubscription)
+              appType: 'webApp'
+              appName: $(webAppName)
+              package: '$(Pipeline.Workspace)/drop/**/*.zip'
+              deploymentMethod: 'zipDeploy'
+              slotName: 'staging'
+          
+          # AI-powered post-deployment validation
+          - script: |
+              echo "Running AI-powered post-deployment validation..."
+              # Integrate with AI tools for:
+              # - Automated testing
+              # - Performance analysis
+              # - User experience validation
+            displayName: 'AI Post-deployment Validation'
+          
+          # Swap slots after validation
+          - task: AzureAppServiceManage@0
+            displayName: 'Swap to Production'
+            inputs:
+              azureSubscription: $(azureSubscription)
+              WebAppName: $(webAppName)
+              ResourceGroupName: $(resourceGroupName)
+              SourceSlot: 'staging'
+              SwapWithProduction: true
+          
+          # Configure production monitoring
+          - task: AzureCLI@2
+            displayName: 'Configure Production Monitoring'
+            inputs:
+              azureSubscription: $(azureSubscription)
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                # Set up AI-powered monitoring and alerting
+                az webapp config appsettings set \
+                  --resource-group $(resourceGroupName) \
+                  --name $(webAppName) \
+                  --settings APPLICATIONINSIGHTS_CONNECTION_STRING="InstrumentationKey=$(appInsightsKey)"
+                
+                # Configure custom metrics for AI analysis
+                echo "Setting up custom performance metrics..."
+
+# AI-Powered Monitoring and Alerting Stage
+- stage: Monitor
+  displayName: 'AI-Powered Monitoring Setup'
+  dependsOn: 
+  - Deploy_Development
+  - Deploy_Production
+  condition: always()
+  
+  jobs:
+  - job: SetupMonitoring
+    displayName: 'Configure AI Monitoring'
+    pool:
+      vmImage: 'ubuntu-latest'
+    
+    steps:
+    # Set up Application Insights alerts with AI-powered anomaly detection
+    - task: AzureCLI@2
+      displayName: 'Configure AI-Powered Alerts'
+      inputs:
+        azureSubscription: $(azureSubscription)
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          echo "Setting up AI-powered monitoring and alerting..."
+          
+          # Create smart detection rules for anomaly detection
+          az monitor app-insights component create \
+            --app aidevops-appinsights \
+            --location "East US" \
+            --resource-group $(resourceGroupName) \
+            --kind web
+          
+          # Set up custom metrics for AI analysis
+          echo "Custom AI monitoring configured successfully"
