@@ -563,10 +563,10 @@ class EnterpriseAIDiagnostics:
         for agent_name, agent_func in self.diagnostic_agents.items():
             try:
                 results[agent_name] = agent_func()
-                print(f"✅ {agent_name.title()} diagnostics completed")
+                print(f"{agent_name.title()} diagnostics completed")
             except Exception as e:
                 results[agent_name] = {'error': str(e)}
-                print(f"❌ {agent_name.title()} diagnostics failed: {e}")
+                print(f"{agent_name.title()} diagnostics failed: {e}")
         
         return results
     
@@ -643,7 +643,7 @@ Network Security:
 #!/bin/bash
 # Reference: ../resources/cleanup-azure-infrastructure.sh
 
-echo "🚀 Starting enterprise AI performance optimization..."
+echo "Starting enterprise AI performance optimization..."
 
 # 1. Check AI service health
 curl -s https://api.github.com/copilot/status
@@ -655,7 +655,7 @@ docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"
 # See ../resources/cleanup-azure-infrastructure.sh for detailed cleanup
 
 # 4. Generate performance report
-echo "📊 Performance optimization completed"
+echo "Performance optimization completed"
 ```
 
 ---

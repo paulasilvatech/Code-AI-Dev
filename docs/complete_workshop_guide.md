@@ -1180,7 +1180,7 @@ public class StringPerformanceComparison {
             // Test StringBuilder
             long stringBuilderTime = testStringBuilder(testData);
             
-            // 📈 Performance analysis
+            // Performance analysis
             double improvement = (double) stringConcatTime / stringBuilderTime;
             System.out.printf("StringBuilder is %.2fx faster%n", improvement);
         }
@@ -1284,7 +1284,7 @@ public class DatabaseExample {
         return null;
     }
     
-    // 📋 Simple User class
+    // Simple User class
     static class User {
         String username, email;
         User(String username, String email) {
@@ -1337,7 +1337,7 @@ class DatabaseExample
         return null;
     }
     
-    // 📋 Simple User class
+    // Simple User class
     public class User 
     {
         public string Username { get; set; }
@@ -1359,9 +1359,9 @@ class DatabaseExample
 
 #### 🚨 Understanding the Vulnerability
 
-**💬 Ask Copilot Chat:**
+**Ask Copilot Chat:**
 ```
-🔍 Analyze this code for security vulnerabilities:
+Analyze this code for security vulnerabilities:
 [paste your code here]
 
 Focus on:
@@ -1402,9 +1402,9 @@ username = "' UNION SELECT password, credit_card FROM sensitive_data --"
 
 #### ✅ AI-Suggested Security Fixes
 
-**💬 Ask AI:**
+**Ask AI:**
 ```
-🔧 Fix the SQL injection vulnerability using parameterized queries.
+Fix the SQL injection vulnerability using parameterized queries.
 Also add proper input validation and error handling.
 ```
 
@@ -1562,9 +1562,9 @@ class SecureDatabaseExample
 
 #### 🎯 Advanced Input Validation
 
-**💬 Ask AI:**
+**Ask AI:**
 ```
-🔧 Add comprehensive input validation that includes:
+Add comprehensive input validation that includes:
 1. Null and empty checks
 2. Length restrictions
 3. Character whitelist validation

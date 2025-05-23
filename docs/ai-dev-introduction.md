@@ -498,10 +498,10 @@ Step 3 - VS Code Setup (2 minutes):
 #### 🎯 **15-Minute First Experience**
 
 ```java
-// 🎯 Try This: Create a new file and type this comment
+// Try This: Create a new file and type this comment
 // Create a REST API controller for user management with CRUD operations
 
-/* 🤖 AI will suggest something like this: */
+/* AI will suggest something like this: */
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
