@@ -32,6 +32,14 @@
 
 ---
 
+## 🧭 Getting Started Navigation
+
+| 📍 Current Section | ⬅️ Previous | ➡️ Next |
+|---------------------|-------------|---------|
+| **🏠 Table of Contents** | - | [🛠️ Pre-Workshop Preparation](#-pre-workshop-preparation) |
+
+---
+
 ## 🎓 Module 1: Introduction to AI-Powered DevOps
 
 > **🎯 Goal:** Transform your understanding of modern development practices with AI assistance
@@ -663,6 +671,14 @@ cp resources/github-actions-workflow.yml your-project/.github/workflows/
 
 ---
 
+## 🧭 Navigation
+
+| 📍 Current Step | ⬅️ Previous | ➡️ Next |
+|-----------------|-------------|---------|
+| **🛠️ Pre-Workshop Preparation** | [🏠 Table of Contents](#-table-of-contents) | [🌱 Basic Workshop](#-basic-workshop-90-minutes) |
+
+---
+
 ## 🌱 Basic Workshop (90 minutes)
 
 ### 🎯 Introduction: Understanding Agentic DevOps (15 minutes)
@@ -898,6 +914,14 @@ public double divideWithValidation(double dividend, double divisor) {
 | **⚠️ Mention Constraints** | Specify requirements | `// Must be compatible with Java 8+` |
 
 > 🧠 **Learning Point:** AI understands context from comments and existing code. The more specific your comments, the better the suggestions.
+
+---
+
+## 🧭 Navigation
+
+| 📍 Current Step | ⬅️ Previous | ➡️ Next |
+|-----------------|-------------|---------|
+| **🚀 Module 1: First Steps with AI Assistance** | [🛠️ Pre-Workshop Preparation](#-pre-workshop-preparation) | [⚡ Module 2: Code Optimization with AI](#-module-2-code-optimization-with-ai-25-minutes) |
 
 ---
 
@@ -1139,6 +1163,14 @@ public class StringPerformanceComparison {
 | **10,000 items** | ~14,000 ms | ~15 ms | ~930x faster |
 
 > ✅ **Checkpoint:** You should see significant performance differences with larger datasets
+
+---
+
+## 🧭 Navigation
+
+| 📍 Current Step | ⬅️ Previous | ➡️ Next |
+|-----------------|-------------|---------|
+| **⚡ Module 2: Code Optimization with AI** | [🚀 Module 1: First Steps with AI Assistance](#-module-1-first-steps-with-ai-assistance-20-minutes) | [🔒 Module 3: Security Improvement with AI](#-module-3-security-improvement-with-ai-25-minutes) |
 
 ---
 
@@ -1547,4 +1579,51 @@ public class InputValidator {
 
 ---
 
-*[The file continues with the remaining modules using the same enhanced format with emojis, tables, color-coded sections, and detailed code examples...]*
+## 🧭 Navigation
+
+| 📍 Current Step | ⬅️ Previous | ➡️ Next |
+|-----------------|-------------|---------|
+| **🔒 Module 3: Security Improvement with AI** | [⚡ Module 2: Code Optimization with AI](#-module-2-code-optimization-with-ai-25-minutes) | [🔧 Intermediate Workshop](#-intermediate-workshop-2-hours) |
+
+---
+
+## 🎓 Basic Workshop Completion
+
+### 🏆 Congratulations! You've completed the Basic Workshop
+
+You have successfully learned:
+- ✅ **AI-Assisted Development** - Using GitHub Copilot for code generation
+- ✅ **Performance Optimization** - StringBuilder vs string concatenation
+- ✅ **Security Improvements** - SQL injection prevention with parameterized queries
+
+### 🚀 Next Steps
+
+Choose your learning path:
+
+| 🎯 Option | 📖 Description | ⏱️ Time | 🔗 Link |
+|-----------|----------------|----------|---------|
+| **🔧 Intermediate Workshop** | Advanced GitHub Copilot features and multi-agent systems | 2 hours | [Start Intermediate Workshop](intermediate_workshop_guide.md) |
+| **⚡ Advanced Workshop** | Enterprise AI DevOps and production deployment | 3+ hours | [Start Advanced Workshop](advanced_workshop_guide.md) |
+| **📚 Resource Library** | Explore all automation scripts and examples | - | [Browse Resources](/resources/) |
+
+### 🆘 Need Help?
+
+- 📖 **Troubleshooting Guide:** [troubleshooting_guide.md](troubleshooting_guide.md)
+- 🏗️ **Workshop Structure:** [workshop_structure.md](workshop_structure.md)
+- 📧 **Support:** Create an issue in the repository
+
+---
+
+## 🧭 Final Navigation
+
+| 📍 Current Step | ⬅️ Previous | ➡️ Next |
+|-----------------|-------------|---------|
+| **🎓 Basic Workshop Completion** | [🔒 Module 3: Security Improvement with AI](#-module-3-security-improvement-with-ai-25-minutes) | [🏠 Table of Contents](#-table-of-contents) |
+
+---
+
+## 🏠 Return to Main Documentation
+
+**[⬅️ Back to Main README](../README.md)**
+
+> Complete your AI-powered DevOps journey by exploring all workshop materials and resources.
