@@ -2,10 +2,13 @@
 
 > **⚡ Get started with AI-assisted development in 30 minutes or less**
 
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Workshop Status](https://img.shields.io/badge/Status-Ready-green)
+![AI Powered](https://img.shields.io/badge/AI-Powered-purple)
 ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-blue)
-![Duration](https://img.shields.io/badge/Duration-30_minutes-orange)
+![Duration](https://img.shields.io/badge/Duration-5--30_minutes-orange)
 ![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-Required-purple)
+![Hands On](https://img.shields.io/badge/Format-Hands--On-brightgreen)
 
 Transform your development workflow with AI assistance in just a few steps. This quick start guide gets you coding with AI in under 30 minutes.
 
@@ -21,7 +24,13 @@ Before starting, ensure you have:
 - [ ] **Internet Connection** (for AI suggestions)
 - [ ] **Java 17+** OR **.NET 8+** (choose one)
 
-> **💡 First time?** No worries! We'll guide you through each step.
+### 🤖 Automated Setup Available
+
+> **💡 First time?** Use our automated setup scripts for faster configuration:
+> 
+> - **🚀 Azure Setup:** [`setup-azure-infrastructure.sh`](../resources/setup-azure-infrastructure.sh) | [`setup-azure-infrastructure.ps1`](../resources/setup-azure-infrastructure.ps1)
+> - **✅ Validation:** [`validate-setup.sh`](../resources/validate-setup.sh)
+> - **📖 Resources Guide:** [Resources README](../resources/README.md)
 
 ---
 
@@ -138,14 +147,24 @@ dotnet --version
 
 1. **Create new file:** `HelloAI.java` or `HelloAI.cs`
 2. **Type this comment:**
+   
+   **☕ For Java:**
    ```java
    // Create a simple calculator class with add, subtract, multiply, and divide methods
    ```
+   
+   **🔷 For C#/.NET:**
+   ```csharp
+   // Create a simple calculator class with add, subtract, multiply, and divide methods
+   ```
+
 3. **Watch the magic:** AI suggests complete code
 4. **Press Tab** to accept the suggestion
 5. **Run your code** to see it work
 
 > 🎉 **Success!** You're now coding with AI assistance
+> 
+> **📝 Example Code Templates:** Check [`DatabaseConnection.java`](../resources/DatabaseConnection.java) and [`DatabaseConnection.cs`](../resources/DatabaseConnection.cs) for advanced patterns
 
 ---
 
