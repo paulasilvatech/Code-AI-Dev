@@ -230,6 +230,28 @@ graph LR
 
 ## 🔧 Intermediate Workshop (2 Hours) Structure
 
+### 🔄 Intermediate Workshop Flow
+
+```mermaid
+journey
+    title Intermediate Workshop Journey (2 Hours)
+    section Foundation
+      Advanced Copilot Features: 7: Developer
+      Chat & Workspace Mastery: 8: Developer
+    section Security
+      Enterprise Security: 6: Developer
+      Governance Framework: 7: Developer
+      Security Scanning: 8: Developer
+    section Performance
+      Scale Optimization: 6: Developer
+      Production Workloads: 7: Developer
+      Performance Monitoring: 8: Developer
+    section Testing
+      Advanced Testing: 7: Developer
+      AI Test Generation: 8: Developer
+      Quality Assurance: 9: Developer
+```
+
 ### 📈 Advanced Topics Coverage
 
 | ⏱️ Time Block | 📚 Advanced Module | 🎯 Learning Outcome | 🛠️ Complexity Level |
@@ -259,6 +281,40 @@ Expected Outcomes:
 
 ### 🔒 Enterprise Security Integration (40 minutes)
 
+#### 🛡️ AI-Powered Security Architecture
+
+```mermaid
+flowchart TB
+    subgraph "Development Phase"
+        A[👨‍💻 Developer Writes Code] --> B[🔍 Real-time AI Scanning]
+        B --> C{🚨 Vulnerability Detected?}
+        C -->|Yes| D[🛠️ AI Suggests Fix]
+        C -->|No| E[✅ Code Approved]
+        D --> F[👤 Developer Reviews Fix]
+        F --> A
+    end
+    
+    subgraph "Security Governance"
+        G[📋 Policy Engine] --> B
+        H[🤖 Security AI Agent] --> I[📊 Compliance Dashboard]
+        I --> J[📈 Security Metrics]
+    end
+    
+    subgraph "Incident Response"
+        K[🚨 Security Incident] --> L[🤖 AI Analysis]
+        L --> M[⚡ Automated Response]
+        M --> N[👥 Human Escalation]
+    end
+    
+    E --> G
+    B --> H
+    
+    style C fill:#ffebee
+    style D fill:#fff3e0
+    style E fill:#e8f5e8
+    style M fill:#e1f5fe
+```
+
 #### 🛡️ Security Governance Framework
 
 | 🔧 Security Layer | 🎯 Implementation | 🛠️ Tools | 📊 Coverage |
@@ -271,6 +327,30 @@ Expected Outcomes:
 ---
 
 ## ⚡ Advanced Workshop (3+ Hours) Structure
+
+### 🏢 Enterprise Transformation Journey
+
+```mermaid
+gantt
+    title Advanced Workshop: Enterprise AI Transformation
+    dateFormat X
+    axisFormat %H:%M
+    
+    section Foundation
+    Agentic Architecture          :arch, 0, 45
+    
+    section Cloud Integration
+    Azure AI Services             :azure, 45, 105
+    
+    section Governance
+    Enterprise Policies           :gov, 105, 150
+    
+    section Operations
+    Monitoring & SRE             :ops, 150, 180
+    
+    section Scaling
+    Organizational Change         :scale, 180, 195
+```
 
 ### 🏢 Enterprise-Scale Implementation
 
@@ -353,6 +433,27 @@ graph TD
 
 ## 🎯 Workshop Customization Guide
 
+### 🔄 Industry Customization Matrix
+
+```mermaid
+quadrantChart
+    title Workshop Customization by Industry Needs
+    x-axis Low Security Requirements --> High Security Requirements
+    y-axis Low Performance Needs --> High Performance Needs
+    
+    quadrant-1 High Security, High Performance
+    quadrant-2 High Security, Low Performance
+    quadrant-3 Low Security, Low Performance
+    quadrant-4 Low Security, High Performance
+    
+    Financial Services: [0.9, 0.6]
+    Healthcare: [0.8, 0.4]
+    Gaming: [0.3, 0.9]
+    E-commerce: [0.5, 0.8]
+    Education: [0.4, 0.3]
+    Startups: [0.2, 0.7]
+```
+
 ### 🏢 Industry-Specific Adaptations
 
 | 🏭 Industry | 🎯 Focus Areas | 🛠️ Custom Examples | 📊 Specific Metrics |
@@ -363,6 +464,26 @@ graph TD
 | **🎮 Gaming** | Real-time processing, graphics | Game engine development | Frame rates, user engagement |
 
 ### 👥 Role-Based Learning Paths
+
+```mermaid
+sankey
+    Participants,Developer,150
+    Participants,Architect,75
+    Participants,Manager,50
+    Participants,Security,35
+    
+    Developer,Hands-on Coding,120
+    Developer,Architecture,30
+    
+    Architect,System Design,45
+    Architect,Governance,30
+    
+    Manager,Business Value,35
+    Manager,ROI Analysis,15
+    
+    Security,Security Framework,25
+    Security,Compliance,10
+```
 
 | 👤 Role | 🎯 Learning Focus | 📚 Recommended Modules | ⏱️ Time Investment |
 |---------|-------------------|----------------------|-------------------|
@@ -409,6 +530,25 @@ Logistics:
 ---
 
 ## 🎉 Workshop Success Framework
+
+### 🏆 Success Progression Model
+
+```mermaid
+journey
+    title Workshop Success Journey
+    section Beginner
+      Workshop Start: 3: Participant
+      First AI Code: 5: Participant
+      Basic Understanding: 6: Participant
+    section Intermediate
+      Performance Optimization: 7: Participant
+      Security Awareness: 7: Participant
+      Practical Skills: 8: Participant
+    section Advanced
+      Production Ready: 8: Participant
+      Confident Implementation: 9: Participant
+      AI-Powered Developer: 9: Participant
+```
 
 ### 🏆 Excellence Standards
 
