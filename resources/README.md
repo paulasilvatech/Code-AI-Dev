@@ -75,6 +75,16 @@ The provided resources allow participants to quickly create the necessary Azure 
 | `appsettings.json` | Configuration for .NET applications |
 | `application.properties` | Configuration for Java/Spring applications |
 
+### MCP (Model Context Protocol) Resources
+
+| File | Description |
+|------|-------------|
+| `mcp-server-config.json` | MCP server configuration with AI tools |
+| `mcp-client-config.json` | MCP client configuration for connections |
+| `mcp-workflow-examples.md` | Comprehensive MCP workflow examples |
+| `mcp-agent-config.yaml` | AI agent configurations for MCP |
+| `mcp-integration-guide.md` | Integration guide for various tools |
+
 ### Other Files
 
 | File | Description |
@@ -97,6 +107,16 @@ The provided resources allow participants to quickly create the necessary Azure 
 | `security-scanning-templates.md` | Security analysis templates | Static analysis, dependency scanning, container security, runtime protection (RASP), automated security test generation |
 | `ai-documentation-templates.md` | AI-powered documentation generation | API documentation, code documentation, architecture documentation, user guides |
 
+### MCP Integration Resources
+
+| File | Description | Key Features |
+|------|-------------|-------------|
+| `mcp-server-config.json` | MCP server configuration | Tools for code review, test generation, optimization, security scanning, documentation |
+| `mcp-client-config.json` | MCP client configuration | Multiple server connections, retry logic, logging configuration |
+| `mcp-workflow-examples.md` | MCP workflow examples | Basic setup, multi-agent workflows, security scanning, test generation, documentation |
+| `mcp-agent-config.yaml` | Agent configurations | 6 specialized AI agents with orchestration rules |
+| `mcp-integration-guide.md` | Tool integrations | VS Code, GitHub, Azure DevOps, Jenkins, Docker, Kubernetes |
+
 ### 🎯 How to Use AI Development Resources
 
 1. **Start with Workflows**: Begin with `github-copilot-workflows.md` to understand practical AI-assisted development patterns
@@ -106,6 +126,7 @@ The provided resources allow participants to quickly create the necessary Azure 
 5. **Enhance Testing**: Apply templates from `ai-testing-templates.md` for comprehensive test coverage
 6. **Secure Your Code**: Implement security scanning using `security-scanning-templates.md`
 7. **Document Everything**: Generate documentation with `ai-documentation-templates.md`
+8. **Integrate MCP**: Follow `mcp-integration-guide.md` to integrate AI tools into your workflow
 
 ### 📚 Workshop Learning Path
 
@@ -113,16 +134,19 @@ The provided resources allow participants to quickly create the necessary Azure 
    - Start with basic GitHub Copilot workflows
    - Practice prompt engineering templates
    - Try simple code optimization examples
+   - Set up basic MCP configuration
 
 2. **Intermediate Path**:
    - Implement AI testing templates
    - Build basic AI agents
    - Apply security scanning to existing code
+   - Create MCP workflows for your project
 
 3. **Advanced Path**:
    - Create multi-agent orchestration systems
    - Implement RASP and advanced security
    - Build custom AI development pipelines
+   - Integrate MCP with CI/CD systems
 
 ## ⚙️ Detailed Configuration
 

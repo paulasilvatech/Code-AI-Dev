@@ -1,0 +1,47 @@
+{
+  "mcpServers": {
+    "workshop": {
+      "command": "node",
+      "args": ["./mcp-server.js"],
+      "env": {
+        "AZURE_OPENAI_ENDPOINT": "${AZURE_OPENAI_ENDPOINT}",
+        "AZURE_OPENAI_API_KEY": "${AZURE_OPENAI_API_KEY}",
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "github-copilot": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "azure-ai": {
+      "command": "python",
+      "args": ["./azure-ai-mcp-server.py"],
+      "env": {
+        "AZURE_AI_ENDPOINT": "${AZURE_AI_ENDPOINT}",
+        "AZURE_AI_KEY": "${AZURE_AI_KEY}"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "./workspace"]
+    },
+    "postgres": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://workshopadmin:Workshop2024!@aidevops-sql-server.database.windows.net:5432/aidevops-workshop-db"
+      ]
+    }
+  },
+  "defaultTimeout": 30000,
+  "retryAttempts": 3,
+  "retryDelay": 1000,
+  "logging": {
+    "level": "info",
+    "file": "./logs/mcp-client.log"
+  }
+} 

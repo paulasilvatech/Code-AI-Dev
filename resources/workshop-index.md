@@ -2,7 +2,7 @@
 
 ## 🎯 Workshop Overview
 
-This workshop teaches AI-assisted development using GitHub Copilot, Azure AI tools, and agentic DevOps practices. All resources are designed for hands-on learning with practical examples.
+This workshop teaches AI-assisted development using GitHub Copilot, Azure AI tools, MCP (Model Context Protocol), and agentic DevOps practices. All resources are designed for hands-on learning with practical examples.
 
 ## 📚 Resource Categories
 
@@ -53,7 +53,40 @@ This workshop teaches AI-assisted development using GitHub Copilot, Azure AI too
   - User guide templates
   - Code documentation patterns
 
-### 2. 🏗️ Infrastructure Setup
+### 2. 🔌 MCP (Model Context Protocol) Resources
+
+#### **Configuration Files**
+- **[mcp-server-config.json](mcp-server-config.json)**
+  - Server configuration with AI tools
+  - Tool definitions and schemas
+  - Resource configurations
+
+- **[mcp-client-config.json](mcp-client-config.json)**
+  - Client connection settings
+  - Multiple server configurations
+  - Retry and timeout settings
+
+#### **Implementation Guides**
+- **[mcp-workflow-examples.md](mcp-workflow-examples.md)**
+  - 6 comprehensive workflow examples
+  - Multi-agent development patterns
+  - Security scanning workflows
+  - Documentation generation
+
+- **[mcp-integration-guide.md](mcp-integration-guide.md)**
+  - VS Code integration
+  - CI/CD platform integrations
+  - IDE plugins
+  - Container and Kubernetes integration
+
+#### **Agent Configuration**
+- **[mcp-agent-config.yaml](mcp-agent-config.yaml)**
+  - 6 specialized AI agents
+  - Orchestration workflows
+  - Communication channels
+  - Learning configurations
+
+### 3. 🏗️ Infrastructure Setup
 
 #### **Azure Resources**
 - **[setup-azure-infrastructure.sh](setup-azure-infrastructure.sh)** - Linux/macOS setup
@@ -91,16 +124,22 @@ This workshop teaches AI-assisted development using GitHub Copilot, Azure AI too
 2. Practice with `prompt-engineering-templates.md` basic templates
 3. Try examples from `code-optimization-examples.md`
 
-### Path 2: AI Testing & Security (3 hours)
+### Path 2: MCP Integration (3 hours)
+1. Set up MCP with `mcp-server-config.json` and `mcp-client-config.json`
+2. Follow basic workflows in `mcp-workflow-examples.md`
+3. Try VS Code integration from `mcp-integration-guide.md`
+
+### Path 3: AI Testing & Security (3 hours)
 1. Start with `ai-testing-templates.md` unit test section
 2. Implement security checks from `security-scanning-templates.md`
 3. Build a simple AI agent from `ai-agent-templates.md`
 
-### Path 3: Full Stack AI Development (Full Day)
+### Path 4: Full Stack AI Development (Full Day)
 1. Set up infrastructure using setup scripts
-2. Work through all GitHub Copilot workflows
-3. Implement AI agents and testing
-4. Deploy using CI/CD templates
+2. Configure MCP for your environment
+3. Work through all GitHub Copilot workflows
+4. Implement AI agents and testing
+5. Deploy using CI/CD templates
 
 ## 📊 Workshop Modules
 
@@ -114,22 +153,27 @@ This workshop teaches AI-assisted development using GitHub Copilot, Azure AI too
 - Duration: 60 minutes
 - Hands-on: Optimize sample applications
 
-### Module 3: Building AI Agents
-- Resources: `ai-agent-templates.md`, `multi_agent_orchestrator.py`
+### Module 3: MCP Integration and Workflows
+- Resources: `mcp-server-config.json`, `mcp-workflow-examples.md`, `mcp-integration-guide.md`
+- Duration: 120 minutes
+- Hands-on: Set up MCP and create automated workflows
+
+### Module 4: Building AI Agents
+- Resources: `ai-agent-templates.md`, `mcp-agent-config.yaml`
 - Duration: 120 minutes
 - Hands-on: Create and deploy AI agents
 
-### Module 4: AI-Powered Testing
+### Module 5: AI-Powered Testing
 - Resources: `ai-testing-templates.md`
 - Duration: 90 minutes
 - Hands-on: Generate and run comprehensive tests
 
-### Module 5: Security with AI
+### Module 6: Security with AI
 - Resources: `security-scanning-templates.md`
 - Duration: 90 minutes
 - Hands-on: Implement security scanning
 
-### Module 6: CI/CD with AI Integration
+### Module 7: CI/CD with AI Integration
 - Resources: CI/CD templates, infrastructure scripts
 - Duration: 120 minutes
 - Hands-on: Deploy AI-enhanced pipelines
@@ -139,12 +183,13 @@ This workshop teaches AI-assisted development using GitHub Copilot, Azure AI too
 By completing this workshop, participants will:
 
 1. **Master GitHub Copilot** for efficient code generation
-2. **Design effective prompts** for AI development tools
-3. **Optimize code performance** using AI assistance
-4. **Build autonomous AI agents** for development tasks
-5. **Implement comprehensive testing** with AI generation
-6. **Enhance security** through AI-powered scanning
-7. **Deploy AI-integrated CI/CD** pipelines
+2. **Configure and use MCP** for AI tool integration
+3. **Design effective prompts** for AI development tools
+4. **Optimize code performance** using AI assistance
+5. **Build autonomous AI agents** for development tasks
+6. **Implement comprehensive testing** with AI generation
+7. **Enhance security** through AI-powered scanning
+8. **Deploy AI-integrated CI/CD** pipelines
 
 ## 📝 Prerequisites
 
@@ -152,9 +197,11 @@ By completing this workshop, participants will:
 - Azure account (free tier sufficient)
 - VS Code with GitHub Copilot extension
 - Git and Azure CLI installed
+- Node.js 16+ (for MCP)
 
 ## 🔗 Additional Resources
 
+- [MCP Documentation](https://modelcontextprotocol.io)
 - [Azure AI Documentation](https://docs.microsoft.com/azure/ai/)
 - [GitHub Copilot Documentation](https://docs.github.com/copilot)
 - [Azure DevOps Documentation](https://docs.microsoft.com/azure/devops/)
@@ -167,7 +214,7 @@ By completing this workshop, participants will:
 
 ---
 
-**Version**: 1.0  
+**Version**: 1.1  
 **Last Updated**: January 2024  
-**Total Resources**: 18 files  
-**Estimated Workshop Duration**: 8 hours (full day) or modular sessions 
+**Total Resources**: 23 files  
+**Estimated Workshop Duration**: 8-10 hours (full day) or modular sessions 
