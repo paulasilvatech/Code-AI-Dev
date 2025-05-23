@@ -16,8 +16,8 @@
 - [x] `troubleshooting_guide.md` moved to `docs/guides/`
 - [x] `workshop_structure.md` moved to `docs/workshops/`
 - [x] SVG files (`agentic-devops-flow-diagram.svg` and `multi-agent-architecture-diagram.svg`) moved to `docs/images/`
-- [x] `Agentic DevOps L100 deck.pdf` moved to `docs/presentations/`
-- [x] `multi_agent_orchestrator.py` moved to `workflows/ai-automation/`
+- [x] `Agentic DevOps L100 deck.pdf` moved to `docs/`
+- [x] `multi_agent_orchestrator.py` moved to `resources/`
 
 ### New Files Created
 - [x] Creation of `docs/README.md` with documentation index

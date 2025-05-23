@@ -118,6 +118,42 @@ This final module focuses on real-world implementation scenarios, including GitH
 
 ---
 
+## Module 7: Production Optimization
+
+This module focuses on optimizing AI-powered DevOps solutions for production environments, including performance monitoring, incident response, and continuous improvement strategies.
+
+### Learning Objectives
+- Implement comprehensive performance monitoring for AI-assisted applications
+- Set up AI-powered incident response and resolution systems
+- Establish continuous improvement processes for AI DevOps workflows
+- Master production optimization techniques and best practices
+
+### Key Topics Covered
+- Performance monitoring and metrics collection
+- AI-powered incident detection and response
+- Continuous improvement and optimization strategies
+- Production deployment and scaling considerations
+
+---
+
+## Module 8: Hands-On Challenge Labs
+
+This module provides practical, hands-on challenges that simulate real-world scenarios, allowing you to apply all the concepts learned throughout the workshop.
+
+### Learning Objectives
+- Apply AI-assisted development techniques to real-world scenarios
+- Complete end-to-end implementation exercises
+- Practice with both Java and .NET practical examples
+- Develop confidence in solving complex problems with AI assistance
+
+### Key Topics Covered
+- Real-world optimization scenarios
+- End-to-end implementation exercises
+- Multi-language practical examples (Java and .NET)
+- Problem-solving with AI assistance
+
+---
+
 ## Pre-Workshop Preparation
 
 ### What You'll Learn

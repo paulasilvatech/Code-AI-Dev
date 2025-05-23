@@ -7,7 +7,7 @@ Welcome to the **AI Code Development** Workshop! This hands-on workshop guides y
 ## Agentic DevOps Workflow - AI-Assisted Development Implementation
 
 <div align="center">
-  <img src="agentic-devops-flow-diagram.svg" alt="Agentic DevOps Flow Diagram" width="700">
+  <img src="images/agentic-devops-flow-diagram.svg" alt="Agentic DevOps Flow Diagram" width="700">
 </div>
 
 ## 🌐 Official Workshop Website: [code-ai.dev](https://code-ai.dev)
@@ -27,7 +27,7 @@ As a developer in today's enterprise environment, you face a critical challenge:
 This workshop provides hands-on guidance to implement AI-assisted development using modern tools and practices. We'll demonstrate how GitHub Copilot, Azure AI, and agentic workflows can transform your development efficiency.
 
 <div align="center">
-  <img src="multi-agent-architecture-diagram.svg" alt="Multi-Agent Architecture" width="700">
+  <img src="images/multi-agent-architecture-diagram.svg" alt="Multi-Agent Architecture" width="700">
 </div>
 
 > "AI-assisted development is not about replacing developers, but about amplifying their abilities to solve complex problems faster and more effectively."
@@ -61,55 +61,55 @@ The workshop is organized into progressive modules, allowing you to choose the d
 
 ## 🗺️ Learning Path
 
-### Module 1: [Introduction to AI-Powered DevOps](complete_workshop_guide.md#module-1-introduction-to-ai-powered-devops)
+### Module 1: [Introduction to AI-Powered DevOps](docs/complete_workshop_guide.md#module-1-introduction-to-ai-powered-devops)
 
 * Understanding the AI development paradigm
 * GitHub Copilot fundamentals and capabilities
 * Setting up your AI-enhanced development environment
 
-### Module 2: [Setting Up Your AI Development Environment](complete_workshop_guide.md#module-2-setting-up-your-ai-development-environment)
+### Module 2: [Setting Up Your AI Development Environment](docs/complete_workshop_guide.md#module-2-setting-up-your-ai-development-environment)
 
 * Workshop preparation and tool setup
 * Creating your first AI-assisted optimization
 * Exploring GitHub Copilot fundamentals
 
-### Module 3: [Building Your First AI Agent](complete_workshop_guide.md#module-3-building-your-first-ai-agent)
+### Module 3: [Building Your First AI Agent](docs/complete_workshop_guide.md#module-3-building-your-first-ai-agent)
 
 * Performance optimization techniques
 * Security vulnerability detection and remediation
 * Using AI for code quality improvements
 
-### Module 4: [Multi-Agent Orchestration](complete_workshop_guide.md#module-4-multi-agent-orchestration)
+### Module 4: [Multi-Agent Orchestration](docs/complete_workshop_guide.md#module-4-multi-agent-orchestration)
 
 * Copilot Chat and workspace features
 * Custom AI workflows and automation
 * Advanced code generation patterns
 
-### Module 5: [Advanced AI DevOps Patterns](complete_workshop_guide.md#module-5-advanced-ai-devops-patterns)
+### Module 5: [Advanced AI DevOps Patterns](docs/complete_workshop_guide.md#module-5-advanced-ai-devops-patterns)
 
 * CI/CD pipeline integration
 * Azure AI services integration
 * Enterprise governance and compliance
 
-### Module 6: [Real-World Implementation](complete_workshop_guide.md#module-6-real-world-implementation)
+### Module 6: [Real-World Implementation](docs/complete_workshop_guide.md#module-6-real-world-implementation)
 
 * GitHub Copilot Coding Agent setup
 * Autonomous development workflows
 * Multi-agent collaboration patterns
 
-### 7️⃣ Production Optimization
+### Module 7: [Production Optimization](docs/complete_workshop_guide.md#module-7-production-optimization)
 
 * Performance monitoring and optimization
 * AI-powered incident response
 * Continuous improvement strategies
 
-### 8️⃣ Hands-On Challenge Labs
+### Module 8: [Hands-On Challenge Labs](docs/complete_workshop_guide.md#module-8-hands-on-challenge-labs)
 
 * Real-world optimization scenarios
 * End-to-end implementation exercises
 * Java and .NET practical examples
 
-### 🧩 Troubleshooting Guide
+### [Troubleshooting Guide](docs/troubleshooting_guide.md)
 
 * Common setup issues and solutions
 * Advanced debugging techniques
