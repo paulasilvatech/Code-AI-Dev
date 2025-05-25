@@ -31,8 +31,8 @@ print_error() {
 
 # Workshop configuration - standardized names and settings
 WORKSHOP_PREFIX="aidevops"
-# Região padrão recomendada
-LOCATION="East US 2"  # Região alterada para garantir suporte a SQL Server
+# Região será definida automaticamente após validação
+LOCATION=""
 RESOURCE_GROUP_NAME="${WORKSHOP_PREFIX}-workshop-rg"
 SQL_SERVER_NAME="${WORKSHOP_PREFIX}-sql-server-$(date +%s)"
 SQL_DATABASE_NAME="${WORKSHOP_PREFIX}-workshop-db"
