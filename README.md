@@ -129,23 +129,6 @@ The workshop is organized into progressive modules, allowing you to choose the d
 * Basic understanding of software development
 * Familiarity with either Java or C# programming
 
-## 🛠️ Getting Started
-
-1. **Fork and Clone this Repository**
-   ```bash
-   git clone https://github.com/YourUsername/Code-AI-Dev.git
-   cd Code-AI-Dev
-   ```
-
-2. **Register for Workshop Access**
-   * Visit [code-ai.dev](https://code-ai.dev) to register
-   * Set up GitHub Copilot access
-
-3. **Follow the Workshop Structure**
-   * Start with Foundation to AI-Assisted Development
-   * Progress through the modules based on your experience level
-   * Use the Troubleshooting Guide if needed
-
 ## 🌟 Key Features
 
 * **AI-Enhanced Development**: Learn to implement GitHub Copilot for intelligent code optimization
@@ -153,10 +136,6 @@ The workshop is organized into progressive modules, allowing you to choose the d
 * **Real-World Scenarios**: Practice with authentic production-like challenges
 * **Progressive Learning**: Start from basics and advance to enterprise-scale solutions
 * **Agentic Workflows**: Use AI agents to automate development processes
-
-## 📱 Connect With Us
-
-* **Official Website**: [code-ai.dev](https://code-ai.dev)
 
 ## 🔗 Related Repositories
 
