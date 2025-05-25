@@ -18,6 +18,8 @@
 - 🤖 **AI-First Approach:** GitHub Copilot as your development partner
 - 📈 **Measurable Outcomes:** 50-70% productivity improvement
 
+> **🤔 Questions?** Check our comprehensive [Workshop FAQ](workshop-faq.md) covering everything from AI ethics to technical troubleshooting!
+
 ## 📁 Workshop Resources Overview
 
 > **🔧 All automation scripts, code examples, and templates are available in the `/resources` directory**
@@ -805,6 +807,13 @@ pie title Developer Time Distribution
 
 ### 🚀 Hands-On Exercise 1: Your First AI-Generated Code (20 minutes)
 
+> **👨‍🏫 Workshop Facilitator Note:**
+> - Participants WILL get different code suggestions - this is expected!
+> - Prepare to explain AI variability (it's a feature, not a bug)
+> - Emphasize that different implementations are learning opportunities
+> - Have the reference implementation ready to share if needed
+> - Encourage participants to share their variations with the group
+
 ### 🎯 1.1 Create Your First AI-Assisted Code
 
 > ⏱️ **Time Required:** 10 minutes
@@ -972,6 +981,15 @@ To ensure everyone gets similar results:
 - ✅ Working test/main method
 
 > 💡 **Pro Tip:** If Copilot generates significantly different code, use it as a learning opportunity to understand different implementation approaches!
+
+#### ❓ Common Questions About This Exercise
+
+> **📚 Having questions about AI variability?** Check our comprehensive [Workshop FAQ](workshop-faq.md#workshop-exercise-questions) for answers to:
+> - Why your code differs from others
+> - Whether different implementations are correct
+> - How to evaluate AI-generated code quality
+> - When to modify vs. keep AI suggestions
+> - And many more common concerns!
 
 #### 📚 Reference Implementation
 

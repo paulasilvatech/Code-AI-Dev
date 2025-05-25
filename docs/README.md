@@ -28,6 +28,7 @@ The documentation provides a complete learning framework for AI-assisted develop
 | [🏗️ Complete Workshop](complete_workshop_guide.md) | Comprehensive hands-on implementation | 90+ minutes | All levels |
 | [🆘 Troubleshooting](troubleshooting_guide.md) | Problem resolution and diagnostics | As needed | All participants |
 | [🏢 Workshop Structure](workshop_structure.md) | Instructor guide and facilitation | Variable | Instructors/Facilitators |
+| [🤔 Workshop FAQ](workshop-faq.md) | Comprehensive Q&A for all topics | As needed | All participants |
 
 ### 🎯 Learning Paths
 
