@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - AI Code Development Workshop</title>
+    <link rel="icon" type="image/png" href="static/img/favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="static/css/documentation.css">
+    <style>
+        .faq-section {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--primary-blue);
+        }
+        
+        body.dark-theme .faq-question {
+            color: var(--primary-blue-light);
+        }
+        
+        .faq-answer {
+            margin-bottom: var(--spacing-md);
+            padding-left: var(--spacing-md);
+            border-left: 3px solid var(--light-border);
+        }
+        
+        body.dark-theme .faq-answer {
+            border-left-color: var(--dark-border);
+        }
+        
+        .faq-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-sm) 0 var(--spacing-md);
+        }
+        
+        .faq-table th, .faq-table td {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border: 1px solid var(--light-border);
+            text-align: left;
+        }
+        
+        body.dark-theme .faq-table th, 
+        body.dark-theme .faq-table td {
+            border-color: var(--dark-border);
+        }
+        
+        .faq-table th {
+            background-color: var(--light-surface);
+            font-weight: 600;
+        }
+        
+        body.dark-theme .faq-table th {
+            background-color: var(--dark-surface);
+        }
+        
+        .emoji {
+            margin-right: var(--spacing-xs);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="static/img/logo.png" alt="AI Code Development Logo">
+                    <span class="logo-text">AI Code Development</span>
+                </a>
+                <div class="nav-links">
+                    <a href="vision.html" class="nav-link">Workshop Vision</a>
+                    <a href="differentiators.html" class="nav-link">Key Differentiators</a>
+                    <a href="workshop-levels.html" class="nav-link">Workshop Levels</a>
+                    <a href="prerequisites.html" class="nav-link">Prerequisites</a>
+                    <a href="resources.html" class="nav-link">Resources</a>
+                    <a href="faq.html" class="nav-link active">FAQ</a>
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="nav-link">GitHub</a>
+                </div>
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="documentation-layout">
+        <aside class="left-sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Workshop Vision & Differentiators</h3>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="vision.html" class="sidebar-nav-link">Workshop Vision</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="differentiators.html" class="sidebar-nav-link">Key Differentiators</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Implementation Guide</h3>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="workshop-levels.html" class="sidebar-nav-link">Workshop Levels</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="prerequisites.html" class="sidebar-nav-link">Prerequisites</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Resources</h3>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="resources.html" class="sidebar-nav-link">Documentation</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="faq.html" class="sidebar-nav-link active">FAQ</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="sidebar-nav-link">GitHub Repository</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="breadcrumb">
+                <a href="index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item">Resources</span>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item">Frequently Asked Questions</span>
+            </div>
+
+            <h1 class="page-title">Frequently Asked Questions</h1>
+
+            <div class="content-section">
+                <p class="content-text">
+                    This FAQ addresses common questions about AI-powered development, GitHub Copilot, workshop exercises, technical issues, ethical concerns, enterprise considerations, and career development. Use the navigation on the right to jump to specific sections.
+                </p>
+            </div>
+
+            <div class="content-section" id="general-ai">
+                <h2 class="content-title"><span class="emoji">🤖</span> General AI Development Questions</h2>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "Is AI going to replace developers?"</h3>
+                    <div class="faq-answer">
+                        <p>No! AI is a tool that amplifies developer capabilities, not replaces them. Think of it like:</p>
+                        <ul>
+                            <li>🔨 A power drill doesn't replace carpenters, it makes them more efficient</li>
+                            <li>🤖 AI handles repetitive tasks so you can focus on creative problem-solving</li>
+                            <li>🧠 You still need to understand the code, architecture, and business logic</li>
+                            <li>✅ AI suggestions need human review, context, and decision-making</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "How accurate is AI-generated code?"</h3>
+                    <div class="faq-answer">
+                        <p>AI accuracy varies significantly:</p>
+                        <ul>
+                            <li>✅ <strong>High accuracy (80-90%)</strong>: Common patterns, standard algorithms, boilerplate code</li>
+                            <li>⚠️ <strong>Medium accuracy (50-70%)</strong>: Business logic, complex algorithms, domain-specific code</li>
+                            <li>❌ <strong>Low accuracy (20-40%)</strong>: Cutting-edge tech, proprietary systems, highly specific requirements</li>
+                            <li>🔍 <strong>Always review</strong>: Never trust AI blindly - always review and test generated code</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "Can I use AI-generated code in production?"</h3>
+                    <div class="faq-answer">
+                        <p>Yes, but with important considerations:</p>
+                        <ul>
+                            <li>✅ Always review and understand the code before using it</li>
+                            <li>✅ Test thoroughly - AI doesn't guarantee bug-free code</li>
+                            <li>✅ Check licensing and compliance requirements</li>
+                            <li>✅ Ensure code meets your organization's standards</li>
+                            <li>⚠️ Be extra careful with security-sensitive code</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" id="github-copilot">
+                <h2 class="content-title"><span class="emoji">💻</span> GitHub Copilot Specific Questions</h2>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "Why is my Copilot suggestion different from my colleague's?"</h3>
+                    <div class="faq-answer">
+                        <p>GitHub Copilot's variability is due to several factors:</p>
+                        <table class="faq-table">
+                            <tr>
+                                <th>Factor</th>
+                                <th>Impact</th>
+                                <th>Example</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Context</strong></td>
+                                <td>Different open files = different suggestions</td>
+                                <td>Having a test file open might generate test-focused code</td>
+                            </tr>
+                            <tr>
+                                <td><strong>History</strong></td>
+                                <td>Your recent edits influence suggestions</td>
+                                <td>If you just wrote Java code, Copilot might favor Java patterns</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Model Version</strong></td>
+                                <td>Copilot updates regularly</td>
+                                <td>Newer versions might suggest different patterns</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Randomness</strong></td>
+                                <td>AI has inherent non-determinism</td>
+                                <td>Same prompt can yield variations</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Settings</strong></td>
+                                <td>IDE and Copilot configurations</td>
+                                <td>Temperature settings affect creativity vs consistency</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "Copilot isn't giving me any suggestions. What's wrong?"</h3>
+                    <div class="faq-answer">
+                        <p>Common troubleshooting steps:</p>
+                        <ol>
+                            <li><strong>Check connection</strong>: Ensure you're connected to the internet</li>
+                            <li><strong>Verify authentication</strong>: Look for Copilot icon in status bar</li>
+                            <li><strong>Check subscription</strong>: Ensure your trial/subscription is active</li>
+                            <li><strong>File type</strong>: Copilot works best with common programming languages</li>
+                            <li><strong>Restart VS Code</strong>: Sometimes a simple restart helps</li>
+                            <li><strong>Check firewall</strong>: Corporate firewalls might block Copilot</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "Is Copilot learning from my code?"</h3>
+                    <div class="faq-answer">
+                        <p>No, GitHub Copilot:</p>
+                        <ul>
+                            <li>❌ Does NOT train on your private code</li>
+                            <li>❌ Does NOT send your code to train the model</li>
+                            <li>✅ Uses pre-trained models from public code</li>
+                            <li>✅ Processes your code locally for context only</li>
+                            <li>🔒 Your code remains private and secure</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "Can I use Copilot for any programming language?"</h3>
+                    <div class="faq-answer">
+                        <p>Copilot supports many languages with varying effectiveness:</p>
+                        <ul>
+                            <li><strong>🟢 Excellent</strong>: JavaScript, Python, TypeScript, Java, C#, Go, Ruby</li>
+                            <li><strong>🟡 Good</strong>: C++, PHP, Swift, Kotlin, Rust, SQL</li>
+                            <li><strong>🟠 Limited</strong>: Haskell, Scala, R, MATLAB, Assembly</li>
+                            <li><strong>🔴 Minimal</strong>: Proprietary or rare languages</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" id="workshop-exercises">
+                <h2 class="content-title"><span class="emoji">📝</span> Workshop Exercise Questions</h2>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "My Calculator code looks nothing like the example. Is it wrong?"</h3>
+                    <div class="faq-answer">
+                        <p>Not necessarily! Check if your code:</p>
+                        <ul>
+                            <li>✅ Has all four operations (add, subtract, multiply, divide)</li>
+                            <li>✅ Handles division by zero</li>
+                            <li>✅ Compiles without errors</li>
+                            <li>✅ Produces correct results</li>
+                        </ul>
+                        <p>If yes to all, your code is fine! Different implementations teach us different approaches.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "The string optimization exercise shows minimal improvement. Why?"</h3>
+                    <div class="faq-answer">
+                        <p>Performance improvements depend on:</p>
+                        <ul>
+                            <li><strong>Dataset size</strong>: Small datasets (10 items) show minimal difference</li>
+                            <li><strong>JVM/Runtime optimization</strong>: Modern runtimes optimize simple cases</li>
+                            <li><strong>Measurement precision</strong>: Nanosecond measurements can be noisy</li>
+                            <li><strong>Hardware</strong>: Different machines show different results</li>
+                        </ul>
+                        <p>Try with 10,000+ items to see dramatic differences!</p>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "The SQL injection example seems unrealistic. Do developers really write code like that?"</h3>
+                    <div class="faq-answer">
+                        <p>Unfortunately, yes:</p>
+                        <ul>
+                            <li>📊 <strong>OWASP Top 10</strong>: SQL injection remains a top vulnerability</li>
+                            <li>🏢 <strong>Legacy code</strong>: Many systems still have vulnerable code</li>
+                            <li>🚀 <strong>Rushed development</strong>: Time pressure leads to shortcuts</li>
+                            <li>📚 <strong>Education gaps</strong>: Not all developers learn secure coding</li>
+                        </ul>
+                        <p>This exercise teaches you to recognize and fix these issues!</p>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "Why do we need to validate input twice (client and server)?"</h3>
+                    <div class="faq-answer">
+                        <p>Defense in depth principle:</p>
+                        <ul>
+                            <li>🖥️ <strong>Client validation</strong>: Better user experience, immediate feedback</li>
+                            <li>🔒 <strong>Server validation</strong>: Security (client validation can be bypassed)</li>
+                            <li>🛡️ <strong>Never trust the client</strong>: Attackers can modify client-side code</li>
+                            <li>✅ <strong>Best practice</strong>: Always validate on the server, optionally on client</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" id="technical-issues">
+                <h2 class="content-title"><span class="emoji">🔧</span> Technical Issues and Troubleshooting</h2>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "My Azure resources creation failed. What should I do?"</h3>
+                    <div class="faq-answer">
+                        <p>Common issues and solutions:</p>
+                        <table class="faq-table">
+                            <tr>
+                                <th>Error</th>
+                                <th>Cause</th>
+                                <th>Solution</th>
+                            </tr>
+                            <tr>
+                                <td><strong>"Subscription not found"</strong></td>
+                                <td>Wrong subscription selected</td>
+                                <td>Run <code>az account set --subscription &lt;n&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>"Name already exists"</strong></td>
+                                <td>Resource name taken</td>
+                                <td>Script adds timestamp, try again</td>
+                            </tr>
+                            <tr>
+                                <td><strong>"Quota exceeded"</strong></td>
+                                <td>Subscription limits</td>
+                                <td>Use a different region or contact Azure support</td>
+                            </tr>
+                            <tr>
+                                <td><strong>"Region not available"</strong></td>
+                                <td>Service not in region</td>
+                                <td>Script auto-selects compatible region</td>
+                            </tr>
+                            <tr>
+                                <td><strong>"Insufficient permissions"</strong></td>
+                                <td>Not enough rights</td>
+                                <td>Need Contributor role on subscription</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "The workshop files are in the wrong encoding/have strange characters"</h3>
+                    <div class="faq-answer">
+                        <p>File encoding issues:</p>
+                        <ul>
+                            <li>Ensure UTF-8 encoding in your editor</li>
+                            <li>On Windows, check for BOM (Byte Order Mark)</li>
+                            <li>Use <code>dos2unix</code> for line ending issues</li>
+                            <li>Clone with <code>git config core.autocrlf false</code></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "My Java/C# environment isn't working correctly"</h3>
+                    <div class="faq-answer">
+                        <p>Environment checklist:</p>
+                        <ul>
+                            <li>✅ Correct version installed (Java 17+, .NET 6+)</li>
+                            <li>✅ PATH environment variable set</li>
+                            <li>✅ JAVA_HOME (for Java) configured</li>
+                            <li>✅ IDE recognizes the SDK</li>
+                            <li>✅ Restart terminal/IDE after installation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" id="ethical-concerns">
+                <h2 class="content-title"><span class="emoji">🤔</span> Ethical and Professional Concerns</h2>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "Is it cheating to use AI for coding?"</h3>
+                    <div class="faq-answer">
+                        <p>No, it's tool adoption:</p>
+                        <ul>
+                            <li>🛠️ Using AI is like using an IDE instead of notepad</li>
+                            <li>📚 You still need to understand the code</li>
+                            <li>🎓 Many universities and companies encourage AI tool usage</li>
+                            <li>✅ The key is understanding, not just copying</li>
+                            <li>🏢 Most modern companies expect AI tool proficiency</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "What about code ownership and licensing?"</h3>
+                    <div class="faq-answer">
+                        <p>Important considerations:</p>
+                        <ul>
+                            <li><strong>Your code</strong>: You own code you write with AI assistance</li>
+                            <li><strong>AI suggestions</strong>: Based on patterns from public code</li>
+                            <li><strong>License compliance</strong>: You're responsible for ensuring compliance</li>
+                            <li><strong>Attribution</strong>: Not required for AI assistance</li>
+                            <li><strong>Company policy</strong>: Check your organization's AI usage policy</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "How do I know if AI-generated code is plagiarized?"</h3>
+                    <div class="faq-answer">
+                        <p>AI doesn't copy-paste, but:</p>
+                        <ul>
+                            <li>🔍 AI learns patterns from public code</li>
+                            <li>📝 Common patterns might match existing code</li>
+                            <li>✅ Run code through plagiarism checkers if concerned</li>
+                            <li>🎯 Focus on understanding and adapting, not just using</li>
+                            <li>📚 Add your own comments and modifications</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "Should I mention AI assistance in code reviews?"</h3>
+                    <div class="faq-answer">
+                        <p>Best practices:</p>
+                        <ul>
+                            <li>✅ Be transparent with your team</li>
+                            <li>📝 Focus on code quality, not generation method</li>
+                            <li>🔍 Ensure you can explain every line</li>
+                            <li>🤝 Follow team/company guidelines</li>
+                            <li>💡 Share AI techniques that helped</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" id="enterprise-security">
+                <h2 class="content-title"><span class="emoji">🏢</span> Enterprise and Security Questions</h2>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "Is GitHub Copilot safe for enterprise use?"</h3>
+                    <div class="faq-answer">
+                        <p>Enterprise considerations:</p>
+                        <table class="faq-table">
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Details</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Privacy</strong></td>
+                                <td>Code processed locally, not stored</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Compliance</strong></td>
+                                <td>SOC 2 Type 2 certified</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Network</strong></td>
+                                <td>Works behind corporate firewalls</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Control</strong></td>
+                                <td>Admins can manage access and settings</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Audit</strong></td>
+                                <td>Usage can be monitored and reported</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "What about sensitive code and secrets?"</h3>
+                    <div class="faq-answer">
+                        <p>Security best practices:</p>
+                        <ul>
+                            <li>❌ Never put secrets in code (with or without AI)</li>
+                            <li>✅ Use environment variables or secret managers</li>
+                            <li>✅ Configure .gitignore properly</li>
+                            <li>✅ Review AI suggestions for accidental secrets</li>
+                            <li>🔒 Use tools like git-secrets for scanning</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "Can we use the workshop's Azure resources for real projects?"</h3>
+                    <div class="faq-answer">
+                        <p>No! Workshop resources are:</p>
+                        <ul>
+                            <li>🧪 For learning only</li>
+                            <li>💰 Not optimized for cost</li>
+                            <li>🔓 Using default passwords</li>
+                            <li>⚠️ Missing production security</li>
+                            <li>🗑️ Should be deleted after workshop</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "How do we implement AI development at scale?"</h3>
+                    <div class="faq-answer">
+                        <p>Enterprise adoption strategy:</p>
+                        <ol>
+                            <li><strong>Pilot</strong>: Start with small team</li>
+                            <li><strong>Measure</strong>: Track productivity metrics</li>
+                            <li><strong>Train</strong>: Develop best practices</li>
+                            <li><strong>Expand</strong>: Roll out gradually</li>
+                            <li><strong>Govern</strong>: Establish policies and guidelines</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" id="learning-career">
+                <h2 class="content-title"><span class="emoji">📚</span> Learning Path and Career Questions</h2>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "What should I learn after this workshop?"</h3>
+                    <div class="faq-answer">
+                        <p>Recommended learning path:</p>
+                        <table class="faq-table">
+                            <tr>
+                                <th>Level</th>
+                                <th>Focus</th>
+                                <th>Resources</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Next Week</strong></td>
+                                <td>Practice daily with Copilot</td>
+                                <td>Use on real projects</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Month 1</strong></td>
+                                <td>Advanced Copilot features</td>
+                                <td>Copilot Chat, workspace commands</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Month 2</strong></td>
+                                <td>Other AI tools</td>
+                                <td>Cursor, Codeium, Amazon CodeWhisperer</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Month 3</strong></td>
+                                <td>AI integration</td>
+                                <td>CI/CD with AI, automated testing</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ongoing</strong></td>
+                                <td>Stay updated</td>
+                                <td>Follow AI development news</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "Will AI development skills help my career?"</h3>
+                    <div class="faq-answer">
+                        <p>Absolutely! Market demand:</p>
+                        <ul>
+                            <li>📈 <strong>75% of developers</strong> will use AI by 2028 (Gartner)</li>
+                            <li>💰 <strong>Higher salaries</strong> for AI-skilled developers</li>
+                            <li>🚀 <strong>Faster career growth</strong> with modern skills</li>
+                            <li>🏢 <strong>Company requirement</strong> at many organizations</li>
+                            <li>🌟 <strong>Competitive advantage</strong> in job market</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "How do I convince my team/manager to adopt AI tools?"</h3>
+                    <div class="faq-answer">
+                        <p>Building the business case:</p>
+                        <ol>
+                            <li><strong>Start small</strong>: Personal productivity gains</li>
+                            <li><strong>Measure impact</strong>: Track time saved</li>
+                            <li><strong>Share successes</strong>: Demo to team</li>
+                            <li><strong>Address concerns</strong>: Security, cost, accuracy</li>
+                            <li><strong>Propose pilot</strong>: Limited trial with metrics</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Q: "What if my company doesn't allow AI tools?"</h3>
+                    <div class="faq-answer">
+                        <p>Alternative approaches:</p>
+                        <ul>
+                            <li>🏠 Practice on personal projects</li>
+                            <li>📚 Learn concepts even without tools</li>
+                            <li>🗣️ Advocate for change with data</li>
+                            <li>🔍 Understand company concerns</li>
+                            <li>🚀 Be ready when policy changes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" id="support">
+                <h2 class="content-title"><span class="emoji">🆘</span> Still Have Questions?</h2>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">Workshop Support Channels</h3>
+                    <div class="faq-answer">
+                        <table class="faq-table">
+                            <tr>
+                                <th>Channel</th>
+                                <th>Purpose</th>
+                                <th>Response Time</th>
+                            </tr>
+                            <tr>
+                                <td><strong>GitHub Issues</strong></td>
+                                <td>Technical problems</td>
+                                <td>24-48 hours</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Workshop Chat</strong></td>
+                                <td>Live questions during workshop</td>
+                                <td>Immediate</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Email Support</strong></td>
+                                <td>Detailed questions</td>
+                                <td>2-3 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Community Forum</strong></td>
+                                <td>Peer discussions</td>
+                                <td>Community-driven</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3 class="faq-question">How to Ask Good Questions</h3>
+                    <div class="faq-answer">
+                        <ol>
+                            <li><strong>Be specific</strong>: Include error messages, code snippets</li>
+                            <li><strong>Show effort</strong>: Explain what you've tried</li>
+                            <li><strong>Provide context</strong>: OS, versions, environment</li>
+                            <li><strong>One issue</strong>: Focus on single problem</li>
+                            <li><strong>Be patient</strong>: Everyone is learning!</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <p class="content-text">
+                        <em>Note: This FAQ is continuously updated based on workshop feedback. Last updated: January 2024</em>
+                    </p>
+                    <p class="content-text">
+                        <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="breadcrumb-link">Go to GitHub Repository</a>
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="sidebar-section">
+                <h3 class="right-sidebar-title">On This Page</h3>
+                <ul class="right-sidebar-links">
+                    <li><a href="#general-ai" class="right-sidebar-link">General AI Development</a></li>
+                    <li><a href="#github-copilot" class="right-sidebar-link">GitHub Copilot</a></li>
+                    <li><a href="#workshop-exercises" class="right-sidebar-link">Workshop Exercises</a></li>
+                    <li><a href="#technical-issues" class="right-sidebar-link">Technical Issues</a></li>
+                    <li><a href="#ethical-concerns" class="right-sidebar-link">Ethical Concerns</a></li>
+                    <li><a href="#enterprise-security" class="right-sidebar-link">Enterprise & Security</a></li>
+                    <li><a href="#learning-career" class="right-sidebar-link">Learning & Career</a></li>
+                    <li><a href="#support" class="right-sidebar-link">Support Channels</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="right-sidebar-title">Related Topics</h3>
+                <ul class="right-sidebar-links">
+                    <li><a href="workshop-levels.html" class="right-sidebar-link">Workshop Levels</a></li>
+                    <li><a href="prerequisites.html" class="right-sidebar-link">Prerequisites</a></li>
+                    <li><a href="resources.html" class="right-sidebar-link">Resources</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="right-sidebar-title">Get Started</h3>
+                <ul class="right-sidebar-links">
+                    <li><a href="https://github.com/paulasilvatech/Code-AI-Dev" class="right-sidebar-link">GitHub Repository</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="static/img/logo.png" alt="AI Code Development Logo">
+                    <span>AI Code Development Workshop</span>
+                </div>
+                <div class="footer-links">
+                    <a href="vision.html" class="footer-link">Workshop Vision</a>
+                    <a href="differentiators.html" class="footer-link">Key Differentiators</a>
+                    <a href="workshop-levels.html" class="footer-link">Workshop Levels</a>
+                    <a href="prerequisites.html" class="footer-link">Prerequisites</a>
+                    <a href="resources.html" class="footer-link">Resources</a>
+                    <a href="faq.html" class="footer-link">FAQ</a>
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="footer-link">GitHub Repository</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 AI Code Development Workshop. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            body.classList.add('dark-theme');
+        }
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+        
+        // Mobile navigation toggle
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const leftSidebar = document.querySelector('.left-sidebar');
+        
+        mobileNavToggle.addEventListener('click', () => {
+            leftSidebar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

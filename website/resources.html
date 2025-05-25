@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - AI Code Development Workshop</title>
+    <link rel="icon" type="image/png" href="static/img/favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="static/css/documentation.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="static/img/logo.png" alt="AI Code Development Logo">
+                    <span class="logo-text">AI Code Development</span>
+                </a>
+                <div class="nav-links">
+                    <a href="vision.html" class="nav-link">Workshop Vision</a>
+                    <a href="differentiators.html" class="nav-link">Key Differentiators</a>
+                    <a href="workshop-levels.html" class="nav-link">Workshop Levels</a>
+                    <a href="prerequisites.html" class="nav-link">Prerequisites</a>
+                    <a href="resources.html" class="nav-link active">Resources</a>
+                    <a href="faq.html" class="nav-link">FAQ</a>
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="nav-link">GitHub</a>
+                </div>
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="documentation-layout">
+        <aside class="left-sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Workshop Vision & Differentiators</h3>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="vision.html" class="sidebar-nav-link">Workshop Vision</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="differentiators.html" class="sidebar-nav-link">Key Differentiators</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Implementation Guide</h3>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="workshop-levels.html" class="sidebar-nav-link">Workshop Levels</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="prerequisites.html" class="sidebar-nav-link">Prerequisites</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Resources</h3>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="resources.html" class="sidebar-nav-link active">Documentation</a>
+                        <ul class="sidebar-nav">
+                            <li class="sidebar-nav-subitem">
+                                <a href="#official-docs" class="sidebar-nav-link">Official Documentation</a>
+                            </li>
+                            <li class="sidebar-nav-subitem">
+                                <a href="#guides" class="sidebar-nav-link">Implementation Guides</a>
+                            </li>
+                            <li class="sidebar-nav-subitem">
+                                <a href="#reference" class="sidebar-nav-link">Reference Diagrams</a>
+                            </li>
+                            <li class="sidebar-nav-subitem">
+                                <a href="#code-samples" class="sidebar-nav-link">Code Samples</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="faq.html" class="sidebar-nav-link">FAQ</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="sidebar-nav-link">GitHub Repository</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="breadcrumb">
+                <a href="index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item">Resources</span>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item">Documentation</span>
+            </div>
+
+            <h1 class="page-title">Comprehensive Documentation</h1>
+
+            <div class="content-section">
+                <p class="content-text">
+                    Our documentation provides detailed guidance for implementing and using AI-assisted development tools and practices. From getting started guides to advanced reference materials, you'll find everything you need to successfully integrate AI into your development workflow.
+                </p>
+            </div>
+
+            <div class="content-section" id="official-docs">
+                <h2 class="content-title">Official Documentation</h2>
+                
+                <div class="card-grid">
+                    <div class="documentation-card">
+                        <h3 class="card-title">GitHub Copilot Documentation</h3>
+                        <p class="card-description">
+                            Official documentation for GitHub Copilot, including setup guides, usage tips, and best practices.
+                        </p>
+                        <ul class="card-links">
+                            <li><a href="https://docs.github.com/en/copilot" class="card-link">GitHub Copilot Docs</a></li>
+                            <li><a href="https://docs.github.com/en/copilot/getting-started-with-github-copilot" class="card-link">Getting Started Guide</a></li>
+                            <li><a href="https://docs.github.com/en/copilot/configuring-github-copilot" class="card-link">Configuration Options</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="documentation-card">
+                        <h3 class="card-title">Azure AI Documentation</h3>
+                        <p class="card-description">
+                            Resources for Azure AI services used in the workshop, including Azure OpenAI Service and Azure AI Studio.
+                        </p>
+                        <ul class="card-links">
+                            <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/" class="card-link">Azure AI Services Overview</a></li>
+                            <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/" class="card-link">Azure OpenAI Service</a></li>
+                            <li><a href="https://learn.microsoft.com/en-us/azure/ai-studio/" class="card-link">Azure AI Studio</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="documentation-card">
+                        <h3 class="card-title">Workshop Documentation</h3>
+                        <p class="card-description">
+                            Comprehensive documentation specific to the AI Code Development Workshop.
+                        </p>
+                        <ul class="card-links">
+                            <li><a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/README.md" class="card-link">Workshop Overview</a></li>
+                            <li><a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/docs/ai-dev-introduction.md" class="card-link">AI Development Introduction</a></li>
+                            <li><a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/docs/workshop_structure.md" class="card-link">Workshop Structure</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" id="guides">
+                <h2 class="content-title">Implementation Guides</h2>
+                
+                <div class="card-grid">
+                    <div class="documentation-card">
+                        <h3 class="card-title">Developer Guide</h3>
+                        <p class="card-description">
+                            Best practices for developers using AI-assisted development tools in their daily workflow.
+                        </p>
+                        <ul class="card-links">
+                            <li><a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/docs/developer-guide.md" class="card-link">Developer Best Practices</a></li>
+                            <li><a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/docs/prompt-engineering.md" class="card-link">Prompt Engineering Guide</a></li>
+                            <li><a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/docs/code-review-with-ai.md" class="card-link">AI-Assisted Code Review</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="documentation-card">
+                        <h3 class="card-title">Team Implementation Guide</h3>
+                        <p class="card-description">
+                            Step-by-step instructions for implementing AI-assisted development across development teams.
+                        </p>
+                        <ul class="card-links">
+                            <li><a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/docs/team-adoption-guide.md" class="card-link">Team Adoption Strategy</a></li>
+                            <li><a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/docs/measuring-impact.md" class="card-link">Measuring Productivity Impact</a></li>
+                            <li><a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/docs/training-plan.md" class="card-link">Team Training Plan</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="documentation-card">
+                        <h3 class="card-title">Enterprise Deployment Guide</h3>
+                        <p class="card-description">
+                            Comprehensive guide for enterprise-scale deployment of AI-assisted development tools.
+                        </p>
+                        <ul class="card-links">
+                            <li><a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/docs/enterprise-deployment.md" class="card-link">Enterprise Deployment Strategy</a></li>
+                            <li><a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/docs/security-compliance.md" class="card-link">Security and Compliance</a></li>
+                            <li><a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/docs/governance-model.md" class="card-link">Governance Model</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" id="reference">
+                <h2 class="content-title">Reference Diagrams</h2>
+                
+                <div class="reference-diagram">
+                    <h3 class="diagram-title">Multi-Agent System Architecture</h3>
+                    <div class="diagram-container">
+                        <img src="static/img/workshop/multi-agent-architecture-diagram.svg" alt="Multi-Agent System Architecture Diagram" class="diagram-image">
+                    </div>
+                    <p class="diagram-description">
+                        This diagram illustrates the multi-agent system architecture used in enterprise AI-powered development ecosystems. It shows how different specialized agents work together to handle various aspects of the development lifecycle, from coding and testing to security and deployment.
+                    </p>
+                    <p class="diagram-links">
+                        <a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/docs/multi-agent-architecture.md" class="diagram-link">View Documentation</a> | 
+                        <a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/images/multi-agent-architecture-diagram.svg" class="diagram-link">Download SVG</a>
+                    </p>
+                </div>
+                
+                <div class="reference-diagram">
+                    <h3 class="diagram-title">Agentic DevOps Flow</h3>
+                    <div class="diagram-container">
+                        <img src="static/img/workshop/agentic-devops-flow-diagram.svg" alt="Agentic DevOps Flow Diagram" class="diagram-image">
+                    </div>
+                    <p class="diagram-description">
+                        This diagram shows the agentic DevOps workflow, illustrating how AI agents integrate with and enhance traditional DevOps processes. It demonstrates the flow from development through testing, security scanning, deployment, and monitoring with AI assistance at each stage.
+                    </p>
+                    <p class="diagram-links">
+                        <a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/docs/agentic-devops.md" class="diagram-link">View Documentation</a> | 
+                        <a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/images/agentic-devops-flow-diagram.svg" class="diagram-link">Download SVG</a>
+                    </p>
+                </div>
+                
+                <div class="reference-diagram">
+                    <h3 class="diagram-title">Maturity Model</h3>
+                    <div class="diagram-container">
+                        <img src="static/img/maturity-stages-diagram.png" alt="AI Development Maturity Model" class="diagram-image">
+                    </div>
+                    <p class="diagram-description">
+                        This diagram outlines the four stages of AI-assisted development maturity, from basic code completion to fully agentic DevOps. It helps organizations understand their current position and plan their progression to more advanced AI integration.
+                    </p>
+                    <p class="diagram-links">
+                        <a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/docs/maturity-model.md" class="diagram-link">View Documentation</a> | 
+                        <a href="static/img/maturity-stages-diagram.png" class="diagram-link">Download PNG</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-section" id="code-samples">
+                <h2 class="content-title">Code Samples</h2>
+                
+                <div class="code-sample-grid">
+                    <div class="code-sample-card">
+                        <h3 class="code-sample-title">Basic Examples</h3>
+                        <p class="code-sample-description">
+                            Foundational code examples demonstrating basic AI-assisted development techniques.
+                        </p>
+                        <ul class="code-sample-list">
+                            <li class="code-sample-item">
+                                <a href="https://github.com/paulasilvatech/Code-AI-Dev/tree/main/examples/basic/calculator" class="code-sample-link">Calculator Implementation</a>
+                                <span class="code-sample-lang">Python, Java, C#</span>
+                            </li>
+                            <li class="code-sample-item">
+                                <a href="https://github.com/paulasilvatech/Code-AI-Dev/tree/main/examples/basic/string-manipulation" class="code-sample-link">String Manipulation</a>
+                                <span class="code-sample-lang">Python, JavaScript</span>
+                            </li>
+                            <li class="code-sample-item">
+                                <a href="https://github.com/paulasilvatech/Code-AI-Dev/tree/main/examples/basic/data-structures" class="code-sample-link">Data Structures</a>
+                                <span class="code-sample-lang">Python, Java, TypeScript</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="code-sample-card">
+                        <h3 class="code-sample-title">Intermediate Examples</h3>
+                        <p class="code-sample-description">
+                            More complex examples showcasing integration with cloud services and APIs.
+                        </p>
+                        <ul class="code-sample-list">
+                            <li class="code-sample-item">
+                                <a href="https://github.com/paulasilvatech/Code-AI-Dev/tree/main/examples/intermediate/azure-function" class="code-sample-link">Azure Functions</a>
+                                <span class="code-sample-lang">C#, JavaScript</span>
+                            </li>
+                            <li class="code-sample-item">
+                                <a href="https://github.com/paulasilvatech/Code-AI-Dev/tree/main/examples/intermediate/api-integration" class="code-sample-link">API Integration</a>
+                                <span class="code-sample-lang">Python, TypeScript</span>
+                            </li>
+                            <li class="code-sample-item">
+                                <a href="https://github.com/paulasilvatech/Code-AI-Dev/tree/main/examples/intermediate/database-access" class="code-sample-link">Database Access</a>
+                                <span class="code-sample-lang">C#, Python, SQL</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="code-sample-card">
+                        <h3 class="code-sample-title">Advanced Examples</h3>
+                        <p class="code-sample-description">
+                            Sophisticated examples demonstrating advanced AI-assisted development techniques.
+                        </p>
+                        <ul class="code-sample-list">
+                            <li class="code-sample-item">
+                                <a href="https://github.com/paulasilvatech/Code-AI-Dev/tree/main/examples/advanced/microservices" class="code-sample-link">Microservices Architecture</a>
+                                <span class="code-sample-lang">C#, Docker, Kubernetes</span>
+                            </li>
+                            <li class="code-sample-item">
+                                <a href="https://github.com/paulasilvatech/Code-AI-Dev/tree/main/examples/advanced/infrastructure-as-code" class="code-sample-link">Infrastructure as Code</a>
+                                <span class="code-sample-lang">Terraform, ARM Templates</span>
+                            </li>
+                            <li class="code-sample-item">
+                                <a href="https://github.com/paulasilvatech/Code-AI-Dev/tree/main/examples/advanced/ci-cd-pipelines" class="code-sample-link">CI/CD Pipelines</a>
+                                <span class="code-sample-lang">YAML, GitHub Actions</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="code-sample-card">
+                        <h3 class="code-sample-title">Enterprise Examples</h3>
+                        <p class="code-sample-description">
+                            Enterprise-grade examples for large-scale AI-assisted development implementation.
+                        </p>
+                        <ul class="code-sample-list">
+                            <li class="code-sample-item">
+                                <a href="https://github.com/paulasilvatech/Code-AI-Dev/tree/main/examples/enterprise/multi-agent-system" class="code-sample-link">Multi-Agent System</a>
+                                <span class="code-sample-lang">Python, TypeScript</span>
+                            </li>
+                            <li class="code-sample-item">
+                                <a href="https://github.com/paulasilvatech/Code-AI-Dev/tree/main/examples/enterprise/governance" class="code-sample-link">Governance Framework</a>
+                                <span class="code-sample-lang">PowerShell, YAML</span>
+                            </li>
+                            <li class="code-sample-item">
+                                <a href="https://github.com/paulasilvatech/Code-AI-Dev/tree/main/examples/enterprise/security-compliance" class="code-sample-link">Security & Compliance</a>
+                                <span class="code-sample-lang">C#, PowerShell, Policies</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Additional Resources</h2>
+                
+                <div class="additional-resources">
+                    <div class="resource-category">
+                        <h3 class="resource-category-title">Learning Resources</h3>
+                        <ul class="resource-list">
+                            <li class="resource-item">
+                                <a href="https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-openai/" class="resource-link">Microsoft Learn: Develop AI solutions with Azure OpenAI Service</a>
+                            </li>
+                            <li class="resource-item">
+                                <a href="https://github.blog/2023-05-17-how-to-write-better-prompts-for-github-copilot/" class="resource-link">GitHub Blog: How to write better prompts for GitHub Copilot</a>
+                            </li>
+                            <li class="resource-item">
+                                <a href="https://learn.microsoft.com/en-us/azure/developer/github/copilot/overview" class="resource-link">Microsoft Learn: GitHub Copilot for Azure Developers</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-category">
+                        <h3 class="resource-category-title">Community Resources</h3>
+                        <ul class="resource-list">
+                            <li class="resource-item">
+                                <a href="https://github.com/features/copilot/resources" class="resource-link">GitHub Copilot Resources</a>
+                            </li>
+                            <li class="resource-item">
+                                <a href="https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/bg-p/AIBlog" class="resource-link">Microsoft AI Blog</a>
+                            </li>
+                            <li class="resource-item">
+                                <a href="https://github.com/orgs/community/discussions/categories/copilot" class="resource-link">GitHub Copilot Community Discussions</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-category">
+                        <h3 class="resource-category-title">Tools & Extensions</h3>
+                        <ul class="resource-list">
+                            <li class="resource-item">
+                                <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot" class="resource-link">GitHub Copilot Extension for VS Code</a>
+                            </li>
+                            <li class="resource-item">
+                                <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat" class="resource-link">GitHub Copilot Chat Extension</a>
+                            </li>
+                            <li class="resource-item">
+                                <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions" class="resource-link">Azure Functions Extension</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="get-started-section">
+                    <h3 class="get-started-title">Ready to Get Started?</h3>
+                    <p class="get-started-text">
+                        Access all workshop materials, code samples, and documentation in the official GitHub repository.
+                    </p>
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="get-started-button">Go to GitHub Repository</a>
+                </div>
+            </div>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="sidebar-section">
+                <h3 class="right-sidebar-title">On This Page</h3>
+                <ul class="right-sidebar-links">
+                    <li><a href="#official-docs" class="right-sidebar-link">Official Documentation</a></li>
+                    <li><a href="#guides" class="right-sidebar-link">Implementation Guides</a></li>
+                    <li><a href="#reference" class="right-sidebar-link">Reference Diagrams</a></li>
+                    <li><a href="#code-samples" class="right-sidebar-link">Code Samples</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="right-sidebar-title">Related Topics</h3>
+                <ul class="right-sidebar-links">
+                    <li><a href="workshop-levels.html" class="right-sidebar-link">Workshop Levels</a></li>
+                    <li><a href="prerequisites.html" class="right-sidebar-link">Prerequisites</a></li>
+                    <li><a href="faq.html" class="right-sidebar-link">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="right-sidebar-title">Get Started</h3>
+                <ul class="right-sidebar-links">
+                    <li><a href="https://github.com/paulasilvatech/Code-AI-Dev" class="right-sidebar-link">GitHub Repository</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="static/img/logo.png" alt="AI Code Development Logo">
+                    <span>AI Code Development Workshop</span>
+                </div>
+                <div class="footer-links">
+                    <a href="vision.html" class="footer-link">Workshop Vision</a>
+                    <a href="differentiators.html" class="footer-link">Key Differentiators</a>
+                    <a href="workshop-levels.html" class="footer-link">Workshop Levels</a>
+                    <a href="prerequisites.html" class="footer-link">Prerequisites</a>
+                    <a href="resources.html" class="footer-link">Resources</a>
+                    <a href="faq.html" class="footer-link">FAQ</a>
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="footer-link">GitHub Repository</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 AI Code Development Workshop. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            body.classList.add('dark-theme');
+        }
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+        
+        // Mobile navigation toggle
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const leftSidebar = document.querySelector('.left-sidebar');
+        
+        mobileNavToggle.addEventListener('click', () => {
+            leftSidebar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

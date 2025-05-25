@@ -1,0 +1,16 @@
+# GitHub Pages configuration
+# This file helps configure how GitHub Pages serves the static site
+
+# Exclude files from being served
+exclude:
+  - README.md
+  - serve.sh
+  - .gitignore
+  - code-ai-workshop-site-final-complete.zip
+
+# Include dotfiles
+include:
+  - .nojekyll
+
+# Ensure proper MIME types
+plugins: [] 

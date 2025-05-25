@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Code Development Workshop</title>
+    <link rel="icon" type="image/png" href="static/img/favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="static/css/documentation.css">
+    <style>
+        /* Hero section styles */
+        .hero {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 6rem 0 4rem; /* Increased top padding to create space below navigation */
+            text-align: center;
+            position: relative;
+            margin-top: 20px; /* Added margin to create more separation */
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .hero-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-button-primary {
+            background-color: white;
+            color: var(--primary-blue);
+        }
+        
+        .hero-button-primary:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-button-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .hero-button-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Highlights section styles */
+        .highlights-section {
+            padding: 4rem 0;
+            background-color: var(--light-background);
+        }
+        
+        body.dark-theme .highlights-section {
+            background-color: var(--dark-background);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            color: var(--text-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-blue);
+            border-radius: 2px;
+        }
+        
+        .highlights-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .highlight-card {
+            background-color: var(--light-surface);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid transparent;
+        }
+        
+        body.dark-theme .highlight-card {
+            background-color: var(--dark-surface);
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .highlight-card.blue-card {
+            border-top-color: #0078d4;
+        }
+        
+        .highlight-card.green-card {
+            border-top-color: #107c10;
+        }
+        
+        .highlight-card.red-card {
+            border-top-color: #d83b01;
+        }
+        
+        .highlight-card.yellow-card {
+            border-top-color: #ffb900;
+        }
+        
+        .highlight-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--light-border);
+        }
+        
+        body.dark-theme .highlight-header {
+            border-bottom-color: var(--dark-border);
+        }
+        
+        .highlight-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blue-card .highlight-title {
+            color: #0078d4;
+        }
+        
+        .green-card .highlight-title {
+            color: #107c10;
+        }
+        
+        .red-card .highlight-title {
+            color: #d83b01;
+        }
+        
+        .yellow-card .highlight-title {
+            color: #ffb900;
+        }
+        
+        body.dark-theme .blue-card .highlight-title {
+            color: #4ca0e0;
+        }
+        
+        body.dark-theme .green-card .highlight-title {
+            color: #4da04d;
+        }
+        
+        body.dark-theme .red-card .highlight-title {
+            color: #e67a51;
+        }
+        
+        body.dark-theme .yellow-card .highlight-title {
+            color: #ffd24d;
+        }
+        
+        .highlight-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        .highlight-content {
+            padding: 1.5rem;
+        }
+        
+        .highlight-description {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .highlight-features {
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+        }
+        
+        .highlight-feature-icon {
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .blue-card .highlight-feature-icon {
+            color: #0078d4;
+        }
+        
+        .green-card .highlight-feature-icon {
+            color: #107c10;
+        }
+        
+        .red-card .highlight-feature-icon {
+            color: #d83b01;
+        }
+        
+        .yellow-card .highlight-feature-icon {
+            color: #ffb900;
+        }
+        
+        body.dark-theme .blue-card .highlight-feature-icon {
+            color: #4ca0e0;
+        }
+        
+        body.dark-theme .green-card .highlight-feature-icon {
+            color: #4da04d;
+        }
+        
+        body.dark-theme .red-card .highlight-feature-icon {
+            color: #e67a51;
+        }
+        
+        body.dark-theme .yellow-card .highlight-feature-icon {
+            color: #ffd24d;
+        }
+        
+        .highlight-link {
+            display: inline-block;
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .blue-card .highlight-link {
+            background-color: #0078d4;
+            color: white;
+        }
+        
+        .blue-card .highlight-link:hover {
+            background-color: #006cbe;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 120, 212, 0.3);
+        }
+        
+        .green-card .highlight-link {
+            background-color: #107c10;
+            color: white;
+        }
+        
+        .green-card .highlight-link:hover {
+            background-color: #0e6e0e;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(16, 124, 16, 0.3);
+        }
+        
+        .red-card .highlight-link {
+            background-color: #d83b01;
+            color: white;
+        }
+        
+        .red-card .highlight-link:hover {
+            background-color: #c23500;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(216, 59, 1, 0.3);
+        }
+        
+        .yellow-card .highlight-link {
+            background-color: #ffb900;
+            color: black;
+        }
+        
+        .yellow-card .highlight-link:hover {
+            background-color: #f0ae00;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(255, 185, 0, 0.3);
+        }
+        
+        /* Workshop levels preview */
+        .levels-preview-section {
+            padding: 4rem 0;
+            background-color: var(--light-background);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .levels-preview-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(to right, #0078d4, #107c10, #d83b01, #ffb900);
+        }
+        
+        body.dark-theme .levels-preview-section {
+            background-color: var(--dark-background);
+        }
+        
+        .levels-container {
+            display: flex;
+            flex-wrap: nowrap; /* Changed from wrap to nowrap */
+            justify-content: space-between; /* Adjust alignment */
+            gap: 1.5rem; /* Adjusted gap */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .level-card {
+            background-color: var(--light-surface);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 280px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex; /* Added */
+            flex-direction: column; /* Added */
+        }
+        
+        body.dark-theme .level-card {
+            background-color: var(--dark-surface);
+        }
+        
+        .level-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .level-header {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--light-border);
+        }
+        
+        body.dark-theme .level-header {
+            border-bottom-color: var(--dark-border);
+        }
+        
+        .basic-level .level-header {
+            background-color: #0078d4;
+            color: white;
+        }
+        
+        .intermediate-level .level-header {
+            background-color: #107c10;
+            color: white;
+        }
+        
+        .advanced-level .level-header {
+            background-color: #d83b01;
+            color: white;
+        }
+        
+        .enterprise-level .level-header {
+            background-color: #ffb900; /* Yellow */
+            color: black; /* Black text for contrast */
+        }
+        
+        .level-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .level-duration {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .level-content {
+            padding: 1.5rem;
+            flex-grow: 1; /* Added to push button down */
+            display: flex; /* Added for inner alignment */
+            flex-direction: column; /* Added for inner alignment */
+        }
+        
+        .level-description {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .level-features {
+            margin-bottom: 1.5rem;
+        }
+        
+        .level-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+        }
+        
+        .level-feature-icon {
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .basic-level .level-feature-icon {
+            color: #0078d4;
+        }
+        
+        .intermediate-level .level-feature-icon {
+            color: #107c10;
+        }
+        
+        .advanced-level .level-feature-icon {
+            color: #d83b01;
+        }
+        
+        .enterprise-level .level-feature-icon {
+            color: #e6a700; /* Darker yellow for icon */
+        }
+        
+        body.dark-theme .basic-level .level-feature-icon {
+            color: #4ca0e0;
+        }
+        
+        body.dark-theme .intermediate-level .level-feature-icon {
+            color: #4da04d;
+        }
+        
+        body.dark-theme .advanced-level .level-feature-icon {
+            color: #e67a51;
+        }
+        
+        body.dark-theme .enterprise-level .level-feature-icon {
+            color: #9b6fc6;
+        }
+        
+        .level-link {
+            display: inline-block;
+            width: 100%;
+            padding: 0.75rem 0;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: auto; /* Added to push button to bottom */
+        }
+        
+        .basic-level .level-link {
+            background-color: #0078d4;
+            color: white;
+        }
+        
+        .basic-level .level-link:hover {
+            background-color: #006cbe;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 120, 212, 0.3);
+        }
+        
+        .intermediate-level .level-link {
+            background-color: #107c10;
+            color: white;
+        }
+        
+        .intermediate-level .level-link:hover {
+            background-color: #0e6e0e;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(16, 124, 16, 0.3);
+        }
+        
+        .advanced-level .level-link {
+            background-color: #d83b01;
+            color: white;
+        }
+        
+        .advanced-level .level-link:hover {
+            background-color: #c23500;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(216, 59, 1, 0.3);
+        }
+        
+        .enterprise-level .level-link {
+            background-color: #ffb900; /* Yellow */
+            color: black; /* Black text */
+        }
+        
+        .enterprise-level .level-link:hover {
+            background-color: #e6a700; /* Darker yellow on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(255, 185, 0, 0.3);
+        }
+        
+        /* CTA section */
+        .cta-section {
+            padding: 5rem 0;
+            background-color: var(--primary-blue);
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(to right, #ffb900, #d83b01, #107c10, #0078d4);
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .cta-description {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: white;
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .cta-description {
+                font-size: 1.125rem;
+            }
+        }
+        
+        /* Fix for header overlap */
+        header {
+            position: relative;
+            z-index: 100;
+            background-color: var(--light-background);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark-theme header {
+            background-color: var(--dark-background);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="static/img/logo.png" alt="AI Code Development Logo">
+                    <span class="logo-text">AI Code Development</span>
+                </a>
+                <div class="nav-links">
+                    <a href="vision.html" class="nav-link">Workshop Vision</a>
+                    <a href="differentiators.html" class="nav-link">Key Differentiators</a>
+                    <a href="workshop-levels.html" class="nav-link">Workshop Levels</a>
+                    <a href="prerequisites.html" class="nav-link">Prerequisites</a>
+                    <a href="resources.html" class="nav-link">Resources</a>
+                    <a href="faq.html" class="nav-link">FAQ</a>
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="nav-link">GitHub</a>
+                </div>
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Transform Your Development with AI</h1>
+            <h2 class="hero-subtitle">Unlock unprecedented productivity, quality, and innovation with AI-assisted development</h2>
+            <div class="hero-buttons">
+                <a href="workshop-levels.html" class="hero-button hero-button-primary">Explore Workshop Levels</a>
+                <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="hero-button hero-button-secondary">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlights-section">
+        <h2 class="section-title">Workshop Vision</h2>
+        <div class="highlights-container">
+            <div class="highlight-card blue-card">
+                <div class="highlight-header">
+                    <h3 class="highlight-title">AI-Powered Development</h3>
+                    <div class="highlight-subtitle">Transform Your Development Workflow</div>
+                </div>
+                <div class="highlight-content">
+                    <p class="highlight-description">
+                        AI-powered development represents a fundamental transformation in software creation, moving from purely manual coding to intelligent collaboration between developers and AI systems.
+                    </p>
+                    <div class="highlight-features">
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Context-Aware Intelligence</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Natural Language to Code Translation</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Proactive Security & Quality Assurance</span>
+                        </div>
+                    </div>
+                    <a href="vision.html" class="highlight-link">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="highlight-card green-card">
+                <div class="highlight-header">
+                    <h3 class="highlight-title">Developer Revolution</h3>
+                    <div class="highlight-subtitle">Industry Transformation</div>
+                </div>
+                <div class="highlight-content">
+                    <p class="highlight-description">
+                        The software development industry is experiencing its most significant transformation since the introduction of high-level programming languages, with AI tools boosting productivity by 50-70%.
+                    </p>
+                    <div class="highlight-features">
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Accelerated Development Cycles</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Reduced Cognitive Load</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Enhanced Problem-Solving</span>
+                        </div>
+                    </div>
+                    <a href="vision.html#developer-revolution" class="highlight-link">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="highlight-card red-card">
+                <div class="highlight-header">
+                    <h3 class="highlight-title">Benefits & Impact</h3>
+                    <div class="highlight-subtitle">Productivity Gains & ROI</div>
+                </div>
+                <div class="highlight-content">
+                    <p class="highlight-description">
+                        Beyond individual productivity gains, AI-assisted development drives business transformation through faster time-to-market, improved quality, and enhanced innovation capabilities.
+                    </p>
+                    <div class="highlight-features">
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Faster Time-to-Market</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Lower Operational Costs</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Competitive Advantage</span>
+                        </div>
+                    </div>
+                    <a href="vision.html#benefits-impact" class="highlight-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlights-section">
+        <h2 class="section-title">Key Differentiators</h2>
+        <div class="highlights-container">
+            <div class="highlight-card blue-card">
+                <div class="highlight-header">
+                    <h3 class="highlight-title">Context-Aware Intelligence</h3>
+                    <div class="highlight-subtitle">Beyond Simple Code Completion</div>
+                </div>
+                <div class="highlight-content">
+                    <p class="highlight-description">
+                        Our workshop demonstrates how AI understands your entire codebase, patterns, and intent to provide highly relevant suggestions that go far beyond basic autocomplete.
+                    </p>
+                    <div class="highlight-features">
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Full codebase understanding</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Pattern recognition</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Intent-based suggestions</span>
+                        </div>
+                    </div>
+                    <a href="differentiators.html#context-aware-intelligence" class="highlight-link">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="highlight-card green-card">
+                <div class="highlight-header">
+                    <h3 class="highlight-title">Natural Language to Code</h3>
+                    <div class="highlight-subtitle">Human-AI Collaboration</div>
+                </div>
+                <div class="highlight-content">
+                    <p class="highlight-description">
+                        Learn how to transform human descriptions into working, optimized code through effective prompting techniques and AI collaboration strategies taught in our workshop.
+                    </p>
+                    <div class="highlight-features">
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Effective prompting techniques</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Complex algorithm generation</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Edge case handling</span>
+                        </div>
+                    </div>
+                    <a href="differentiators.html#natural-language-code" class="highlight-link">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="highlight-card yellow-card">
+                <div class="highlight-header">
+                    <h3 class="highlight-title">Proactive Security & Quality</h3>
+                    <div class="highlight-subtitle">Built-in Best Practices</div>
+                </div>
+                <div class="highlight-content">
+                    <p class="highlight-description">
+                        Our workshop shows how AI identifies vulnerabilities and suggests secure alternatives before problems occur, integrating security and quality assurance into the development process.
+                    </p>
+                    <div class="highlight-features">
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Vulnerability detection</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Secure code generation</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Best practice implementation</span>
+                        </div>
+                    </div>
+                    <a href="differentiators.html#proactive-security" class="highlight-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="levels-preview-section">
+        <h2 class="section-title">Workshop Levels</h2>
+        <div class="levels-container">
+            <div class="level-card basic-level">
+                <div class="level-header">
+                    <h3 class="level-title">Basic</h3>
+                    <div class="level-duration">1-2 Hours</div>
+                </div>
+                <div class="level-content">
+                    <p class="level-description">
+                        Introduction to AI-assisted development with GitHub Copilot for individual developers.
+                    </p>
+                    <div class="level-features">
+                        <div class="level-feature">
+                            <span class="level-feature-icon">✓</span>
+                            <span>GitHub Copilot setup</span>
+                        </div>
+                        <div class="level-feature">
+                            <span class="level-feature-icon">✓</span>
+                            <span>Basic code completion</span>
+                        </div>
+                        <div class="level-feature">
+                            <span class="level-feature-icon">✓</span>
+                            <span>Simple refactoring</span>
+                        </div>
+                    </div>
+                    <a href="workshop-levels.html#basic" class="level-link">View Details</a>
+                </div>
+            </div>
+            
+            <div class="level-card intermediate-level">
+                <div class="level-header">
+                    <h3 class="level-title">Intermediate</h3>
+                    <div class="level-duration">3-4 Hours</div>
+                </div>
+                <div class="level-content">
+                    <p class="level-description">
+                        Advanced techniques for AI-assisted development with cloud integration.
+                    </p>
+                    <div class="level-features">
+                        <div class="level-feature">
+                            <span class="level-feature-icon">✓</span>
+                            <span>Advanced prompting</span>
+                        </div>
+                        <div class="level-feature">
+                            <span class="level-feature-icon">✓</span>
+                            <span>Azure integration</span>
+                        </div>
+                        <div class="level-feature">
+                            <span class="level-feature-icon">✓</span>
+                            <span>Security best practices</span>
+                        </div>
+                    </div>
+                    <a href="workshop-levels.html#intermediate" class="level-link">View Details</a>
+                </div>
+            </div>
+            
+            <div class="level-card advanced-level">
+                <div class="level-header">
+                    <h3 class="level-title">Advanced</h3>
+                    <div class="level-duration">Full Day</div>
+                </div>
+                <div class="level-content">
+                    <p class="level-description">
+                        DevOps integration and enterprise-grade AI-assisted development practices.
+                    </p>
+                    <div class="level-features">
+                        <div class="level-feature">
+                            <span class="level-feature-icon">✓</span>
+                            <span>CI/CD integration</span>
+                        </div>
+                        <div class="level-feature">
+                            <span class="level-feature-icon">✓</span>
+                            <span>Infrastructure as code</span>
+                        </div>
+                        <div class="level-feature">
+                            <span class="level-feature-icon">✓</span>
+                            <span>Multi-agent systems</span>
+                        </div>
+                    </div>
+                    <a href="workshop-levels.html#advanced" class="level-link">View Details</a>
+                </div>
+            </div>
+            
+            <div class="level-card enterprise-level">
+                <div class="level-header">
+                    <h3 class="level-title">Enterprise</h3>
+                    <div class="level-duration">2+ Days</div>
+                </div>
+                <div class="level-content">
+                    <p class="level-description">
+                        Organizational transformation and governance for AI-assisted development at scale.
+                    </p>
+                    <div class="level-features">
+                        <div class="level-feature">
+                            <span class="level-feature-icon">✓</span>
+                            <span>Governance framework</span>
+                        </div>
+                        <div class="level-feature">
+                            <span class="level-feature-icon">✓</span>
+                            <span>ROI measurement</span>
+                        </div>
+                        <div class="level-feature">
+                            <span class="level-feature-icon">✓</span>
+                            <span>Change management</span>
+                        </div>
+                    </div>
+                    <a href="workshop-levels.html#enterprise" class="level-link">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlights-section">
+        <h2 class="section-title">Workshop Benefits by Role</h2>
+        <div class="highlights-container">
+            <div class="highlight-card blue-card">
+                <div class="highlight-header">
+                    <h3 class="highlight-title">For Developers</h3>
+                    <div class="highlight-subtitle">50-70% Productivity Boost</div>
+                </div>
+                <div class="highlight-content">
+                    <div class="highlight-features">
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>AI coding proficiency</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Advanced AI workflows</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Hands-on practice</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Immediate application</span>
+                        </div>
+                    </div>
+                    <a href="vision.html#developers" class="highlight-link">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="highlight-card green-card">
+                <div class="highlight-header">
+                    <h3 class="highlight-title">For Team Leaders</h3>
+                    <div class="highlight-subtitle">Team Transformation</div>
+                </div>
+                <div class="highlight-content">
+                    <div class="highlight-features">
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Adoption strategies</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Team coordination</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Success measurement</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Best practice sharing</span>
+                        </div>
+                    </div>
+                    <a href="vision.html#team-leaders" class="highlight-link">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="highlight-card red-card">
+                <div class="highlight-header">
+                    <h3 class="highlight-title">For Executives</h3>
+                    <div class="highlight-subtitle">Strategic Business Value</div>
+                </div>
+                <div class="highlight-content">
+                    <div class="highlight-features">
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Business case development</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Change management</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Governance frameworks</span>
+                        </div>
+                        <div class="highlight-feature">
+                            <span class="highlight-feature-icon">✓</span>
+                            <span>Implementation roadmap</span>
+                        </div>
+                    </div>
+                    <a href="vision.html#executives" class="highlight-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlights-section">
+        <h2 class="section-title">Comprehensive Documentation</h2>
+        <div class="highlights-container">
+            <div class="highlight-card blue-card">
+                <div class="highlight-header">
+                    <h3 class="highlight-title">Implementation Guide</h3>
+                    <div class="highlight-subtitle">Step-by-step instructions</div>
+                </div>
+                <div class="highlight-content">
+                    <p class="highlight-description">
+                        Step-by-step instructions for setting up the platform and implementing AI-assisted development in your organization.
+                    </p>
+                    <a href="resources.html#guides" class="highlight-link">View Documentation</a>
+                </div>
+            </div>
+            
+            <div class="highlight-card green-card">
+                <div class="highlight-header">
+                    <h3 class="highlight-title">Architecture</h3>
+                    <div class="highlight-subtitle">Technical design</div>
+                </div>
+                <div class="highlight-content">
+                    <p class="highlight-description">
+                        Detailed architecture diagrams and explanations of the platform components and their interactions.
+                    </p>
+                    <a href="resources.html#reference" class="highlight-link">View Documentation</a>
+                </div>
+            </div>
+            
+            <div class="highlight-card yellow-card">
+                <div class="highlight-header">
+                    <h3 class="highlight-title">Developer Guide</h3>
+                    <div class="highlight-subtitle">Best practices</div>
+                </div>
+                <div class="highlight-content">
+                    <p class="highlight-description">
+                        Best practices for developers using the platform, including coding standards, workflows, and troubleshooting.
+                    </p>
+                    <a href="resources.html#code-samples" class="highlight-link">View Documentation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to Transform Your Development?</h2>
+            <p class="cta-description">
+                Get started with the AI Code Development Workshop and unlock the full potential of AI-assisted development for your team or organization.
+            </p>
+            <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="cta-button">Go to GitHub Repository</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="static/img/logo.png" alt="AI Code Development Logo">
+                    <span>AI Code Development Workshop</span>
+                </div>
+                <div class="footer-links">
+                    <a href="vision.html" class="footer-link">Workshop Vision</a>
+                    <a href="differentiators.html" class="footer-link">Key Differentiators</a>
+                    <a href="workshop-levels.html" class="footer-link">Workshop Levels</a>
+                    <a href="prerequisites.html" class="footer-link">Prerequisites</a>
+                    <a href="resources.html" class="footer-link">Resources</a>
+                    <a href="faq.html" class="footer-link">FAQ</a>
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="footer-link">GitHub Repository</a>
+                </div>
+            </div>
+            <div class="author-credit">
+                Workshop developed by <a href="https://github.com/paulanunes85" target="_blank">Paula Silva</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 AI Code Development Workshop. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            body.classList.add('dark-theme');
+        }
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+        
+        // Mobile navigation toggle
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileNavToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

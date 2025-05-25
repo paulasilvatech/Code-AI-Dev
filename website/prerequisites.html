@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prerequisites - AI Code Development Workshop</title>
+    <link rel="icon" type="image/png" href="static/img/favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="static/css/documentation.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="static/img/logo.png" alt="AI Code Development Logo">
+                    <span class="logo-text">AI Code Development</span>
+                </a>
+                <div class="nav-links">
+                    <a href="vision.html" class="nav-link">Workshop Vision</a>
+                    <a href="differentiators.html" class="nav-link">Key Differentiators</a>
+                    <a href="workshop-levels.html" class="nav-link">Workshop Levels</a>
+                    <a href="prerequisites.html" class="nav-link active">Prerequisites</a>
+                    <a href="resources.html" class="nav-link">Resources</a>
+                    <a href="faq.html" class="nav-link">FAQ</a>
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="nav-link">GitHub</a>
+                </div>
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="documentation-layout">
+        <aside class="left-sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Workshop Vision & Differentiators</h3>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="vision.html" class="sidebar-nav-link">Workshop Vision</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="differentiators.html" class="sidebar-nav-link">Key Differentiators</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Implementation Guide</h3>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="workshop-levels.html" class="sidebar-nav-link">Workshop Levels</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="prerequisites.html" class="sidebar-nav-link active">Prerequisites</a>
+                        <ul class="sidebar-nav">
+                            <li class="sidebar-nav-subitem">
+                                <a href="#basic" class="sidebar-nav-link">Basic Workshop</a>
+                            </li>
+                            <li class="sidebar-nav-subitem">
+                                <a href="#intermediate" class="sidebar-nav-link">Intermediate Workshop</a>
+                            </li>
+                            <li class="sidebar-nav-subitem">
+                                <a href="#advanced" class="sidebar-nav-link">Advanced Workshop</a>
+                            </li>
+                            <li class="sidebar-nav-subitem">
+                                <a href="#enterprise" class="sidebar-nav-link">Enterprise Track</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Resources</h3>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="resources.html" class="sidebar-nav-link">Documentation</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="faq.html" class="sidebar-nav-link">FAQ</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="sidebar-nav-link">GitHub Repository</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="breadcrumb">
+                <a href="index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item">Implementation Guide</span>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item">Prerequisites</span>
+            </div>
+
+            <h1 class="page-title">Workshop Prerequisites</h1>
+
+            <div class="content-section">
+                <p class="content-text">
+                    To ensure a successful workshop experience, please review and complete the prerequisites for your chosen workshop level. Each level builds upon the previous one, so higher-level workshops include all prerequisites from lower levels.
+                </p>
+            </div>
+
+            <div class="content-section" id="basic">
+                <h2 class="content-title">Basic Workshop Prerequisites</h2>
+                <p class="content-text">
+                    The Basic Workshop is designed to be accessible to most developers with minimal setup. Here's what you'll need:
+                </p>
+                
+                <h3 class="content-subtitle">Required Accounts</h3>
+                <ul class="content-list">
+                    <li class="content-list-item"><strong>GitHub Account</strong>: Free account with access to GitHub Copilot (trial or subscription)</li>
+                    <li class="content-list-item"><strong>Visual Studio Code</strong>: Latest stable version</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Development Environment</h3>
+                <ul class="content-list">
+                    <li class="content-list-item"><strong>Operating System</strong>: Windows 10/11, macOS 10.15+, or Linux (Ubuntu 20.04+ recommended)</li>
+                    <li class="content-list-item"><strong>Hardware</strong>: 8GB RAM minimum, 16GB recommended</li>
+                    <li class="content-list-item"><strong>VS Code Extensions</strong>: GitHub Copilot, GitHub Copilot Chat</li>
+                    <li class="content-list-item"><strong>Internet Connection</strong>: Stable broadband connection</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Knowledge Prerequisites</h3>
+                <ul class="content-list">
+                    <li class="content-list-item"><strong>Programming</strong>: Basic knowledge of at least one programming language</li>
+                    <li class="content-list-item"><strong>Git</strong>: Basic understanding of Git commands (clone, pull, push)</li>
+                    <li class="content-list-item"><strong>VS Code</strong>: Basic familiarity with the editor</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Setup Instructions</h3>
+                <ol class="content-list">
+                    <li class="content-list-item">Install Visual Studio Code from <a href="https://code.visualstudio.com/" class="breadcrumb-link">https://code.visualstudio.com/</a></li>
+                    <li class="content-list-item">Sign in to GitHub within VS Code</li>
+                    <li class="content-list-item">Install the GitHub Copilot extension from the VS Code marketplace</li>
+                    <li class="content-list-item">Install the GitHub Copilot Chat extension from the VS Code marketplace</li>
+                    <li class="content-list-item">Clone the workshop repository: <code>git clone https://github.com/paulasilvatech/Code-AI-Dev.git</code></li>
+                </ol>
+            </div>
+
+            <div class="content-section" id="intermediate">
+                <h2 class="content-title">Intermediate Workshop Prerequisites</h2>
+                <p class="content-text">
+                    The Intermediate Workshop builds on the Basic Workshop and requires additional setup:
+                </p>
+                
+                <h3 class="content-subtitle">Required Accounts</h3>
+                <ul class="content-list">
+                    <li class="content-list-item"><strong>All Basic Workshop accounts</strong></li>
+                    <li class="content-list-item"><strong>Azure Account</strong>: Free trial or existing subscription</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Development Environment</h3>
+                <ul class="content-list">
+                    <li class="content-list-item"><strong>All Basic Workshop requirements</strong></li>
+                    <li class="content-list-item"><strong>Azure CLI</strong>: Latest version</li>
+                    <li class="content-list-item"><strong>Node.js</strong>: Version 16+ (LTS recommended)</li>
+                    <li class="content-list-item"><strong>Python</strong>: Version 3.8+</li>
+                    <li class="content-list-item"><strong>Docker</strong>: Latest stable version</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Knowledge Prerequisites</h3>
+                <ul class="content-list">
+                    <li class="content-list-item"><strong>All Basic Workshop knowledge</strong></li>
+                    <li class="content-list-item"><strong>Cloud Concepts</strong>: Basic understanding of cloud services</li>
+                    <li class="content-list-item"><strong>CI/CD</strong>: Familiarity with continuous integration/deployment concepts</li>
+                    <li class="content-list-item"><strong>Security</strong>: Basic understanding of application security principles</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Setup Instructions</h3>
+                <ol class="content-list">
+                    <li class="content-list-item">Complete all Basic Workshop setup steps</li>
+                    <li class="content-list-item">Install Azure CLI from <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli" class="breadcrumb-link">https://docs.microsoft.com/en-us/cli/azure/install-azure-cli</a></li>
+                    <li class="content-list-item">Install Node.js from <a href="https://nodejs.org/" class="breadcrumb-link">https://nodejs.org/</a></li>
+                    <li class="content-list-item">Install Python from <a href="https://www.python.org/downloads/" class="breadcrumb-link">https://www.python.org/downloads/</a></li>
+                    <li class="content-list-item">Install Docker from <a href="https://www.docker.com/products/docker-desktop" class="breadcrumb-link">https://www.docker.com/products/docker-desktop</a></li>
+                    <li class="content-list-item">Log in to Azure CLI: <code>az login</code></li>
+                    <li class="content-list-item">Install workshop dependencies: <code>cd Code-AI-Dev && npm install</code></li>
+                </ol>
+            </div>
+
+            <div class="content-section" id="advanced">
+                <h2 class="content-title">Advanced Workshop Prerequisites</h2>
+                <p class="content-text">
+                    The Advanced Workshop is designed for experienced developers and requires a more comprehensive setup:
+                </p>
+                
+                <h3 class="content-subtitle">Required Accounts</h3>
+                <ul class="content-list">
+                    <li class="content-list-item"><strong>All Intermediate Workshop accounts</strong></li>
+                    <li class="content-list-item"><strong>Azure DevOps</strong>: Organization and project</li>
+                    <li class="content-list-item"><strong>GitHub Enterprise</strong>: If using in enterprise context</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Development Environment</h3>
+                <ul class="content-list">
+                    <li class="content-list-item"><strong>All Intermediate Workshop requirements</strong></li>
+                    <li class="content-list-item"><strong>Hardware</strong>: 16GB RAM minimum, 32GB recommended</li>
+                    <li class="content-list-item"><strong>Kubernetes CLI (kubectl)</strong>: Latest version</li>
+                    <li class="content-list-item"><strong>Terraform</strong>: Latest version</li>
+                    <li class="content-list-item"><strong>Azure DevOps CLI</strong>: Latest version</li>
+                    <li class="content-list-item"><strong>GitHub CLI</strong>: Latest version</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Knowledge Prerequisites</h3>
+                <ul class="content-list">
+                    <li class="content-list-item"><strong>All Intermediate Workshop knowledge</strong></li>
+                    <li class="content-list-item"><strong>DevOps</strong>: Strong understanding of DevOps principles</li>
+                    <li class="content-list-item"><strong>Cloud Architecture</strong>: Familiarity with cloud architecture patterns</li>
+                    <li class="content-list-item"><strong>Containers</strong>: Experience with containerization</li>
+                    <li class="content-list-item"><strong>Infrastructure as Code</strong>: Basic understanding of IaC concepts</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Setup Instructions</h3>
+                <ol class="content-list">
+                    <li class="content-list-item">Complete all Intermediate Workshop setup steps</li>
+                    <li class="content-list-item">Install Kubernetes CLI: <a href="https://kubernetes.io/docs/tasks/tools/" class="breadcrumb-link">https://kubernetes.io/docs/tasks/tools/</a></li>
+                    <li class="content-list-item">Install Terraform: <a href="https://www.terraform.io/downloads.html" class="breadcrumb-link">https://www.terraform.io/downloads.html</a></li>
+                    <li class="content-list-item">Install Azure DevOps CLI: <code>az extension add --name azure-devops</code></li>
+                    <li class="content-list-item">Install GitHub CLI: <a href="https://cli.github.com/" class="breadcrumb-link">https://cli.github.com/</a></li>
+                    <li class="content-list-item">Create Azure resources using the provided script: <code>./scripts/setup-advanced-workshop.sh</code></li>
+                </ol>
+            </div>
+
+            <div class="content-section" id="enterprise">
+                <h2 class="content-title">Enterprise Track Prerequisites</h2>
+                <p class="content-text">
+                    The Enterprise Track is designed for teams and organizations implementing AI-assisted development at scale:
+                </p>
+                
+                <h3 class="content-subtitle">Required Accounts</h3>
+                <ul class="content-list">
+                    <li class="content-list-item"><strong>All Advanced Workshop accounts</strong></li>
+                    <li class="content-list-item"><strong>GitHub Enterprise</strong>: Organization-wide access</li>
+                    <li class="content-list-item"><strong>Azure Enterprise Agreement</strong>: Or equivalent enterprise cloud subscription</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Team Requirements</h3>
+                <ul class="content-list">
+                    <li class="content-list-item"><strong>Development Team</strong>: Multiple developers (3+ recommended)</li>
+                    <li class="content-list-item"><strong>Platform Team</strong>: DevOps/platform engineers</li>
+                    <li class="content-list-item"><strong>Security Team</strong>: Security engineers or representatives</li>
+                    <li class="content-list-item"><strong>Management</strong>: Engineering managers or technical leaders</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Environment Requirements</h3>
+                <ul class="content-list">
+                    <li class="content-list-item"><strong>All Advanced Workshop requirements</strong> for each participant</li>
+                    <li class="content-list-item"><strong>Shared Environment</strong>: Azure subscription with contributor access</li>
+                    <li class="content-list-item"><strong>Collaboration Tools</strong>: Microsoft Teams, Slack, or equivalent</li>
+                    <li class="content-list-item"><strong>Meeting Space</strong>: Physical or virtual room for team discussions</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Knowledge Prerequisites</h3>
+                <ul class="content-list">
+                    <li class="content-list-item"><strong>All Advanced Workshop knowledge</strong></li>
+                    <li class="content-list-item"><strong>Enterprise Architecture</strong>: Understanding of enterprise systems</li>
+                    <li class="content-list-item"><strong>Governance</strong>: Familiarity with IT governance principles</li>
+                    <li class="content-list-item"><strong>Change Management</strong>: Experience with organizational change</li>
+                    <li class="content-list-item"><strong>ROI Analysis</strong>: Ability to measure and evaluate technology investments</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Preparation Tasks</h3>
+                <ol class="content-list">
+                    <li class="content-list-item">Complete all Advanced Workshop setup steps for each participant</li>
+                    <li class="content-list-item">Conduct pre-workshop assessment (provided separately)</li>
+                    <li class="content-list-item">Gather current development metrics for baseline comparison</li>
+                    <li class="content-list-item">Review organizational policies related to AI tools</li>
+                    <li class="content-list-item">Identify pilot projects for AI implementation</li>
+                    <li class="content-list-item">Schedule follow-up sessions for implementation planning</li>
+                </ol>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Verification Checklist</h2>
+                <p class="content-text">
+                    Before attending the workshop, verify that you can complete these tasks:
+                </p>
+                <ul class="content-list">
+                    <li class="content-list-item">Open VS Code and confirm GitHub Copilot is active (icon in status bar)</li>
+                    <li class="content-list-item">Create a new file and verify Copilot suggestions appear</li>
+                    <li class="content-list-item">Clone the workshop repository and open it in VS Code</li>
+                    <li class="content-list-item">Run the verification script: <code>./scripts/verify-setup.sh</code></li>
+                    <li class="content-list-item">For Intermediate+ workshops: Confirm Azure CLI login works</li>
+                    <li class="content-list-item">For Advanced+ workshops: Verify Kubernetes and Terraform installations</li>
+                </ul>
+                <p class="content-text">
+                    If you encounter any issues, please refer to the <a href="faq.html" class="breadcrumb-link">FAQ</a> or contact the workshop organizers for assistance.
+                </p>
+                <p class="content-text">
+                    <a href="workshop-levels.html" class="breadcrumb-link">Back to Workshop Levels</a> | 
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="breadcrumb-link">Go to GitHub Repository</a>
+                </p>
+            </div>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="sidebar-section">
+                <h3 class="right-sidebar-title">On This Page</h3>
+                <ul class="right-sidebar-links">
+                    <li><a href="#basic" class="right-sidebar-link">Basic Workshop</a></li>
+                    <li><a href="#intermediate" class="right-sidebar-link">Intermediate Workshop</a></li>
+                    <li><a href="#advanced" class="right-sidebar-link">Advanced Workshop</a></li>
+                    <li><a href="#enterprise" class="right-sidebar-link">Enterprise Track</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="right-sidebar-title">Related Topics</h3>
+                <ul class="right-sidebar-links">
+                    <li><a href="workshop-levels.html" class="right-sidebar-link">Workshop Levels</a></li>
+                    <li><a href="resources.html" class="right-sidebar-link">Resources</a></li>
+                    <li><a href="faq.html" class="right-sidebar-link">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="right-sidebar-title">Get Started</h3>
+                <ul class="right-sidebar-links">
+                    <li><a href="https://github.com/paulasilvatech/Code-AI-Dev" class="right-sidebar-link">GitHub Repository</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="static/img/logo.png" alt="AI Code Development Logo">
+                    <span>AI Code Development Workshop</span>
+                </div>
+                <div class="footer-links">
+                    <a href="vision.html" class="footer-link">Workshop Vision</a>
+                    <a href="differentiators.html" class="footer-link">Key Differentiators</a>
+                    <a href="workshop-levels.html" class="footer-link">Workshop Levels</a>
+                    <a href="prerequisites.html" class="footer-link">Prerequisites</a>
+                    <a href="resources.html" class="footer-link">Resources</a>
+                    <a href="faq.html" class="footer-link">FAQ</a>
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="footer-link">GitHub Repository</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 AI Code Development Workshop. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            body.classList.add('dark-theme');
+        }
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+        
+        // Mobile navigation toggle
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const leftSidebar = document.querySelector('.left-sidebar');
+        
+        mobileNavToggle.addEventListener('click', () => {
+            leftSidebar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Levels - AI Code Development Workshop</title>
+    <link rel="icon" type="image/png" href="static/img/favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="static/css/documentation.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="static/img/logo.png" alt="AI Code Development Logo">
+                    <span class="logo-text">AI Code Development</span>
+                </a>
+                <div class="nav-links">
+                    <a href="vision.html" class="nav-link">Workshop Vision</a>
+                    <a href="differentiators.html" class="nav-link">Key Differentiators</a>
+                    <a href="workshop-levels.html" class="nav-link active">Workshop Levels</a>
+                    <a href="prerequisites.html" class="nav-link">Prerequisites</a>
+                    <a href="resources.html" class="nav-link">Resources</a>
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="nav-link">GitHub</a>
+                </div>
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="documentation-layout">
+        <aside class="left-sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Workshop Vision & Differentiators</h3>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="vision.html" class="sidebar-nav-link">Workshop Vision</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="differentiators.html" class="sidebar-nav-link">Key Differentiators</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Implementation Guide</h3>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="workshop-levels.html" class="sidebar-nav-link active">Workshop Levels</a>
+                        <ul class="sidebar-nav">
+                            <li class="sidebar-nav-subitem">
+                                <a href="#basic" class="sidebar-nav-link">Basic Workshop</a>
+                            </li>
+                            <li class="sidebar-nav-subitem">
+                                <a href="#intermediate" class="sidebar-nav-link">Intermediate Workshop</a>
+                            </li>
+                            <li class="sidebar-nav-subitem">
+                                <a href="#advanced" class="sidebar-nav-link">Advanced Workshop</a>
+                            </li>
+                            <li class="sidebar-nav-subitem">
+                                <a href="#enterprise" class="sidebar-nav-link">Enterprise Track</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="prerequisites.html" class="sidebar-nav-link">Prerequisites</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Resources</h3>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="resources.html" class="sidebar-nav-link">Documentation</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="sidebar-nav-link">GitHub Repository</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="breadcrumb">
+                <a href="index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item">Implementation Guide</span>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item">Workshop Levels</span>
+            </div>
+
+            <h1 class="page-title">Workshop Levels</h1>
+
+            <div class="content-section">
+                <p class="content-text">
+                    The AI Code Development Workshop is designed to accommodate different experience levels, time constraints, and organizational needs. Choose the workshop level that best fits your requirements to maximize the value of your learning experience.
+                </p>
+                <p class="content-text">
+                    Each workshop level builds upon the previous one, providing a progressive learning path from basic AI-assisted development concepts to enterprise-wide implementation strategies.
+                </p>
+            </div>
+
+            <div class="content-section" id="basic">
+                <h2 class="content-title">Basic Workshop</h2>
+                <p class="content-text">
+                    The Basic Workshop is designed for beginners and those new to AI-assisted development. It provides a foundational understanding of GitHub Copilot and how it transforms the development process.
+                </p>
+                
+                <h3 class="content-subtitle">Duration</h3>
+                <p class="content-text">90 Minutes</p>
+                
+                <h3 class="content-subtitle">Target Audience</h3>
+                <ul class="content-list">
+                    <li class="content-list-item">Developers new to AI-assisted development</li>
+                    <li class="content-list-item">Teams with limited time for training</li>
+                    <li class="content-list-item">Organizations exploring AI adoption</li>
+                    <li class="content-list-item">Individual contributors seeking productivity improvements</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Learning Objectives</h3>
+                <ul class="content-list">
+                    <li class="content-list-item">Understand the AI development paradigm shift</li>
+                    <li class="content-list-item">Set up and configure GitHub Copilot</li>
+                    <li class="content-list-item">Learn basic prompt engineering techniques</li>
+                    <li class="content-list-item">Create your first AI-assisted code</li>
+                    <li class="content-list-item">Implement basic performance optimization</li>
+                    <li class="content-list-item">Detect and fix security vulnerabilities</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Workshop Structure</h3>
+                <ol class="content-list">
+                    <li class="content-list-item">Introduction to AI-Assisted Development (15 min)</li>
+                    <li class="content-list-item">GitHub Copilot Setup and Configuration (15 min)</li>
+                    <li class="content-list-item">Basic Prompt Engineering Techniques (15 min)</li>
+                    <li class="content-list-item">Hands-On Coding Exercise (30 min)</li>
+                    <li class="content-list-item">Performance and Security Optimization (15 min)</li>
+                </ol>
+                
+                <h3 class="content-subtitle">Expected Outcomes</h3>
+                <ul class="content-list">
+                    <li class="content-list-item">Working AI-generated code</li>
+                    <li class="content-list-item">10x+ performance improvement in specific tasks</li>
+                    <li class="content-list-item">Secure code implementation</li>
+                    <li class="content-list-item">95% success rate for participants</li>
+                </ul>
+                
+                <p class="content-text">
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="breadcrumb-link">Start Basic Workshop</a>
+                </p>
+            </div>
+
+            <div class="content-section" id="intermediate">
+                <h2 class="content-title">Intermediate Workshop</h2>
+                <p class="content-text">
+                    The Intermediate Workshop builds on the basic concepts and introduces more advanced GitHub Copilot features, enterprise security patterns, and team collaboration workflows.
+                </p>
+                
+                <h3 class="content-subtitle">Duration</h3>
+                <p class="content-text">2 Hours</p>
+                
+                <h3 class="content-subtitle">Target Audience</h3>
+                <ul class="content-list">
+                    <li class="content-list-item">Developers with basic AI experience</li>
+                    <li class="content-list-item">Teams implementing AI-assisted development</li>
+                    <li class="content-list-item">Technical leads and architects</li>
+                    <li class="content-list-item">Organizations committed to AI adoption</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Learning Objectives</h3>
+                <ul class="content-list">
+                    <li class="content-list-item">Master advanced GitHub Copilot features</li>
+                    <li class="content-list-item">Implement enterprise security patterns</li>
+                    <li class="content-list-item">Establish team collaboration workflows</li>
+                    <li class="content-list-item">Create custom AI patterns and prompts</li>
+                    <li class="content-list-item">Utilize Copilot Chat and workspace features</li>
+                    <li class="content-list-item">Automate code reviews</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Workshop Structure</h3>
+                <ol class="content-list">
+                    <li class="content-list-item">Advanced GitHub Copilot Features (20 min)</li>
+                    <li class="content-list-item">Enterprise Security Patterns (20 min)</li>
+                    <li class="content-list-item">Team Collaboration Workflows (20 min)</li>
+                    <li class="content-list-item">Custom AI Patterns and Prompts (20 min)</li>
+                    <li class="content-list-item">Copilot Chat and Workspace Features (20 min)</li>
+                    <li class="content-list-item">Code Review Automation (20 min)</li>
+                </ol>
+                
+                <h3 class="content-subtitle">Expected Outcomes</h3>
+                <ul class="content-list">
+                    <li class="content-list-item">60-80% faster development</li>
+                    <li class="content-list-item">70% fewer vulnerabilities</li>
+                    <li class="content-list-item">40% faster code reviews</li>
+                    <li class="content-list-item">50% reduced manual tasks</li>
+                </ul>
+                
+                <p class="content-text">
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="breadcrumb-link">Start Intermediate Workshop</a>
+                </p>
+            </div>
+
+            <div class="content-section" id="advanced">
+                <h2 class="content-title">Advanced Workshop</h2>
+                <p class="content-text">
+                    The Advanced Workshop is designed for senior developers, architects, and teams looking to implement enterprise-wide AI adoption strategies and multi-agent system design.
+                </p>
+                
+                <h3 class="content-subtitle">Duration</h3>
+                <p class="content-text">3+ Hours</p>
+                
+                <h3 class="content-subtitle">Target Audience</h3>
+                <ul class="content-list">
+                    <li class="content-list-item">Senior developers and architects</li>
+                    <li class="content-list-item">DevOps and platform engineering teams</li>
+                    <li class="content-list-item">Technical decision makers</li>
+                    <li class="content-list-item">Organizations implementing enterprise-wide AI strategies</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Learning Objectives</h3>
+                <ul class="content-list">
+                    <li class="content-list-item">Develop enterprise AI adoption strategies</li>
+                    <li class="content-list-item">Design multi-agent systems</li>
+                    <li class="content-list-item">Integrate Azure AI services</li>
+                    <li class="content-list-item">Implement advanced security patterns</li>
+                    <li class="content-list-item">Optimize performance at scale</li>
+                    <li class="content-list-item">Create change management strategies</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Workshop Structure</h3>
+                <ol class="content-list">
+                    <li class="content-list-item">Strategic Foundation (45 min)</li>
+                    <li class="content-list-item">Technical Implementation (90 min)</li>
+                    <li class="content-list-item">Organizational Change (60 min)</li>
+                    <li class="content-list-item">Hands-On Lab (45 min)</li>
+                </ol>
+                
+                <h3 class="content-subtitle">Expected Outcomes</h3>
+                <ul class="content-list">
+                    <li class="content-list-item">Enterprise-ready AI implementation plan</li>
+                    <li class="content-list-item">Multi-agent system architecture</li>
+                    <li class="content-list-item">Advanced security and compliance framework</li>
+                    <li class="content-list-item">Performance optimization strategies</li>
+                </ul>
+                
+                <p class="content-text">
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="breadcrumb-link">Start Advanced Workshop</a>
+                </p>
+            </div>
+
+            <div class="content-section" id="enterprise">
+                <h2 class="content-title">Enterprise Track</h2>
+                <p class="content-text">
+                    The Enterprise Track is a comprehensive, full-day workshop designed for teams, managers, and decision makers looking to implement AI-assisted development across their organization.
+                </p>
+                
+                <h3 class="content-subtitle">Duration</h3>
+                <p class="content-text">Full Day</p>
+                
+                <h3 class="content-subtitle">Target Audience</h3>
+                <ul class="content-list">
+                    <li class="content-list-item">Development teams</li>
+                    <li class="content-list-item">Engineering managers</li>
+                    <li class="content-list-item">IT decision makers</li>
+                    <li class="content-list-item">Business stakeholders</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Learning Objectives</h3>
+                <ul class="content-list">
+                    <li class="content-list-item">Calculate ROI and productivity metrics</li>
+                    <li class="content-list-item">Develop change management and rollout strategies</li>
+                    <li class="content-list-item">Establish security policies and compliance frameworks</li>
+                    <li class="content-list-item">Define KPIs and measurement frameworks</li>
+                    <li class="content-list-item">Create multi-team coordination patterns</li>
+                </ul>
+                
+                <h3 class="content-subtitle">Workshop Structure</h3>
+                <ol class="content-list">
+                    <li class="content-list-item">Business Case and ROI (90 min)</li>
+                    <li class="content-list-item">Technical Implementation (120 min)</li>
+                    <li class="content-list-item">Security and Compliance (90 min)</li>
+                    <li class="content-list-item">Change Management (90 min)</li>
+                    <li class="content-list-item">Measurement and Optimization (60 min)</li>
+                </ol>
+                
+                <h3 class="content-subtitle">Expected Outcomes</h3>
+                <ul class="content-list">
+                    <li class="content-list-item">Clear implementation roadmap</li>
+                    <li class="content-list-item">Organizational transformation strategy</li>
+                    <li class="content-list-item">Governance and compliance framework</li>
+                    <li class="content-list-item">Success measurement methodology</li>
+                </ul>
+                
+                <p class="content-text">
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="breadcrumb-link">Start Enterprise Track</a>
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Choosing the Right Level</h2>
+                <p class="content-text">
+                    When selecting a workshop level, consider the following factors:
+                </p>
+                <ul class="content-list">
+                    <li class="content-list-item"><strong>Experience Level:</strong> Match the workshop to your team's current AI experience</li>
+                    <li class="content-list-item"><strong>Available Time:</strong> Choose a format that fits your schedule constraints</li>
+                    <li class="content-list-item"><strong>Implementation Goals:</strong> Align with your organization's AI adoption timeline</li>
+                    <li class="content-list-item"><strong>Team Size:</strong> Consider whether you're training individuals or entire teams</li>
+                    <li class="content-list-item"><strong>Strategic Importance:</strong> Match the depth of training to the strategic importance of AI in your organization</li>
+                </ul>
+                <p class="content-text">
+                    For organizations new to AI-assisted development, we recommend starting with the Basic Workshop to establish a foundation, then progressing to more advanced levels as your team gains experience.
+                </p>
+                <p class="content-text">
+                    <a href="prerequisites.html" class="breadcrumb-link">View Prerequisites</a>
+                </p>
+            </div>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="sidebar-section">
+                <h3 class="right-sidebar-title">On This Page</h3>
+                <ul class="right-sidebar-links">
+                    <li><a href="#basic" class="right-sidebar-link">Basic Workshop</a></li>
+                    <li><a href="#intermediate" class="right-sidebar-link">Intermediate Workshop</a></li>
+                    <li><a href="#advanced" class="right-sidebar-link">Advanced Workshop</a></li>
+                    <li><a href="#enterprise" class="right-sidebar-link">Enterprise Track</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="right-sidebar-title">Related Topics</h3>
+                <ul class="right-sidebar-links">
+                    <li><a href="prerequisites.html" class="right-sidebar-link">Prerequisites</a></li>
+                    <li><a href="resources.html" class="right-sidebar-link">Resources</a></li>
+                    <li><a href="vision.html" class="right-sidebar-link">Workshop Vision</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 class="right-sidebar-title">Get Started</h3>
+                <ul class="right-sidebar-links">
+                    <li><a href="https://github.com/paulasilvatech/Code-AI-Dev" class="right-sidebar-link">GitHub Repository</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="static/img/logo.png" alt="AI Code Development Logo">
+                    <span>AI Code Development Workshop</span>
+                </div>
+                <div class="footer-links">
+                    <a href="vision.html" class="footer-link">Workshop Vision</a>
+                    <a href="differentiators.html" class="footer-link">Key Differentiators</a>
+                    <a href="workshop-levels.html" class="footer-link">Workshop Levels</a>
+                    <a href="prerequisites.html" class="footer-link">Prerequisites</a>
+                    <a href="resources.html" class="footer-link">Resources</a>
+                    <a href="https://github.com/paulasilvatech/Code-AI-Dev" class="footer-link">GitHub Repository</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 AI Code Development Workshop. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            body.classList.add('dark-theme');
+        }
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+        
+        // Mobile navigation toggle
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const leftSidebar = document.querySelector('.left-sidebar');
+        
+        mobileNavToggle.addEventListener('click', () => {
+            leftSidebar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
