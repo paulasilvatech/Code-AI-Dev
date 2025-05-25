@@ -133,18 +133,18 @@ The workshop is organized into progressive modules, allowing you to choose the d
 
 1. **Fork and Clone this Repository**
    ```bash
-   git clone https://github.com/YourUsername/Design-to-Code-Dev.git
-   cd Design-to-Code-Dev
+   git clone https://github.com/paulanunes85/Code-AI-Dev.git
+   cd Code-AI-Dev
    ```
 
 2. **Quick Start (30 minutes)**
    - Follow our [Quick Start Guide](docs/QUICK_START.md) for immediate hands-on experience
-   - Complete setup verification and first component generation
+   - Complete setup verification and your first AI-assisted optimization
 
 3. **Follow the Workshop Structure**
-   - Start with [Introduction to Design-to-Code Technologies](docs/intro-design-to-code.md)
+   - Start with [Introduction to AI-Powered DevOps](docs/complete_workshop_guide.md#module-1-introduction-to-ai-powered-devops)
    - Progress through modules based on your experience level
-   - Use the [Advanced Troubleshooting Guide](docs/advanced-troubleshooting-guide.md) if needed
+   - Use the [Troubleshooting Guide](docs/troubleshooting_guide.md) if needed
 
 ## 🌟 Key Features
 
