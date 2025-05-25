@@ -1,345 +1,161 @@
-# Workshop Resources - Azure Infrastructure Setup
+# 📁 Workshop Resources - Organized by Level and Module
 
-This directory contains all scripts, templates, and configuration files needed to execute the "AI-Powered DevOps" workshop exercises.
+This directory contains all resources for the AI-Powered Development Workshop, organized by workshop level and module for easy navigation.
 
-## 📋 Overview
+## 🗂️ Directory Structure
 
-The provided resources allow participants to quickly create the necessary Azure infrastructure for hands-on workshop exercises, including:
+```
+resources/
+├── 🌱 basic/                    # Basic Workshop (90 minutes)
+│   ├── module1-first-ai-code/   # First AI Code exercises
+│   ├── module2-optimization/    # Code optimization examples
+│   └── module3-security/        # Security best practices
+│
+├── 🔧 intermediate/             # Intermediate Workshop (2 hours)
+│   ├── module4-advanced-copilot/# Advanced Copilot features
+│   ├── module5-cicd/           # CI/CD integration
+│   ├── module6-workflows/      # Custom AI workflows
+│   └── module7-multi-agent/    # Multi-agent systems
+│
+├── ⚡ advanced/                 # Advanced Track (3+ hours)
+│   ├── module8-architecture/   # Enterprise architecture
+│   ├── module9-security-compliance/ # Security & compliance
+│   ├── module10-performance/   # Performance at scale
+│   ├── module11-governance/    # Governance framework
+│   └── mcp-integration/        # MCP server integration
+│
+├── 🏢 enterprise/              # Enterprise Track
+│   ├── module12-readiness/    # Organizational readiness
+│   ├── module13-training/     # Team training program
+│   ├── module14-metrics/      # Metrics & ROI
+│   └── module15-continuous-improvement/ # Continuous improvement
+│
+└── 🛠️ common/                  # Common resources
+    ├── setup/                  # Setup scripts
+    └── templates/              # Code templates
+```
 
-- **SQL Server Database** for security exercises
-- **Azure AI Services** for AI integration
-- **Application Insights** for monitoring
-- **Key Vault** for secure secrets management
-- **Storage Account** for file storage
-- **CI/CD Templates** for Azure DevOps and GitHub Actions
+## 🌱 Basic Workshop Resources
+
+### Module 1: First AI Code
+- Calculator examples and templates
+- AI code generation basics
+- Copilot setup verification
+
+### Module 2: Optimization
+- String optimization examples
+- Performance comparison templates
+- Benchmarking tools
+
+### Module 3: Security
+- SQL injection prevention examples
+- Input validation templates
+- Security best practices
+
+## 🔧 Intermediate Workshop Resources
+
+### Module 4: Advanced Copilot Features
+- Multi-file refactoring examples
+- Workspace command templates
+- Advanced chat prompts
+
+### Module 5: CI/CD Integration
+- [`azure-devops-pipeline.yml`](intermediate/module5-cicd/azure-devops-pipeline.yml) - Azure DevOps pipeline template
+- [`github-actions-workflow.yml`](intermediate/module5-cicd/github-actions-workflow.yml) - GitHub Actions workflow
+
+### Module 6: Custom AI Workflows
+- [`ai-agent-templates.md`](intermediate/module6-workflows/ai-agent-templates.md) - AI agent templates
+- [`ai-documentation-templates.md`](intermediate/module6-workflows/ai-documentation-templates.md) - Documentation generation
+- [`ai-testing-templates.md`](intermediate/module6-workflows/ai-testing-templates.md) - AI-powered testing
+- [`prompt-engineering-templates.md`](intermediate/module6-workflows/prompt-engineering-templates.md) - Prompt templates
+- [`code-optimization-examples.md`](intermediate/module6-workflows/code-optimization-examples.md) - Optimization examples
+- [`github-copilot-workflows.md`](intermediate/module6-workflows/github-copilot-workflows.md) - Copilot workflows
+
+### Module 7: Multi-Agent Systems
+- [`multi_agent_orchestrator.py`](intermediate/module7-multi-agent/multi_agent_orchestrator.py) - Multi-agent orchestration example
+
+## ⚡ Advanced Track Resources
+
+### Module 8: Enterprise Architecture
+- Microservices templates
+- Event-driven architecture examples
+- Service mesh configurations
+
+### Module 9: Security & Compliance
+- [`security-scanning-templates.md`](advanced/module9-security-compliance/security-scanning-templates.md) - Security scanning templates
+- Compliance automation scripts
+- Zero-trust configurations
+
+### Module 10: Performance at Scale
+- Load testing templates
+- Caching strategies
+- Performance monitoring configs
+
+### Module 11: Governance Framework
+- [`enterprise-governance-policy.md`](advanced/module11-governance/enterprise-governance-policy.md) - Complete governance policy template
+
+### MCP Integration
+- [`mcp-integration-guide.md`](advanced/mcp-integration/mcp-integration-guide.md) - MCP integration guide
+- [`mcp-server-config.json`](advanced/mcp-integration/mcp-server-config.json) - Server configuration
+- [`mcp-server.js`](advanced/mcp-integration/mcp-server.js) - MCP server implementation
+- [`mcp-workflow-examples.md`](advanced/mcp-integration/mcp-workflow-examples.md) - Workflow examples
+- [`mcp-agent-config.yaml`](advanced/mcp-integration/mcp-agent-config.yaml) - Agent configuration
+- [`mcp-client-config.json`](advanced/mcp-integration/mcp-client-config.json) - Client configuration
+
+## 🏢 Enterprise Track Resources
+
+### Module 12: Organizational Readiness
+- [`enterprise-adoption-template.md`](enterprise/module12-readiness/enterprise-adoption-template.md) - Complete adoption framework
+
+### Module 13: Team Training Program
+- Training curriculum templates
+- Mentorship program guides
+- Center of Excellence charter
+
+### Module 14: Metrics & ROI
+- [`enterprise-metrics-framework.py`](enterprise/module14-metrics/enterprise-metrics-framework.py) - Comprehensive metrics collection system
+
+### Module 15: Continuous Improvement
+- Feedback collection templates
+- Innovation lab frameworks
+- Best practice repositories
+
+## 🛠️ Common Resources
+
+### Setup Scripts
+- [`setup-azure-infrastructure.sh`](common/setup/setup-azure-infrastructure.sh) - Bash setup script
+- [`setup-azure-infrastructure.ps1`](common/setup/setup-azure-infrastructure.ps1) - PowerShell setup script
+- [`validate-setup.sh`](common/setup/validate-setup.sh) - Environment validation
+- [`cleanup-azure-infrastructure.sh`](common/setup/cleanup-azure-infrastructure.sh) - Cleanup script
+- [`workshop-config.env`](common/setup/workshop-config.env) - Configuration template
+
+### Code Templates
+- [`DatabaseConnection.java`](common/templates/DatabaseConnection.java) - Java database template
+- [`DatabaseConnection.cs`](common/templates/DatabaseConnection.cs) - C# database template
+- [`application.properties`](common/templates/application.properties) - Java configuration
+- [`appsettings.json`](common/templates/appsettings.json) - .NET configuration
+- [`init-database.sql`](common/templates/init-database.sql) - Database initialization
+
+### Documentation
+- [`workshop-index.md`](common/workshop-index.md) - Workshop index
+- [`package.json`](common/package.json) - Node.js dependencies
 
 ## 🚀 Quick Start
 
-### Prerequisites
-
-- Active Azure account
-- Azure CLI or Azure PowerShell installed
-- Permissions to create resources in the subscription
-
-### Quick Setup
-
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd Code-AI-Dev/resources
-   ```
-
-2. **Run the setup script:**
-   
-   **Linux/macOS:**
-   ```bash
-   chmod +x setup-azure-infrastructure.sh
-   ./setup-azure-infrastructure.sh
-   ```
-   
-   **Windows (PowerShell):**
-   ```powershell
-   .\setup-azure-infrastructure.ps1
-   ```
-
-3. **Configure environment variables:**
-   ```bash
-   source resources/workshop-config.env
-   ```
-
-4. **Start the workshop exercises!**
-
-## 📁 File Structure
-
-### Infrastructure Scripts
-
-| File | Description |
-|------|-------------|
-| `setup-azure-infrastructure.sh` | Bash script to create Azure resources (Linux/macOS) |
-| `setup-azure-infrastructure.ps1` | PowerShell script to create Azure resources (Windows) |
-| `cleanup-azure-infrastructure.sh` | Script to remove all created resources |
-
-### CI/CD Templates
-
-| File | Description |
-|------|-------------|
-| `azure-devops-pipeline.yml` | Complete pipeline for Azure DevOps |
-| `github-actions-workflow.yml` | Workflow for GitHub Actions |
-
-### Code Templates
-
-| File | Description |
-|------|-------------|
-| `DatabaseConnection.cs` | C# class for secure database connection |
-| `DatabaseConnection.java` | Java class for secure database connection |
-| `appsettings.json` | Configuration for .NET applications |
-| `application.properties` | Configuration for Java/Spring applications |
-
-### MCP (Model Context Protocol) Resources
-
-| File | Description |
-|------|-------------|
-| `mcp-server-config.json` | MCP server configuration with AI tools |
-| `mcp-client-config.json` | MCP client configuration for connections |
-| `mcp-workflow-examples.md` | Comprehensive MCP workflow examples |
-| `mcp-agent-config.yaml` | AI agent configurations for MCP |
-| `mcp-integration-guide.md` | Integration guide for various tools |
-
-### Other Files
-
-| File | Description |
-|------|-------------|
-| `multi_agent_orchestrator.py` | Multi-agent orchestration system |
-| `workshop-config.env` | Environment variables (generated by script) |
-| `init-database.sql` | Database initialization script (generated by script) |
-
-## 🤖 AI Development Workshop Resources
-
-### Core AI Development Resources
-
-| File | Description | Key Topics |
-|------|-------------|------------|
-| `github-copilot-workflows.md` | Practical workflows for GitHub Copilot | Basic code generation, TDD, refactoring, security enhancement, API integration, architecture patterns, code review, automation |
-| `prompt-engineering-templates.md` | Effective GitHub Copilot prompts | Core patterns, specific use cases, advanced techniques, quality checklists |
-| `code-optimization-examples.md` | Performance optimization demonstrations | 10-100x improvements, security enhancements, memory management, algorithm optimization |
-| `ai-agent-templates.md` | Complete AI agent implementations | Code review agents, performance optimization, security scanning, test generation, multi-agent orchestration |
-| `ai-testing-templates.md` | Comprehensive testing templates | Unit testing, property-based testing, integration testing, E2E testing, AI-powered test data generation, load testing |
-| `security-scanning-templates.md` | Security analysis templates | Static analysis, dependency scanning, container security, runtime protection (RASP), automated security test generation |
-| `ai-documentation-templates.md` | AI-powered documentation generation | API documentation, code documentation, architecture documentation, user guides |
-
-### MCP Integration Resources
-
-| File | Description | Key Features |
-|------|-------------|-------------|
-| `mcp-server-config.json` | MCP server configuration | Tools for code review, test generation, optimization, security scanning, documentation |
-| `mcp-client-config.json` | MCP client configuration | Multiple server connections, retry logic, logging configuration |
-| `mcp-workflow-examples.md` | MCP workflow examples | Basic setup, multi-agent workflows, security scanning, test generation, documentation |
-| `mcp-agent-config.yaml` | Agent configurations | 6 specialized AI agents with orchestration rules |
-| `mcp-integration-guide.md` | Tool integrations | VS Code, GitHub, Azure DevOps, Jenkins, Docker, Kubernetes |
-
-### 🎯 How to Use AI Development Resources
-
-1. **Start with Workflows**: Begin with `github-copilot-workflows.md` to understand practical AI-assisted development patterns
-2. **Master Prompts**: Use `prompt-engineering-templates.md` to write effective prompts for AI tools
-3. **Apply Optimizations**: Reference `code-optimization-examples.md` for real-world optimization scenarios
-4. **Implement Agents**: Use `ai-agent-templates.md` to build autonomous development agents
-5. **Enhance Testing**: Apply templates from `ai-testing-templates.md` for comprehensive test coverage
-6. **Secure Your Code**: Implement security scanning using `security-scanning-templates.md`
-7. **Document Everything**: Generate documentation with `ai-documentation-templates.md`
-8. **Integrate MCP**: Follow `mcp-integration-guide.md` to integrate AI tools into your workflow
-
-### 📚 Workshop Learning Path
-
-1. **Beginner Path**:
-   - Start with basic GitHub Copilot workflows
-   - Practice prompt engineering templates
-   - Try simple code optimization examples
-   - Set up basic MCP configuration
-
-2. **Intermediate Path**:
-   - Implement AI testing templates
-   - Build basic AI agents
-   - Apply security scanning to existing code
-   - Create MCP workflows for your project
-
-3. **Advanced Path**:
-   - Create multi-agent orchestration systems
-   - Implement RASP and advanced security
-   - Build custom AI development pipelines
-   - Integrate MCP with CI/CD systems
-
-## ⚙️ Detailed Configuration
-
-### 1. Azure Resources Created
-
-The setup script creates the following resources with standardized naming:
-
-- **Resource Group**: `aidevops-workshop-rg`
-- **SQL Server**: `aidevops-sql-server-[timestamp]`
-- **SQL Database**: `aidevops-workshop-db`
-- **Application Insights**: `aidevops-appinsights`
-- **AI Services**: `aidevops-ai-services`
-- **Storage Account**: `aidevopsstorage[timestamp]`
-- **Key Vault**: `aidevops-keyvault-[timestamp]`
-
-#### Visual Overview of Created Resources
-
-![Azure Resources Created by Setup Script](../images/aidevops-workshop-rg-resources.png)
-
-*The image above shows all Azure resources created after running the setup script, organized within the `aidevops-workshop-rg` resource group.*
-
-### 2. Default Settings
-
-#### Database Credentials
-- **Username**: `workshopadmin`
-- **Password**: `Workshop2024!`
-- **Location**: `East US`
-
-#### Security Settings
-- SSL/TLS enabled by default
-- Firewall configured for Azure Services
-- Current client IP automatically included
-- Secrets stored in Key Vault
-
-### 3. Database Structure
-
-The script automatically creates:
-
-```sql
--- Table for security exercises
-CREATE TABLE users (
-    id INT IDENTITY(1,1) PRIMARY KEY,
-    username NVARCHAR(50) NOT NULL UNIQUE,
-    email NVARCHAR(100) NOT NULL,
-    password_hash NVARCHAR(255) NOT NULL,
-    created_date DATETIME2 DEFAULT GETDATE(),
-    last_login DATETIME2 NULL,
-    is_active BIT DEFAULT 1
-);
-
--- Sample data inserted automatically
-```
-
-## 🔧 Customization
-
-### Modify Default Settings
-
-Edit the variables at the beginning of scripts to customize:
-
-```bash
-# setup-azure-infrastructure.sh
-WORKSHOP_PREFIX="your-prefix"
-LOCATION="your-region"
-SQL_ADMIN_PASSWORD="your-secure-password"
-```
-
-### Project-Specific Settings
-
-Modify configuration files as needed:
-
-- **appsettings.json**: For .NET applications
-- **application.properties**: For Java/Spring applications
-
-## 🚨 Security Exercises
-
-### SQL Injection Prevention
-
-Templates include secure and vulnerable examples for demonstration:
-
-**❌ Vulnerable Code (for demonstration):**
-```csharp
-string query = $"SELECT * FROM users WHERE username = '{username}'";
-```
-
-**✅ Secure Code (for use):**
-```csharp
-string query = "SELECT * FROM users WHERE username = @username";
-command.Parameters.AddWithValue("@username", username);
-```
-
-## 📊 Monitoring and AI
-
-### Application Insights
-
-Automatically configured to monitor:
-- Application performance
-- Errors and exceptions
-- Custom metrics
-- Usage analytics
-
-### Azure AI Services
-
-Ready integration for:
-- AI-powered code analysis
-- Anomaly detection
-- Performance optimization
-- Predictive security
-
-## 🔄 CI/CD Templates
-
-### Azure DevOps Pipeline
-
-Includes stages for:
-- Build and tests
-- AI-powered security analysis
-- Development deployment
-- Production deployment
-- Continuous monitoring
-
-### GitHub Actions Workflow
-
-Includes jobs for:
-- Build and tests with AI assistance
-- Automated AI code review
-- Azure deployment
-- Post-deployment monitoring
-
-## 🧹 Resource Cleanup
-
-**IMPORTANT**: To avoid unnecessary costs, always run the cleanup script after the workshop:
-
-```bash
-./cleanup-azure-infrastructure.sh
-```
-
-This script removes **ALL** resources created by the workshop.
-
-## 🔐 Security
-
-### Implemented Best Practices
-
-- ✅ Secure passwords with adequate complexity
-- ✅ SSL/TLS enabled by default
-- ✅ Restrictively configured firewall
-- ✅ Secrets stored in Key Vault
-- ✅ Parameterized connections in examples
-- ✅ Input validation implemented
-
-### For Production
-
-**⚠️ NEVER use in production without modifying:**
-- Default passwords
-- Firewall settings
-- Example keys
-- Development configurations
-
-## 🆘 Troubleshooting
-
-### Error: "Insufficient permissions"
-- Verify you have Contributor permissions on the subscription
-- Confirm you're logged in with the correct account
-
-### Error: "Resource name already exists"
-- Names include timestamp to avoid conflicts
-- If conflicts persist, modify the WORKSHOP_PREFIX
-
-### Error: "Region not available"
-- Some services aren't available in all regions
-- Use "East US" as default (tested and functional)
-
-### Error: "Database connection failed"
-- Verify firewall is configured correctly
-- Confirm current IP is in firewall rules
-- Wait a few minutes after resource creation
-
-## 💡 Workshop Tips
-
-1. **Run setup in advance** - Resource creation can take 10-15 minutes
-2. **Keep the configuration file** - Contains all necessary information
-3. **Use Key Vault** - To access secrets securely
-4. **Monitor costs** - Set up billing alerts if necessary
-5. **Document modifications** - To facilitate troubleshooting
-
-## 📞 Support
-
-For questions or issues:
-1. Check script execution logs
-2. Review Azure documentation
-3. Use the workshop troubleshooting guide
-4. Contact the workshop instructor
-
----
-
-**Version**: 1.0  
-**Last updated**: January 2024  
-**Compatibility**: Azure CLI 2.0+, PowerShell 5.1+
+1. **Basic Workshop**: Start with resources in the `basic/` folder
+2. **Setup Environment**: Use scripts in `common/setup/`
+3. **Follow Modules**: Resources are organized by module number
+4. **Reference Templates**: Find code templates in `common/templates/`
+
+## 📝 Usage Guidelines
+
+- Each module folder contains resources specific to that workshop section
+- Common resources are shared across all workshop levels
+- Setup scripts should be run before starting any workshop
+- Templates can be customized for your specific needs
+
+## 🔗 Related Documentation
+
+- [Complete Workshop Guide](../docs/complete_workshop_guide.md)
+- [Troubleshooting Guide](../docs/troubleshooting_guide.md)
+- [Workshop FAQ](../docs/workshop-faq.md)

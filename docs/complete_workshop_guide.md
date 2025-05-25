@@ -40,14 +40,14 @@
 
 | 🛠️ Resource Type | 📂 Location | 📖 Description |
 |------------------|-------------|----------------|
-| **🤖 Setup Scripts** | [`/resources/setup-azure-infrastructure.sh`](/resources/setup-azure-infrastructure.sh) | Automated Azure infrastructure setup |
-| **⚙️ PowerShell Setup** | [`/resources/setup-azure-infrastructure.ps1`](/resources/setup-azure-infrastructure.ps1) | Windows PowerShell automation |
-| **🧪 Validation Tools** | [`/resources/validate-setup.sh`](/resources/validate-setup.sh) | Environment validation script |
-| **🗂️ Configuration Files** | [`/resources/appsettings.json`](/resources/appsettings.json), [`/resources/application.properties`](/resources/application.properties) | Sample configuration templates |
-| **💻 Code Examples** | [`/resources/DatabaseConnection.java`](/resources/DatabaseConnection.java), [`/resources/DatabaseConnection.cs`](/resources/DatabaseConnection.cs) | Real-world code examples |
-| **🔄 CI/CD Pipelines** | [`/resources/azure-devops-pipeline.yml`](/resources/azure-devops-pipeline.yml), [`/resources/github-actions-workflow.yml`](/resources/github-actions-workflow.yml) | Production-ready pipeline templates |
-| **🤖 Multi-Agent System** | [`/resources/multi_agent_orchestrator.py`](/resources/multi_agent_orchestrator.py) | Advanced orchestration example |
-| **🧹 Cleanup Tools** | [`/resources/cleanup-azure-infrastructure.sh`](/resources/cleanup-azure-infrastructure.sh) | Infrastructure cleanup automation |
+| **🤖 Setup Scripts** | [`/resources/common/setup/setup-azure-infrastructure.sh`](/resources/common/setup/setup-azure-infrastructure.sh) | Automated Azure infrastructure setup |
+| **⚙️ PowerShell Setup** | [`/resources/common/setup/setup-azure-infrastructure.ps1`](/resources/common/setup/setup-azure-infrastructure.ps1) | Windows PowerShell automation |
+| **🧪 Validation Tools** | [`/resources/common/setup/validate-setup.sh`](/resources/common/setup/validate-setup.sh) | Environment validation script |
+| **🗂️ Configuration Files** | [`/resources/common/templates/appsettings.json`](/resources/common/templates/appsettings.json), [`/resources/common/templates/application.properties`](/resources/common/templates/application.properties) | Sample configuration templates |
+| **💻 Code Examples** | [`/resources/common/templates/DatabaseConnection.java`](/resources/common/templates/DatabaseConnection.java), [`/resources/common/templates/DatabaseConnection.cs`](/resources/common/templates/DatabaseConnection.cs) | Real-world code examples |
+| **🔄 CI/CD Pipelines** | [`/resources/intermediate/module5-cicd/azure-devops-pipeline.yml`](/resources/intermediate/module5-cicd/azure-devops-pipeline.yml), [`/resources/intermediate/module5-cicd/github-actions-workflow.yml`](/resources/intermediate/module5-cicd/github-actions-workflow.yml) | Production-ready pipeline templates |
+| **🤖 Multi-Agent System** | [`/resources/intermediate/module7-multi-agent/multi_agent_orchestrator.py`](/resources/intermediate/module7-multi-agent/multi_agent_orchestrator.py) | Advanced orchestration example |
+| **🧹 Cleanup Tools** | [`/resources/common/setup/cleanup-azure-infrastructure.sh`](/resources/common/setup/cleanup-azure-infrastructure.sh) | Infrastructure cleanup automation |
 
 ---
 
@@ -223,10 +223,10 @@ gantt
 ### 🛠️ Key Topics Covered
 
 - 🔄 **CI/CD Pipeline Integration with AI Tools**
-  - 📁 Reference: [`/resources/azure-devops-pipeline.yml`](/resources/azure-devops-pipeline.yml) - Complete Azure DevOps pipeline
-  - 📁 Reference: [`/resources/github-actions-workflow.yml`](/resources/github-actions-workflow.yml) - GitHub Actions workflow
+  - 📁 Reference: [`/resources/intermediate/module5-cicd/azure-devops-pipeline.yml`](/resources/intermediate/module5-cicd/azure-devops-pipeline.yml) - Complete Azure DevOps pipeline
+  - 📁 Reference: [`/resources/intermediate/module5-cicd/github-actions-workflow.yml`](/resources/intermediate/module5-cicd/github-actions-workflow.yml) - GitHub Actions workflow
 - ☁️ **Azure AI Services Integration**
-  - 📁 Reference: [`/resources/setup-azure-infrastructure.sh`](/resources/setup-azure-infrastructure.sh) - Automated setup script
+  - 📁 Reference: [`/resources/common/setup/setup-azure-infrastructure.sh`](/resources/common/setup/setup-azure-infrastructure.sh) - Automated setup script
 - 📋 **Enterprise Governance and Compliance**
 - 📈 **Scalability and Performance Considerations**
 
@@ -249,9 +249,9 @@ gantt
 
 - 🤖 **GitHub Copilot Coding Agent Configuration**
 - 🔄 **Autonomous Workflow Implementation**
-  - 📁 Reference: [`/resources/multi_agent_orchestrator.py`](/resources/multi_agent_orchestrator.py) - Multi-agent system example
+  - 📁 Reference: [`/resources/intermediate/module7-multi-agent/multi_agent_orchestrator.py`](/resources/intermediate/module7-multi-agent/multi_agent_orchestrator.py) - Multi-agent system example
 - 🚀 **Production Deployment Strategies**
-  - 📁 Reference: [`/resources/azure-devops-pipeline.yml`](/resources/azure-devops-pipeline.yml) - Production pipeline
+  - 📁 Reference: [`/resources/intermediate/module5-cicd/azure-devops-pipeline.yml`](/resources/intermediate/module5-cicd/azure-devops-pipeline.yml) - Production pipeline
 - 📊 **Monitoring and Optimization of AI-Powered Systems**
 
 ---
@@ -296,10 +296,10 @@ gantt
 - 🌍 **Real-World Optimization Scenarios**
 - 🔄 **End-to-End Implementation Exercises**
 - 💻 **Multi-Language Practical Examples (Java and .NET)**
-  - 📁 Reference: [`/resources/DatabaseConnection.java`](/resources/DatabaseConnection.java) - Java example
-  - 📁 Reference: [`/resources/DatabaseConnection.cs`](/resources/DatabaseConnection.cs) - C# example
-  - 📁 Reference: [`/resources/application.properties`](/resources/application.properties) - Java configuration
-  - 📁 Reference: [`/resources/appsettings.json`](/resources/appsettings.json) - .NET configuration
+  - 📁 Reference: [`/resources/common/templates/DatabaseConnection.java`](/resources/common/templates/DatabaseConnection.java) - Java example
+  - 📁 Reference: [`/resources/common/templates/DatabaseConnection.cs`](/resources/common/templates/DatabaseConnection.cs) - C# example
+  - 📁 Reference: [`/resources/common/templates/application.properties`](/resources/common/templates/application.properties) - Java configuration
+  - 📁 Reference: [`/resources/common/templates/appsettings.json`](/resources/common/templates/appsettings.json) - .NET configuration
 - 🧠 **Problem-Solving with AI Assistance**
 
 ---
@@ -312,9 +312,9 @@ gantt
 
 | 🛠️ Script | 🎯 Purpose | 💻 Command |
 |-----------|------------|-------------|
-| **🏗️ Azure Setup** | Complete infrastructure setup | `bash resources/setup-azure-infrastructure.sh` |
-| **✅ Environment Validation** | Verify all prerequisites | `bash resources/validate-setup.sh` |
-| **🧹 Cleanup** | Remove test infrastructure | `bash resources/cleanup-azure-infrastructure.sh` |
+| **🏗️ Azure Setup** | Complete infrastructure setup | `bash resources/common/setup/setup-azure-infrastructure.sh` |
+| **✅ Environment Validation** | Verify all prerequisites | `bash resources/common/setup/validate-setup.sh` |
+| **🧹 Cleanup** | Remove test infrastructure | `bash resources/common/setup/cleanup-azure-infrastructure.sh` |
 
 ### 🎯 What You'll Learn
 
@@ -721,14 +721,14 @@ git config --list
 
 ```bash
 # 1. Clone the workshop repository (if not already done)
-git clone https://github.com/your-repo/Code-AI-Dev.git
+git clone https://github.com/paulanunes85/Code-AI-Dev.git
 cd Code-AI-Dev
 
 # 2. Run the validation script to check prerequisites
-bash resources/validate-setup.sh
+bash resources/common/setup/validate-setup.sh
 
 # 3. Set up Azure infrastructure (optional - for advanced workshops)
-bash resources/setup-azure-infrastructure.sh
+bash resources/common/setup/setup-azure-infrastructure.sh
 
 # After running the setup script, the following Azure resources will be created:
 # - Resource Group: aidevops-workshop-rg
@@ -743,15 +743,15 @@ bash resources/setup-azure-infrastructure.sh
 # ![Azure Resources](../images/aidevops-workshop-rg-resources.png)
 
 # 4. Source the configuration file (if Azure setup was run)
-# source resources/workshop-config.env
+# source resources/common/setup/workshop-config.env
 
 # 5. Copy configuration templates to your project
-cp resources/application.properties your-java-project/src/main/resources/
-cp resources/appsettings.json your-dotnet-project/
+cp resources/common/templates/application.properties your-java-project/src/main/resources/
+cp resources/common/templates/appsettings.json your-dotnet-project/
 
 # 6. Set up CI/CD pipelines
-cp resources/azure-devops-pipeline.yml your-project/
-cp resources/github-actions-workflow.yml your-project/.github/workflows/
+cp resources/intermediate/module5-cicd/azure-devops-pipeline.yml your-project/
+cp resources/intermediate/module5-cicd/github-actions-workflow.yml your-project/.github/workflows/
 ```
 
 > 💡 **Pro Tip:** All scripts include detailed comments and error handling. Review them to understand the automation process!
@@ -1682,7 +1682,7 @@ public class StringPerformanceComparison {
 
 #### ☕ Java - Vulnerable Code Example
 
-> **📁 Reference:** Compare with the secure implementation in [`/resources/DatabaseConnection.java`](/resources/DatabaseConnection.java)
+> **📁 Reference:** Compare with the secure implementation in [`/resources/common/templates/DatabaseConnection.java`](/resources/common/templates/DatabaseConnection.java)
 
 ```java
 import java.sql.*;
@@ -1728,7 +1728,7 @@ public class DatabaseExample {
 
 #### 🔷 C# - Vulnerable Code Example
 
-> **📁 Reference:** Compare with the secure implementation in [`/resources/DatabaseConnection.cs`](/resources/DatabaseConnection.cs)
+> **📁 Reference:** Compare with the secure implementation in [`/resources/common/templates/DatabaseConnection.cs`](/resources/common/templates/DatabaseConnection.cs)
 
 ```csharp
 using System;
@@ -2253,7 +2253,7 @@ The Intermediate Workshop extends the basic concepts with advanced features:
 1. **Create file**: `azure-pipelines.yml`
 2. **Copy template**:
    ```bash
-   cp /resources/azure-devops-pipeline.yml ./azure-pipelines.yml
+   cp resources/intermediate/module5-cicd/azure-devops-pipeline.yml ./azure-pipelines.yml
    ```
 3. **Ask Copilot**: "Customize this pipeline for my Java/C# project with AI-powered testing"
 
@@ -2337,7 +2337,7 @@ The Intermediate Workshop extends the basic concepts with advanced features:
 #### 📋 Detailed Step-by-Step Instructions
 
 ##### Step 1: Understanding Multi-Agent Architecture
-1. **Open**: `/resources/multi_agent_orchestrator.py`
+1. **Open**: `resources/intermediate/module7-multi-agent/multi_agent_orchestrator.py`
 2. **In Copilot Chat, ask**:
    ```
    Explain how this multi-agent orchestrator works and create a diagram
@@ -2597,17 +2597,16 @@ The Advanced Track focuses on production-ready implementations:
 #### 📋 Detailed Step-by-Step Instructions
 
 ##### Step 1: Create AI Usage Policies
-1. **Create**: `governance/ai-usage-policy.md`
-2. **Ask Copilot**:
+1. **Copy the governance template**:
+   ```bash
+   cp resources/advanced/module11-governance/enterprise-governance-policy.md ./governance/ai-usage-policy.md
    ```
-   Create comprehensive AI usage policies covering:
-   - Acceptable use of AI tools
-   - Code ownership and licensing
-   - Data privacy requirements
-   - Bias prevention measures
-   - Audit requirements
-   ```
-3. **Review with legal team**
+2. **Customize the policy** for your organization:
+   - Update company-specific requirements
+   - Adjust security classifications
+   - Modify compliance requirements
+   - Set appropriate KPIs
+3. **Review with legal team** and stakeholders
 
 ##### Step 2: Implement Audit Logging
 1. **Create**: `governance/audit-logger.py`
@@ -2668,33 +2667,257 @@ The Enterprise Track covers organizational transformation:
 | **Metrics & ROI** | 45 minutes | Success measurement | KPI dashboard |
 | **Continuous Improvement** | 45 minutes | Optimization cycle | Process framework |
 
-### 🌍 Enterprise Scalability Framework
+---
 
-#### 📈 Adoption Strategy
-1. **Pilot Team Selection** - Identify early adopters
-2. **Success Metrics Definition** - Clear KPIs and goals
-3. **Phased Rollout Plan** - Gradual expansion
-4. **Feedback Loop Implementation** - Continuous improvement
+### 📈 Module 12: Organizational Readiness (60 minutes)
 
-#### 👥 Team Enablement
-- **Developer Training Paths** - Skill level progression
-- **Mentorship Programs** - Peer learning systems
-- **Center of Excellence** - AI development expertise hub
-- **Community of Practice** - Knowledge sharing forums
+> **📁 Enterprise Resources Available:**
+> - [`/resources/enterprise/module12-readiness/enterprise-adoption-template.md`](/resources/enterprise/module12-readiness/enterprise-adoption-template.md) - Complete adoption framework
+> - [`/resources/enterprise/module14-metrics/enterprise-metrics-framework.py`](/resources/enterprise/module14-metrics/enterprise-metrics-framework.py) - Metrics collection system
+> - [`/resources/advanced/module11-governance/enterprise-governance-policy.md`](/resources/advanced/module11-governance/enterprise-governance-policy.md) - Governance policy template
 
-#### 📊 Success Measurement
-- **Productivity Metrics** - Code output, quality, speed
-- **Business Impact** - Time to market, cost reduction
-- **Developer Satisfaction** - Team morale and retention
-- **Innovation Index** - New capabilities enabled
+#### 📋 Detailed Step-by-Step Instructions
 
-#### 🔄 Continuous Evolution
-- **Regular Assessment Cycles** - Quarterly reviews
-- **Tool Evaluation Process** - New technology adoption
-- **Best Practice Updates** - Living documentation
-- **Feedback Integration** - User-driven improvements
+##### Step 1: Assess Current State
+1. **Create folder**: `enterprise-adoption/assessment/`
+2. **Copy the template**:
+   ```bash
+   cp resources/enterprise/module12-readiness/enterprise-adoption-template.md ./enterprise-adoption/assessment/
+   ```
+3. **Create**: `assessment/current-state-analysis.md`
+4. **In Copilot Chat, type**:
+   ```
+   Create a comprehensive assessment framework for:
+   - Current development practices maturity
+   - Team AI readiness levels
+   - Infrastructure capabilities
+   - Security and compliance requirements
+   - Budget and resource constraints
+   ```
+4. **Use the generated framework** to assess your organization
 
-> **🎯 Enterprise Success:** Organizations report 40-60% productivity gains within 6 months
+##### Step 2: Build Adoption Roadmap
+1. **Create**: `adoption-roadmap/roadmap.md`
+2. **Ask Copilot**:
+   ```
+   Based on a medium-sized enterprise with 200 developers:
+   - Create a 12-month AI adoption roadmap
+   - Define phases and milestones
+   - Identify required resources
+   - Highlight potential risks and mitigations
+   ```
+3. **Customize** based on your assessment results
+
+##### Step 3: Pilot Team Selection
+1. **Create**: `pilot-program/team-selection-criteria.md`
+2. **Define criteria**:
+   ```markdown
+   # Pilot Team Selection Criteria
+   
+   Ask Copilot to create a scoring matrix for:
+   - Technical proficiency
+   - Innovation mindset
+   - Communication skills
+   - Project complexity
+   - Business impact potential
+   ```
+3. **Score and select** 5-10 pilot team members
+
+##### Step 4: Success Metrics Definition
+1. **Create**: `metrics/kpi-dashboard.json`
+2. **Ask Copilot**:
+   ```
+   Design a KPI dashboard tracking:
+   - Code velocity improvements
+   - Bug reduction rates
+   - Time to market changes
+   - Developer satisfaction scores
+   - Cost savings
+   Include baseline measurements and targets
+   ```
+3. **Implement** using your BI tool of choice
+
+> ✅ **Checkpoint:** Organization readiness assessed and pilot program defined
+
+---
+
+### 👥 Module 13: Team Training Program (60 minutes)
+
+#### 📋 Detailed Step-by-Step Instructions
+
+##### Step 1: Create Training Curriculum
+1. **Create**: `training/curriculum-structure.md`
+2. **Ask Copilot**:
+   ```
+   Design a comprehensive AI development training program with:
+   - Beginner track (20 hours)
+   - Intermediate track (40 hours)
+   - Advanced track (60 hours)
+   - Specialized tracks (Security, Performance, Architecture)
+   Include hands-on labs, assessments, and certifications
+   ```
+3. **Review and adjust** for your organization
+
+##### Step 2: Develop Training Materials
+1. **Create folders**:
+   ```
+   training/
+   ├── beginner/
+   ├── intermediate/
+   ├── advanced/
+   └── specialized/
+   ```
+2. **For each module, create**:
+   - `module-guide.md`
+   - `hands-on-labs.md`
+   - `assessment-questions.md`
+3. **Use Copilot** to generate content for each
+
+##### Step 3: Build Mentorship Program
+1. **Create**: `mentorship/program-structure.md`
+2. **Design program**:
+   ```
+   Ask Copilot to create:
+   - Mentor selection criteria
+   - Pairing algorithm
+   - Weekly meeting templates
+   - Progress tracking system
+   - Success metrics
+   ```
+3. **Launch** with pilot team
+
+##### Step 4: Establish Center of Excellence
+1. **Create**: `center-of-excellence/charter.md`
+2. **Define**:
+   - Mission and objectives
+   - Roles and responsibilities
+   - Best practice repository
+   - Tool evaluation process
+   - Knowledge sharing forums
+3. **Recruit** CoE team members
+
+> ✅ **Checkpoint:** Complete training program and CoE established
+
+---
+
+### 📊 Module 14: Metrics & ROI (45 minutes)
+
+#### 📋 Detailed Step-by-Step Instructions
+
+##### Step 1: Implement Measurement Framework
+1. **Copy the enterprise metrics framework**:
+   ```bash
+   cp resources/enterprise/module14-metrics/enterprise-metrics-framework.py ./metrics/measurement-framework.py
+   ```
+2. **Review the implementation** to understand:
+   - Metric collection methods
+   - ROI calculation logic
+   - Report generation
+   - Recommendation engine
+3. **Customize for your organization**:
+   ```python
+   # Modify these values in the framework:
+   self.developers = 200  # Your team size
+   self.avg_salary = 120000  # Your average salary
+   self.tool_costs = 10000  # Your monthly costs
+   ```
+4. **Deploy** to your development environment
+
+##### Step 2: Build ROI Calculator
+1. **Create**: `roi/roi-calculator.xlsx` or `roi-calculator.py`
+2. **Include calculations for**:
+   - Developer time saved
+   - Bug reduction value
+   - Faster time to market
+   - Infrastructure cost optimization
+   - Training investment vs. returns
+3. **Validate** with finance team
+
+##### Step 3: Create Executive Dashboard
+1. **Create**: `dashboards/executive-summary.json`
+2. **Ask Copilot**:
+   ```
+   Design an executive dashboard showing:
+   - AI adoption progress
+   - Productivity improvements
+   - Cost savings achieved
+   - Risk mitigation status
+   - Competitive advantage metrics
+   ```
+3. **Implement** in PowerBI or Tableau
+
+##### Step 4: Quarterly Business Review
+1. **Create**: `reports/qbr-template.md`
+2. **Include sections for**:
+   - Progress against roadmap
+   - Key achievements
+   - Challenges and solutions
+   - ROI demonstration
+   - Next quarter objectives
+3. **Schedule** regular reviews
+
+> ✅ **Checkpoint:** Metrics framework operational with clear ROI tracking
+
+---
+
+### 🔄 Module 15: Continuous Improvement (45 minutes)
+
+#### 📋 Detailed Step-by-Step Instructions
+
+##### Step 1: Feedback Collection System
+1. **Create**: `feedback/collection-system.py`
+2. **Implement**:
+   ```python
+   # Build a feedback system that:
+   # 1. Collects developer experiences
+   # 2. Tracks tool effectiveness
+   # 3. Identifies pain points
+   # 4. Suggests improvements
+   # 5. Prioritizes enhancements
+   ```
+3. **Deploy** across all teams
+
+##### Step 2: Tool Evaluation Process
+1. **Create**: `evaluation/tool-evaluation-framework.md`
+2. **Define process for**:
+   - New AI tool discovery
+   - Evaluation criteria
+   - Pilot testing approach
+   - Security assessment
+   - Adoption decision matrix
+3. **Run** monthly evaluations
+
+##### Step 3: Best Practice Repository
+1. **Create**: `best-practices/`
+2. **Organize by**:
+   ```
+   best-practices/
+   ├── code-generation/
+   ├── security-patterns/
+   ├── performance-optimization/
+   ├── testing-strategies/
+   └── architecture-patterns/
+   ```
+3. **Populate** with team contributions
+
+##### Step 4: Innovation Labs
+1. **Create**: `innovation-labs/lab-charter.md`
+2. **Establish**:
+   - Weekly innovation time
+   - Hackathon schedule
+   - Proof of concept process
+   - Success story sharing
+   - Patent/IP process
+3. **Launch** first innovation challenge
+
+> ✅ **Checkpoint:** Continuous improvement cycle fully operational
+
+#### 📝 Enterprise Track Summary - What You Learned
+✅ How to assess organizational readiness for AI adoption
+✅ Building comprehensive training and mentorship programs
+✅ Implementing metrics frameworks with ROI tracking
+✅ Creating continuous improvement processes
+✅ Scaling AI development practices across large organizations
 
 ---
 
@@ -2768,12 +2991,12 @@ graph TD
 #### 🤖 Automation Resource Mastery
 
 **Ready-to-Use Enterprise Assets:**
-- [ ] **Infrastructure Automation:** [`setup-azure-infrastructure.sh`](/resources/setup-azure-infrastructure.sh) | [`cleanup-azure-infrastructure.sh`](/resources/cleanup-azure-infrastructure.sh)
-- [ ] **Environment Validation:** [`validate-setup.sh`](/resources/validate-setup.sh)
-- [ ] **CI/CD Templates:** [`github-actions-workflow.yml`](/resources/github-actions-workflow.yml) | [`azure-devops-pipeline.yml`](/resources/azure-devops-pipeline.yml)
-- [ ] **Production Code Examples:** [`DatabaseConnection.java`](/resources/DatabaseConnection.java) | [`DatabaseConnection.cs`](/resources/DatabaseConnection.cs)
-- [ ] **Configuration Templates:** [`application.properties`](/resources/application.properties) | [`appsettings.json`](/resources/appsettings.json)
-- [ ] **Multi-Agent Orchestration:** [`multi_agent_orchestrator.py`](/resources/multi_agent_orchestrator.py)
+- [ ] **Infrastructure Automation:** [`setup-azure-infrastructure.sh`](/resources/common/setup/setup-azure-infrastructure.sh) | [`cleanup-azure-infrastructure.sh`](/resources/common/setup/cleanup-azure-infrastructure.sh)
+- [ ] **Environment Validation:** [`validate-setup.sh`](/resources/common/setup/validate-setup.sh)
+- [ ] **CI/CD Templates:** [`github-actions-workflow.yml`](/resources/intermediate/module5-cicd/github-actions-workflow.yml) | [`azure-devops-pipeline.yml`](/resources/intermediate/module5-cicd/azure-devops-pipeline.yml)
+- [ ] **Production Code Examples:** [`DatabaseConnection.java`](/resources/common/templates/DatabaseConnection.java) | [`DatabaseConnection.cs`](/resources/common/templates/DatabaseConnection.cs)
+- [ ] **Configuration Templates:** [`application.properties`](/resources/common/templates/application.properties) | [`appsettings.json`](/resources/common/templates/appsettings.json)
+- [ ] **Multi-Agent Orchestration:** [`multi_agent_orchestrator.py`](/resources/intermediate/module7-multi-agent/multi_agent_orchestrator.py)
 
 #### 🎯 Next Steps Action Plan
 
