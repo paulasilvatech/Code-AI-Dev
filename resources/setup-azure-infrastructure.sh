@@ -31,7 +31,7 @@ print_error() {
 
 # Workshop configuration - standardized names and settings
 WORKSHOP_PREFIX="aidevops"
-# Região será definida automaticamente após validação
+# Region will be defined automatically after validation
 LOCATION=""
 RESOURCE_GROUP_NAME="${WORKSHOP_PREFIX}-workshop-rg"
 SQL_SERVER_NAME="${WORKSHOP_PREFIX}-sql-server-$(date +%s)"
@@ -65,7 +65,6 @@ SUBSCRIPTION_ID=$(az account show --query id -o tsv)
 SUBSCRIPTION_NAME=$(az account show --query name -o tsv)
 
 print_status "Using Azure Subscription: $SUBSCRIPTION_NAME ($SUBSCRIPTION_ID)"
-print_status "Workshop resources will be created in: $LOCATION"
 
 # Confirmation prompt
 read -p "Do you want to proceed with creating workshop resources? (y/N): " -n 1 -r
@@ -77,61 +76,64 @@ fi
 
 print_status "Starting Azure infrastructure setup..."
 
-# Lista de regiões preferenciais (ordem de prioridade)
-PREFERRED_REGIONS=("East US 2" "West US 2" "Central US" "West Europe" "North Europe")
+# List of preferred regions (priority order) - expanded
+PREFERRED_REGIONS=("East US 2" "West US 2" "Central US" "West Europe" "North Europe" "East US" "West US" "South Central US" "Australia East" "Southeast Asia" "UK South")
 
-# Função para validar se todos os recursos principais podem ser criados na região
+# Function to validate if all main resources can be created in the region
 validate_region_for_all_resources() {
     REGION_TO_TEST="$1"
-    print_status "Validando disponibilidade de recursos na região: $REGION_TO_TEST"
-    # SQL Server
-    SQL_OK=$(az sql server list-skus --location "$REGION_TO_TEST" --query "[?resourceType=='servers'] | length(@)" -o tsv 2>/dev/null)
-    # Storage Account
-    STORAGE_OK=$(az storage account list-skus --location "$REGION_TO_TEST" --query "length(@)" -o tsv 2>/dev/null)
-    # Key Vault
-    KV_OK=$(az keyvault list-deleted --location "$REGION_TO_TEST" --query "length(@)" -o tsv 2>/dev/null || echo 1)
-    # App Insights
-    AI_OK=$(az monitor app-insights component available-sku --location "$REGION_TO_TEST" --query "length(@)" -o tsv 2>/dev/null)
-    # Cognitive Services
-    COG_OK=$(az cognitiveservices account list-kinds --location "$REGION_TO_TEST" --query "length(@)" -o tsv 2>/dev/null)
-    if [[ "$SQL_OK" != "0" && -n "$SQL_OK" && "$STORAGE_OK" != "0" && -n "$STORAGE_OK" && "$AI_OK" != "0" && -n "$AI_OK" && "$COG_OK" != "0" && -n "$COG_OK" ]]; then
+    print_status "Validating resource availability in region: $REGION_TO_TEST"
+    
+    # Test SQL Server in a simple way - if the command doesn't fail, the region supports it
+    if az provider show --namespace Microsoft.Sql --query "resourceTypes[?resourceType=='servers'].locations[]" -o tsv 2>/dev/null | grep -q "$REGION_TO_TEST"; then
+        SQL_OK="1"
+    else
+        SQL_OK="0"
+    fi
+    
+    # Storage Account (almost always available)
+    STORAGE_OK="1"
+    
+    # Key Vault (usually available)
+    KV_OK="1"
+    
+    # Application Insights (usually available)
+    AI_OK="1"
+    
+    # Cognitive Services - check if the region is in the supported list
+    if az provider show --namespace Microsoft.CognitiveServices --query "resourceTypes[?resourceType=='accounts'].locations[]" -o tsv 2>/dev/null | grep -q "$REGION_TO_TEST"; then
+        COG_OK="1"
+    else
+        COG_OK="0"
+    fi
+    
+    # Debug: show validation results
+    echo "Debug: SQL_OK=$SQL_OK, STORAGE_OK=$STORAGE_OK, KV_OK=$KV_OK, AI_OK=$AI_OK, COG_OK=$COG_OK"
+    
+    # Check if at least SQL and Cognitive Services are available
+    if [[ "$SQL_OK" == "1" && "$COG_OK" == "1" ]]; then
         return 0
     else
         return 1
     fi
 }
 
-# Encontrar a primeira região disponível para todos os recursos
+# Find the first available region for all resources
 for region in "${PREFERRED_REGIONS[@]}"; do
     if validate_region_for_all_resources "$region"; then
+        # If it passed the initial validation, use this region
         LOCATION="$region"
-        print_success "Região selecionada para o workshop: $LOCATION"
+        print_success "Selected region for workshop: $LOCATION"
         break
     fi
 done
 
 if [[ -z "$LOCATION" ]]; then
-    print_error "Nenhuma região disponível suporta todos os recursos necessários. Edite o script para adicionar mais regiões ou tente novamente mais tarde."
+    print_error "No available region supports all required resources. Edit the script to add more regions or try again later."
     exit 1
 fi
 
-# Função para validar se a região aceita SQL Server
-validate_sql_region() {
-    REGION_TO_TEST="$1"
-    print_status "Validando disponibilidade de SQL Server na região: $REGION_TO_TEST"
-    AVAILABLE=$(az sql server list-skus --location "$REGION_TO_TEST" --query "[?resourceType=='servers'] | length(@)" -o tsv 2>/dev/null)
-    if [[ "$AVAILABLE" == "0" || -z "$AVAILABLE" ]]; then
-        print_error "A região '$REGION_TO_TEST' não aceita criação de SQL Server. Escolha outra região."
-        return 1
-    fi
-    return 0
-}
-
-# Validar região antes de criar recursos
-if ! validate_sql_region "$LOCATION"; then
-    print_error "Setup cancelado. Por favor, edite o script e defina uma região suportada (ex: 'East US 2', 'West US 2', 'Central US')."
-    exit 1
-fi
+print_status "Workshop resources will be created in: $LOCATION"
 
 # Create Resource Group
 print_status "Creating Resource Group: $RESOURCE_GROUP_NAME"
@@ -183,10 +185,10 @@ az keyvault create \
 
 print_success "Key Vault created successfully"
 
-# Garantir que o provedor Microsoft.Sql está registrado
-print_status "Registrando o provedor Microsoft.Sql se necessário..."
+# Ensure Microsoft.Sql provider is registered
+print_status "Registering Microsoft.Sql provider if necessary..."
 az provider register --namespace Microsoft.Sql --wait
-print_success "Provedor Microsoft.Sql registrado com sucesso"
+print_success "Microsoft.Sql provider registered successfully"
 
 # Create SQL Server
 print_status "Creating SQL Server: $SQL_SERVER_NAME"
