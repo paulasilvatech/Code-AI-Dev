@@ -129,6 +129,23 @@ The workshop is organized into progressive modules, allowing you to choose the d
 * Basic understanding of software development
 * Familiarity with either Java or C# programming
 
+## 🛠️ Getting Started
+
+1. **Fork and Clone this Repository**
+   ```bash
+   git clone https://github.com/YourUsername/Design-to-Code-Dev.git
+   cd Design-to-Code-Dev
+   ```
+
+2. **Quick Start (30 minutes)**
+   - Follow our [Quick Start Guide](docs/QUICK_START.md) for immediate hands-on experience
+   - Complete setup verification and first component generation
+
+3. **Follow the Workshop Structure**
+   - Start with [Introduction to Design-to-Code Technologies](docs/intro-design-to-code.md)
+   - Progress through modules based on your experience level
+   - Use the [Advanced Troubleshooting Guide](docs/advanced-troubleshooting-guide.md) if needed
+
 ## 🌟 Key Features
 
 * **AI-Enhanced Development**: Learn to implement GitHub Copilot for intelligent code optimization
