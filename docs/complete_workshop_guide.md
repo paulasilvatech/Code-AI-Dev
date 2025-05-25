@@ -2157,14 +2157,237 @@ The Intermediate Workshop extends the basic concepts with advanced features:
 | **Custom AI Workflows** | 30 minutes | Workflow design | Automated code reviews |
 | **Multi-Agent Systems** | 30 minutes | Agent orchestration | Complex automation |
 
-### 🤖 Key Topics Covered
+---
 
-- **💬 GitHub Copilot Chat** - Advanced conversational AI for code explanation and refactoring
-- **🔄 Workspace Commands** - Multi-file operations and project-wide changes
-- **🚀 CI/CD Pipeline Integration** - Automated testing and deployment with AI
-- **🤝 Multi-Agent Collaboration** - Orchestrating multiple AI agents for complex tasks
+### 🤖 Module 4: Advanced Copilot Features (30 minutes)
 
-> **📁 Resources:** Use the templates in [`/resources/`](/resources/) for hands-on practice
+#### 📋 Detailed Step-by-Step Instructions
+
+##### Step 1: Set Up a Multi-File Project
+1. **Create a new folder** on your Desktop called `advanced-workshop`
+2. **Open VS Code**
+3. **Open the folder**: File → Open Folder → Select `advanced-workshop`
+4. **Create project structure**:
+   ```
+   advanced-workshop/
+   ├── src/
+   │   ├── models/
+   │   ├── services/
+   │   └── utils/
+   └── tests/
+   ```
+
+##### Step 2: Using Copilot Chat for Refactoring
+1. **Create a file**: `src/models/User.java` or `User.cs`
+2. **Paste this legacy code**:
+   ```java
+   public class User {
+       public String n; // name
+       public int a; // age
+       public String e; // email
+       
+       public User(String n, int a, String e) {
+           this.n = n;
+           this.a = a;
+           this.e = e;
+       }
+   }
+   ```
+3. **Open Copilot Chat** (`Ctrl+Shift+I` or `Cmd+Shift+I`)
+4. **Type**: "Refactor this User class with proper naming, validation, and builder pattern"
+5. **Apply the suggestions** by clicking "Insert at Cursor"
+
+##### Step 3: Workspace-Wide Operations
+1. **Create multiple related files**:
+   - `src/models/Product.java`
+   - `src/services/UserService.java`
+   - `src/services/ProductService.java`
+2. **In Copilot Chat, type**:
+   ```
+   @workspace Create interfaces for all services in the services folder
+   ```
+3. **Review and apply** the generated interfaces
+
+##### Step 4: Multi-File Refactoring
+1. **Select all files** in the services folder
+2. **Ask Copilot**:
+   ```
+   Add comprehensive error handling and logging to all selected service files
+   ```
+3. **Review changes** before applying
+
+> ✅ **Checkpoint:** You now have a properly structured project with interfaces and error handling
+
+---
+
+### 🚀 Module 5: CI/CD Integration (30 minutes)
+
+#### 📋 Detailed Step-by-Step Instructions
+
+##### Step 1: Create GitHub Actions Workflow
+1. **In your project root**, create folders:
+   ```bash
+   mkdir -p .github/workflows
+   ```
+2. **Create file**: `.github/workflows/ci.yml`
+3. **Type this comment**:
+   ```yaml
+   # Create a comprehensive CI/CD pipeline that:
+   # 1. Runs on push to main and pull requests
+   # 2. Sets up Java/C# environment
+   # 3. Runs tests with coverage
+   # 4. Performs security scanning
+   # 5. Deploys to staging if tests pass
+   ```
+4. **Accept Copilot's suggestions** for complete workflow
+
+##### Step 2: Add AI-Powered Code Review
+1. **In the same workflow file**, add:
+   ```yaml
+   # Add a job that uses AI to review code changes and comment on PRs
+   ```
+2. **Let Copilot generate** the AI review job
+3. **Save the file**
+
+##### Step 3: Create Azure DevOps Pipeline
+1. **Create file**: `azure-pipelines.yml`
+2. **Copy template**:
+   ```bash
+   cp /resources/azure-devops-pipeline.yml ./azure-pipelines.yml
+   ```
+3. **Ask Copilot**: "Customize this pipeline for my Java/C# project with AI-powered testing"
+
+##### Step 4: Test the Pipeline Locally
+1. **Install act** (GitHub Actions local runner):
+   ```bash
+   # Mac
+   brew install act
+   # Windows
+   choco install act-cli
+   ```
+2. **Run locally**:
+   ```bash
+   act -j build
+   ```
+3. **Fix any issues** with Copilot's help
+
+> ✅ **Checkpoint:** You have working CI/CD pipelines with AI integration
+
+---
+
+### 🔄 Module 6: Custom AI Workflows (30 minutes)
+
+#### 📋 Detailed Step-by-Step Instructions
+
+##### Step 1: Create Custom Code Review Workflow
+1. **Create file**: `scripts/ai-code-review.js`
+2. **Type**:
+   ```javascript
+   // Create an automated code review script that:
+   // 1. Analyzes code complexity
+   // 2. Checks for security vulnerabilities
+   // 3. Suggests performance improvements
+   // 4. Generates a markdown report
+   ```
+3. **Accept Copilot's implementation**
+
+##### Step 2: Build Documentation Generator
+1. **Create**: `scripts/generate-docs.py`
+2. **Add comment**:
+   ```python
+   # Build a documentation generator that:
+   # 1. Scans all source files
+   # 2. Extracts comments and function signatures
+   # 3. Generates markdown documentation
+   # 4. Creates API reference
+   ```
+3. **Let Copilot build** the complete script
+
+##### Step 3: Implement Pre-Commit Hooks
+1. **Create**: `.pre-commit-config.yaml`
+2. **Ask Copilot**:
+   ```
+   Create pre-commit hooks for:
+   - Code formatting
+   - Security scanning
+   - Test execution
+   - AI-powered code review
+   ```
+3. **Install pre-commit**:
+   ```bash
+   pip install pre-commit
+   pre-commit install
+   ```
+
+##### Step 4: Test the Workflows
+1. **Make a code change**
+2. **Attempt to commit**:
+   ```bash
+   git add .
+   git commit -m "Test AI workflows"
+   ```
+3. **Watch the AI workflows** run automatically
+
+> ✅ **Checkpoint:** Automated AI workflows are running on every commit
+
+---
+
+### 🤝 Module 7: Multi-Agent Systems (30 minutes)
+
+#### 📋 Detailed Step-by-Step Instructions
+
+##### Step 1: Understanding Multi-Agent Architecture
+1. **Open**: `/resources/multi_agent_orchestrator.py`
+2. **In Copilot Chat, ask**:
+   ```
+   Explain how this multi-agent orchestrator works and create a diagram
+   ```
+3. **Study the architecture** before implementing
+
+##### Step 2: Create Your Own Agent System
+1. **Create file**: `agents/code_optimizer_agent.py`
+2. **Type**:
+   ```python
+   # Create an AI agent that:
+   # 1. Monitors code performance metrics
+   # 2. Identifies optimization opportunities
+   # 3. Generates optimization suggestions
+   # 4. Can work with other agents
+   ```
+3. **Build on Copilot's suggestions**
+
+##### Step 3: Implement Agent Communication
+1. **Create**: `agents/agent_communication.py`
+2. **Ask Copilot**:
+   ```
+   Implement a message passing system for agents to communicate
+   Include: message queues, event handling, and state management
+   ```
+3. **Review and understand** the implementation
+
+##### Step 4: Orchestrate Multiple Agents
+1. **Create**: `orchestrate_agents.py`
+2. **Implement**:
+   ```python
+   # Create an orchestrator that coordinates:
+   # 1. Code review agent
+   # 2. Security scanning agent
+   # 3. Performance optimization agent
+   # 4. Documentation generation agent
+   ```
+3. **Test the system**:
+   ```bash
+   python orchestrate_agents.py --target ./src
+   ```
+
+> ✅ **Checkpoint:** You have a working multi-agent system for code optimization
+
+#### 📝 Intermediate Workshop Summary - What You Learned
+✅ Advanced Copilot Chat features for multi-file operations
+✅ Creating and customizing CI/CD pipelines with AI
+✅ Building custom AI-powered development workflows
+✅ Implementing multi-agent systems for complex automation
+✅ Orchestrating AI agents for collaborative tasks
 
 ---
 
@@ -2181,26 +2404,254 @@ The Advanced Track focuses on production-ready implementations:
 | **Performance at Scale** | 30 minutes | High-performance systems | Optimization strategies |
 | **Governance Framework** | 30 minutes | AI governance | Policy templates |
 
-### 🏢 Enterprise Implementation Topics
+---
 
-#### 📊 Architecture Patterns
-- **Microservices with AI** - AI-assisted microservice development
-- **Event-Driven AI** - Reactive systems with AI components
-- **Distributed AI Agents** - Multi-region agent deployment
+### 🏢 Module 8: Enterprise Architecture (45 minutes)
 
-#### 🔒 Security & Compliance
-- **Code Security Scanning** - Automated vulnerability detection
-- **Compliance Automation** - Policy enforcement with AI
-- **Audit Trail Generation** - Automated documentation
+#### 📋 Detailed Step-by-Step Instructions
 
-#### ⚡ Performance Optimization
-- **Load Testing with AI** - Intelligent performance testing
-- **Auto-Scaling Patterns** - AI-driven resource management
-- **Cache Optimization** - Smart caching strategies
+##### Step 1: Design Microservices Architecture
+1. **Create project folder**: `enterprise-ai-system`
+2. **Open in VS Code**
+3. **Create**: `architecture/microservices-design.md`
+4. **In Copilot Chat, type**:
+   ```
+   Design a microservices architecture for an e-commerce platform with:
+   - User service
+   - Product catalog service
+   - Order service
+   - Payment service
+   - AI recommendation service
+   Include API gateways, service mesh, and event bus
+   ```
+5. **Save the generated architecture**
 
-> **📁 Enterprise Resources:** 
-> - [`/resources/azure-devops-pipeline.yml`](/resources/azure-devops-pipeline.yml) - Enterprise CI/CD
-> - [`/resources/multi_agent_orchestrator.py`](/resources/multi_agent_orchestrator.py) - Multi-agent system
+##### Step 2: Implement Service Templates
+1. **Create service template**: `templates/microservice-template/`
+2. **Add this structure**:
+   ```
+   microservice-template/
+   ├── src/
+   │   ├── api/
+   │   ├── domain/
+   │   ├── infrastructure/
+   │   └── application/
+   ├── tests/
+   ├── Dockerfile
+   └── docker-compose.yml
+   ```
+3. **In each folder, ask Copilot**:
+   ```
+   Generate a complete microservice template following DDD principles
+   ```
+
+##### Step 3: AI-Powered Service Discovery
+1. **Create**: `infrastructure/service-discovery.yaml`
+2. **Type**:
+   ```yaml
+   # Create a Kubernetes configuration for:
+   # 1. Service discovery with Consul
+   # 2. AI-powered load balancing
+   # 3. Automatic failover
+   # 4. Health monitoring
+   ```
+3. **Review and understand** the configuration
+
+##### Step 4: Event-Driven Architecture
+1. **Create**: `infrastructure/event-bus-config.yaml`
+2. **Ask Copilot**:
+   ```
+   Create an event-driven architecture using:
+   - Apache Kafka for message streaming
+   - AI-powered event routing
+   - Dead letter queue handling
+   - Event sourcing patterns
+   ```
+3. **Test with**:
+   ```bash
+   docker-compose -f infrastructure/docker-compose.yml up
+   ```
+
+> ✅ **Checkpoint:** You have a complete microservices architecture with AI integration
+
+---
+
+### 🔒 Module 9: Security & Compliance (45 minutes)
+
+#### 📋 Detailed Step-by-Step Instructions
+
+##### Step 1: Implement Security Scanning Pipeline
+1. **Create**: `security/security-scan-pipeline.yml`
+2. **Add this comment**:
+   ```yaml
+   # Create a comprehensive security pipeline that:
+   # 1. Scans for OWASP Top 10 vulnerabilities
+   # 2. Checks dependencies for CVEs
+   # 3. Performs SAST and DAST analysis
+   # 4. Generates security reports
+   # 5. Blocks deployment if critical issues found
+   ```
+3. **Let Copilot generate** the complete pipeline
+
+##### Step 2: Compliance Automation
+1. **Create**: `compliance/compliance-checker.py`
+2. **Type**:
+   ```python
+   # Build a compliance automation tool that:
+   # 1. Checks code against GDPR requirements
+   # 2. Validates PCI-DSS compliance for payment code
+   # 3. Ensures HIPAA compliance for health data
+   # 4. Generates compliance reports
+   # 5. Auto-remediates common issues
+   ```
+3. **Review the implementation**
+
+##### Step 3: Implement Zero-Trust Security
+1. **Create**: `security/zero-trust-config/`
+2. **Ask Copilot**:
+   ```
+   Implement zero-trust security architecture with:
+   - mTLS between all services
+   - JWT token validation
+   - API rate limiting
+   - DDoS protection
+   - Encryption at rest and in transit
+   ```
+3. **Apply to your microservices**
+
+##### Step 4: Security Monitoring Dashboard
+1. **Create**: `monitoring/security-dashboard.json`
+2. **Ask Copilot**:
+   ```
+   Create a Grafana dashboard configuration for:
+   - Real-time threat detection
+   - Failed authentication attempts
+   - API abuse patterns
+   - Compliance violations
+   ```
+3. **Import into Grafana**
+
+> ✅ **Checkpoint:** Enterprise-grade security and compliance automation is in place
+
+---
+
+### ⚡ Module 10: Performance at Scale (30 minutes)
+
+#### 📋 Detailed Step-by-Step Instructions
+
+##### Step 1: AI-Powered Load Testing
+1. **Create**: `performance/ai-load-test.js`
+2. **Type**:
+   ```javascript
+   // Create an AI-powered load testing tool that:
+   // 1. Learns normal traffic patterns
+   // 2. Generates realistic load scenarios
+   // 3. Identifies performance bottlenecks
+   // 4. Suggests optimization strategies
+   // 5. Auto-scales based on predictions
+   ```
+3. **Run initial test**:
+   ```bash
+   node performance/ai-load-test.js --target http://localhost:8080
+   ```
+
+##### Step 2: Implement Caching Strategy
+1. **Create**: `infrastructure/caching-strategy.yaml`
+2. **Ask Copilot**:
+   ```
+   Design a multi-layer caching strategy with:
+   - CDN configuration
+   - Redis for session cache
+   - Application-level caching
+   - AI-powered cache invalidation
+   - Cache warming strategies
+   ```
+3. **Deploy the configuration**
+
+##### Step 3: Database Optimization
+1. **Create**: `database/optimization-scripts/`
+2. **For each database table, ask**:
+   ```
+   Analyze this table structure and suggest:
+   - Index optimizations
+   - Partitioning strategies
+   - Query optimization
+   - Connection pooling configuration
+   ```
+3. **Apply optimizations incrementally**
+
+##### Step 4: Performance Monitoring
+1. **Create**: `monitoring/performance-alerts.yaml`
+2. **Configure alerts for**:
+   - Response time > 200ms
+   - CPU usage > 80%
+   - Memory usage > 85%
+   - Database connection pool exhaustion
+
+> ✅ **Checkpoint:** System is optimized for enterprise-scale performance
+
+---
+
+### 📋 Module 11: Governance Framework (30 minutes)
+
+#### 📋 Detailed Step-by-Step Instructions
+
+##### Step 1: Create AI Usage Policies
+1. **Create**: `governance/ai-usage-policy.md`
+2. **Ask Copilot**:
+   ```
+   Create comprehensive AI usage policies covering:
+   - Acceptable use of AI tools
+   - Code ownership and licensing
+   - Data privacy requirements
+   - Bias prevention measures
+   - Audit requirements
+   ```
+3. **Review with legal team**
+
+##### Step 2: Implement Audit Logging
+1. **Create**: `governance/audit-logger.py`
+2. **Type**:
+   ```python
+   # Create an audit logging system that tracks:
+   # 1. All AI tool usage
+   # 2. Code generation events
+   # 3. Security decisions
+   # 4. Performance optimizations
+   # 5. Compliance checks
+   ```
+3. **Integrate with all services**
+
+##### Step 3: Cost Management
+1. **Create**: `governance/cost-optimizer.py`
+2. **Implement**:
+   ```python
+   # Build a cost optimization tool that:
+   # 1. Tracks AI API usage costs
+   # 2. Monitors cloud resource costs
+   # 3. Suggests cost-saving measures
+   # 4. Implements spending limits
+   # 5. Generates cost reports
+   ```
+3. **Set up automated reports**
+
+##### Step 4: Quality Gates
+1. **Create**: `governance/quality-gates.yaml`
+2. **Define gates for**:
+   - Code coverage > 80%
+   - Security score > 90
+   - Performance benchmarks met
+   - AI-generated code review passed
+   - Compliance checks passed
+
+> ✅ **Checkpoint:** Complete governance framework is operational
+
+#### 📝 Advanced Track Summary - What You Learned
+✅ Designing and implementing microservices architecture with AI
+✅ Enterprise security scanning and compliance automation
+✅ Performance optimization for scale with AI-powered tools
+✅ Governance frameworks for AI usage in enterprise
+✅ Cost optimization and quality gate implementation
 
 ---
 
