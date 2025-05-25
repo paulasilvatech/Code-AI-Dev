@@ -95,25 +95,25 @@ By the end of this workshop, you'll have:
 ```mermaid
 gantt
     title Workshop Skill Development Timeline
-    dateFormat  X
+    dateFormat X
     axisFormat %s
     
     section AI Basics
-    Setup & First Code      :milestone, 0, 0s
-    AI Code Generation      :active, 0, 30s
-    Code Understanding      :30s, 60s
+    Setup & First Code      :milestone, 0, 0
+    AI Code Generation      :active, 0, 30
+    Code Understanding      :30, 30
     
     section Optimization
-    Performance Analysis    :milestone, 60s, 60s
-    AI-Assisted Optimization :60s, 90s
+    Performance Analysis    :milestone, 60, 0
+    AI-Assisted Optimization :60, 30
     
     section Security
-    Vulnerability Detection :milestone, 90s, 90s
-    Security Hardening     :90s, 120s
+    Vulnerability Detection :milestone, 90, 0
+    Security Hardening     :90, 30
     
     section Production
-    Enterprise Patterns    :milestone, 120s, 120s
-    Production Deployment  :120s, 180s
+    Enterprise Patterns    :milestone, 120, 0
+    Production Deployment  :120, 60
 ```
 
 | ⏱️ Time | 🎯 Skill Level | 📚 Focus Area | 🏆 Achievement |
