@@ -2011,12 +2011,12 @@ graph TD
 #### 🤖 Automation Resource Mastery
 
 **Ready-to-Use Enterprise Assets:**
-- [ ] **Infrastructure Automation:** [`setup-azure-infrastructure.sh`](../resources/setup-azure-infrastructure.sh) | [`cleanup-azure-infrastructure.sh`](../resources/cleanup-azure-infrastructure.sh)
-- [ ] **Environment Validation:** [`validate-setup.sh`](../resources/validate-setup.sh)
-- [ ] **CI/CD Templates:** [`github-actions-workflow.yml`](../resources/github-actions-workflow.yml) | [`azure-devops-pipeline.yml`](../resources/azure-devops-pipeline.yml)
-- [ ] **Production Code Examples:** [`DatabaseConnection.java`](../resources/DatabaseConnection.java) | [`DatabaseConnection.cs`](../resources/DatabaseConnection.cs)
-- [ ] **Configuration Templates:** [`application.properties`](../resources/application.properties) | [`appsettings.json`](../resources/appsettings.json)
-- [ ] **Multi-Agent Orchestration:** [`multi_agent_orchestrator.py`](../resources/multi_agent_orchestrator.py)
+- [ ] **Infrastructure Automation:** [`setup-azure-infrastructure.sh`](/resources/setup-azure-infrastructure.sh) | [`cleanup-azure-infrastructure.sh`](/resources/cleanup-azure-infrastructure.sh)
+- [ ] **Environment Validation:** [`validate-setup.sh`](/resources/validate-setup.sh)
+- [ ] **CI/CD Templates:** [`github-actions-workflow.yml`](/resources/github-actions-workflow.yml) | [`azure-devops-pipeline.yml`](/resources/azure-devops-pipeline.yml)
+- [ ] **Production Code Examples:** [`DatabaseConnection.java`](/resources/DatabaseConnection.java) | [`DatabaseConnection.cs`](/resources/DatabaseConnection.cs)
+- [ ] **Configuration Templates:** [`application.properties`](/resources/application.properties) | [`appsettings.json`](/resources/appsettings.json)
+- [ ] **Multi-Agent Orchestration:** [`multi_agent_orchestrator.py`](/resources/multi_agent_orchestrator.py)
 
 #### 🎯 Next Steps Action Plan
 
