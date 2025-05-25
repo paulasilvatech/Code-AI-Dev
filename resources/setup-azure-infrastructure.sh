@@ -126,6 +126,11 @@ az keyvault create \
 
 print_success "Key Vault created successfully"
 
+# Garantir que o provedor Microsoft.Sql está registrado
+print_status "Registrando o provedor Microsoft.Sql se necessário..."
+az provider register --namespace Microsoft.Sql --wait
+print_success "Provedor Microsoft.Sql registrado com sucesso"
+
 # Create SQL Server
 print_status "Creating SQL Server: $SQL_SERVER_NAME"
 az sql server create \
