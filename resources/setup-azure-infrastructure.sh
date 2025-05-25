@@ -31,7 +31,8 @@ print_error() {
 
 # Workshop configuration - standardized names and settings
 WORKSHOP_PREFIX="aidevops"
-LOCATION="East US"  # Best zone for most Azure services
+# Região padrão recomendada
+LOCATION="East US 2"  # Região alterada para garantir suporte a SQL Server
 RESOURCE_GROUP_NAME="${WORKSHOP_PREFIX}-workshop-rg"
 SQL_SERVER_NAME="${WORKSHOP_PREFIX}-sql-server-$(date +%s)"
 SQL_DATABASE_NAME="${WORKSHOP_PREFIX}-workshop-db"
@@ -75,6 +76,62 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 fi
 
 print_status "Starting Azure infrastructure setup..."
+
+# Lista de regiões preferenciais (ordem de prioridade)
+PREFERRED_REGIONS=("East US 2" "West US 2" "Central US" "West Europe" "North Europe")
+
+# Função para validar se todos os recursos principais podem ser criados na região
+validate_region_for_all_resources() {
+    REGION_TO_TEST="$1"
+    print_status "Validando disponibilidade de recursos na região: $REGION_TO_TEST"
+    # SQL Server
+    SQL_OK=$(az sql server list-skus --location "$REGION_TO_TEST" --query "[?resourceType=='servers'] | length(@)" -o tsv 2>/dev/null)
+    # Storage Account
+    STORAGE_OK=$(az storage account list-skus --location "$REGION_TO_TEST" --query "length(@)" -o tsv 2>/dev/null)
+    # Key Vault
+    KV_OK=$(az keyvault list-deleted --location "$REGION_TO_TEST" --query "length(@)" -o tsv 2>/dev/null || echo 1)
+    # App Insights
+    AI_OK=$(az monitor app-insights component available-sku --location "$REGION_TO_TEST" --query "length(@)" -o tsv 2>/dev/null)
+    # Cognitive Services
+    COG_OK=$(az cognitiveservices account list-kinds --location "$REGION_TO_TEST" --query "length(@)" -o tsv 2>/dev/null)
+    if [[ "$SQL_OK" != "0" && -n "$SQL_OK" && "$STORAGE_OK" != "0" && -n "$STORAGE_OK" && "$AI_OK" != "0" && -n "$AI_OK" && "$COG_OK" != "0" && -n "$COG_OK" ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Encontrar a primeira região disponível para todos os recursos
+for region in "${PREFERRED_REGIONS[@]}"; do
+    if validate_region_for_all_resources "$region"; then
+        LOCATION="$region"
+        print_success "Região selecionada para o workshop: $LOCATION"
+        break
+    fi
+done
+
+if [[ -z "$LOCATION" ]]; then
+    print_error "Nenhuma região disponível suporta todos os recursos necessários. Edite o script para adicionar mais regiões ou tente novamente mais tarde."
+    exit 1
+fi
+
+# Função para validar se a região aceita SQL Server
+validate_sql_region() {
+    REGION_TO_TEST="$1"
+    print_status "Validando disponibilidade de SQL Server na região: $REGION_TO_TEST"
+    AVAILABLE=$(az sql server list-skus --location "$REGION_TO_TEST" --query "[?resourceType=='servers'] | length(@)" -o tsv 2>/dev/null)
+    if [[ "$AVAILABLE" == "0" || -z "$AVAILABLE" ]]; then
+        print_error "A região '$REGION_TO_TEST' não aceita criação de SQL Server. Escolha outra região."
+        return 1
+    fi
+    return 0
+}
+
+# Validar região antes de criar recursos
+if ! validate_sql_region "$LOCATION"; then
+    print_error "Setup cancelado. Por favor, edite o script e defina uma região suportada (ex: 'East US 2', 'West US 2', 'Central US')."
+    exit 1
+fi
 
 # Create Resource Group
 print_status "Creating Resource Group: $RESOURCE_GROUP_NAME"
@@ -196,25 +253,6 @@ APP_INSIGHTS_KEY=$(az monitor app-insights component show \
     --app "$APP_INSIGHTS_NAME" \
     --resource-group "$RESOURCE_GROUP_NAME" \
     --query "instrumentationKey" -o tsv)
-
-# Get AI Services key
-AI_SERVICES_KEY=$(az cognitiveservices account keys list \
-    --name "$AI_SERVICES_NAME" \
-    --resource-group "$RESOURCE_GROUP_NAME" \
-    --query "key1" -o tsv)
-
-# Get Storage Account connection string
-STORAGE_CONNECTION_STRING=$(az storage account show-connection-string \
-    --name "$STORAGE_ACCOUNT_NAME" \
-    --resource-group "$RESOURCE_GROUP_NAME" \
-    --query "connectionString" -o tsv)
-
-# Store secrets in Key Vault
-az keyvault secret set --vault-name "$KEY_VAULT_NAME" --name "SqlConnectionString" --value "$SQL_CONNECTION_STRING"
-az keyvault secret set --vault-name "$KEY_VAULT_NAME" --name "ApplicationInsightsKey" --value "$APP_INSIGHTS_KEY"
-az keyvault secret set --vault-name "$KEY_VAULT_NAME" --name "AiServicesKey" --value "$AI_SERVICES_KEY"
-az keyvault secret set --vault-name "$KEY_VAULT_NAME" --name "StorageConnectionString" --value "$STORAGE_CONNECTION_STRING"
-
 print_success "Secrets stored in Key Vault successfully"
 
 # Create configuration file for workshop
