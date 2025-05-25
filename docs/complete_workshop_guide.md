@@ -714,11 +714,26 @@ bash resources/validate-setup.sh
 # 3. Set up Azure infrastructure (optional - for advanced workshops)
 bash resources/setup-azure-infrastructure.sh
 
-# 4. Copy configuration templates to your project
+# After running the setup script, the following Azure resources will be created:
+# - Resource Group: aidevops-workshop-rg
+# - SQL Server: aidevops-sql-server-[timestamp]
+# - SQL Database: aidevops-workshop-db
+# - Application Insights: aidevops-appinsights
+# - AI Services: aidevops-ai-services
+# - Storage Account: aidevopsstorage[timestamp]
+# - Key Vault: aidevops-kv-[timestamp]
+
+# Visual overview of created resources:
+# ![Azure Resources](../images/aidevops-workshop-rg-resources.png)
+
+# 4. Source the configuration file (if Azure setup was run)
+# source resources/workshop-config.env
+
+# 5. Copy configuration templates to your project
 cp resources/application.properties your-java-project/src/main/resources/
 cp resources/appsettings.json your-dotnet-project/
 
-# 5. Set up CI/CD pipelines
+# 6. Set up CI/CD pipelines
 cp resources/azure-devops-pipeline.yml your-project/
 cp resources/github-actions-workflow.yml your-project/.github/workflows/
 ```

@@ -44,7 +44,7 @@ The provided resources allow participants to quickly create the necessary Azure 
 
 3. **Configure environment variables:**
    ```bash
-   source workshop-config.env
+   source resources/workshop-config.env
    ```
 
 4. **Start the workshop exercises!**
@@ -161,6 +161,12 @@ The setup script creates the following resources with standardized naming:
 - **AI Services**: `aidevops-ai-services`
 - **Storage Account**: `aidevopsstorage[timestamp]`
 - **Key Vault**: `aidevops-keyvault-[timestamp]`
+
+#### Visual Overview of Created Resources
+
+![Azure Resources Created by Setup Script](../images/aidevops-workshop-rg-resources.png)
+
+*The image above shows all Azure resources created after running the setup script, organized within the `aidevops-workshop-rg` resource group.*
 
 ### 2. Default Settings
 

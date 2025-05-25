@@ -258,7 +258,7 @@ APP_INSIGHTS_KEY=$(az monitor app-insights component show \
 print_success "Secrets stored in Key Vault successfully"
 
 # Create configuration file for workshop
-CONFIG_FILE="$PWD/workshop-config.env"
+CONFIG_FILE="$PWD/resources/workshop-config.env"
 print_status "Creating workshop configuration file: $CONFIG_FILE"
 
 cat > "$CONFIG_FILE" << EOF
@@ -303,7 +303,7 @@ print_success "Configuration file created: $CONFIG_FILE"
 print_status "Setting up database schema for workshop exercises"
 
 # Create SQL script for database initialization
-cat > "$PWD/init-database.sql" << 'EOF'
+cat > "$PWD/resources/init-database.sql" << 'EOF'
 -- Workshop Database Initialization Script
 -- Creates tables and sample data for security exercises
 
@@ -377,10 +377,10 @@ EOF
 # Execute database initialization if sqlcmd is available
 if command -v sqlcmd &> /dev/null; then
     print_status "Initializing database schema"
-    sqlcmd -S "${SQL_SERVER_NAME}.database.windows.net" -d "$SQL_DATABASE_NAME" -U "$SQL_ADMIN_USER" -P "$SQL_ADMIN_PASSWORD" -i "init-database.sql"
+    sqlcmd -S "${SQL_SERVER_NAME}.database.windows.net" -d "$SQL_DATABASE_NAME" -U "$SQL_ADMIN_USER" -P "$SQL_ADMIN_PASSWORD" -i "resources/init-database.sql"
     print_success "Database schema initialized successfully"
 else
-    print_warning "sqlcmd not found. Please run init-database.sql manually against your database"
+    print_warning "sqlcmd not found. Please run resources/init-database.sql manually against your database"
 fi
 
 print_success "Azure infrastructure setup completed successfully!"
@@ -395,13 +395,13 @@ echo "  • Storage Account: $STORAGE_ACCOUNT_NAME"
 echo "  • Key Vault: $KEY_VAULT_NAME"
 echo ""
 print_status "Configuration files created:"
-echo "  • workshop-config.env (environment variables)"
-echo "  • init-database.sql (database schema)"
+echo "  • resources/workshop-config.env (environment variables)"
+echo "  • resources/init-database.sql (database schema)"
 echo ""
 print_status "Next steps:"
-echo "  1. Source the configuration: source workshop-config.env"
+echo "  1. Source the configuration: source resources/workshop-config.env"
 echo "  2. Start the workshop exercises!"
-echo "  3. When finished, run: ./cleanup-azure-infrastructure.sh"
+echo "  3. When finished, run: bash resources/cleanup-azure-infrastructure.sh"
 echo ""
 print_warning "Important: This setup creates billable Azure resources."
 print_warning "Remember to clean up resources when finished with the workshop."
