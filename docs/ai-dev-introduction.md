@@ -196,23 +196,15 @@ graph LR
 #### 💼 **Enterprise Implementation Examples**
 
 ```yaml
-Case Study 1 - Financial Services Company:
+Use Case 1 - Financial Services Company:
   Challenge: "Reduce time-to-market for new features"
   Solution: "GitHub Copilot enterprise rollout"
-  Results:
-    - "45% faster feature delivery"
-    - "30% reduction in bugs"
-    - "60% less time spent on boilerplate code"
-    - "$2.5M annual savings in development costs"
 
-Case Study 2 - E-commerce Platform:
+Use Case 2 - E-commerce Platform:
   Challenge: "Improve code quality and security"
   Solution: "AI-powered code review and security scanning"
   Results:
-    - "70% reduction in security vulnerabilities"
-    - "50% faster code review process"
-    - "40% improvement in test coverage"
-    - "Customer trust increased by 25%"
+  
 ```
 
 > ✅ **Checkpoint 1.2:** You understand the massive industry shift toward AI-assisted development and its impact across different organization types.
