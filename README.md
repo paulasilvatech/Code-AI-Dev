@@ -115,6 +115,12 @@ The workshop is organized into progressive modules, allowing you to choose the d
 * Advanced debugging techniques
 * Performance optimization strategies
 
+### [Workshop FAQ](docs/workshop-faq.md)
+
+* Comprehensive Q&A covering all workshop topics
+* AI development ethics and best practices
+* Enterprise adoption and security concerns
+
 ## 🔑 Prerequisites
 
 ### Required Accounts
