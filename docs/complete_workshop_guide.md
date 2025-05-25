@@ -846,28 +846,65 @@ pie title Developer Time Distribution
 
 > ⏱️ **Time Required:** 10 minutes
 
-#### 📋 Step-by-Step Instructions
+#### 📋 Detailed Step-by-Step Instructions
 
-| Step | 🎯 Action | 📖 Details |
-|------|-----------|------------|
-| **1** | 💻 **Open VS Code** | Launch from desktop or start menu |
-| **2** | 📄 **New File** | Press `Ctrl+N` (Windows/Linux) or `Cmd+N` (Mac) |
-| **3** | 💾 **Save File** | Save as `HelloAI.java` or `HelloAI.cs` |
-| **4** | ✍️ **Write Comment** | Type the comment exactly as shown below |
-| **5** | ⏳ **Wait for AI** | Watch for gray "ghost text" suggestions |
-| **6** | ✅ **Accept/Reject** | Press `Tab` to accept, `Esc` to reject |
+##### Step 1: Open Visual Studio Code
+1. **Find VS Code** on your computer:
+   - **Windows**: Click Start menu → type "Visual Studio Code" → Click to open
+   - **Mac**: Open Finder → Applications → Visual Studio Code
+   - **Linux**: Open terminal → type `code` and press Enter
+2. **Wait** for VS Code to fully load (you'll see the Welcome tab)
+
+##### Step 2: Create a New File
+1. **Click** `File` in the top menu
+2. **Select** `New File` from the dropdown
+   - **Alternative**: Press `Ctrl+N` (Windows/Linux) or `Cmd+N` (Mac)
+3. You should see a new empty tab labeled "Untitled-1"
+
+##### Step 3: Save Your File with the Correct Extension
+1. **Click** `File` → `Save As...`
+   - **Alternative**: Press `Ctrl+S` (Windows/Linux) or `Cmd+S` (Mac)
+2. **Choose a location**:
+   - Create a new folder called `workshop` on your Desktop
+   - Navigate to: Desktop → workshop
+3. **Name your file**:
+   - **For Java**: Type `Calculator.java` (IMPORTANT: Must end with `.java`)
+   - **For C#**: Type `Calculator.cs` (IMPORTANT: Must end with `.cs`)
+4. **Click** the `Save` button
+
+##### Step 4: Verify GitHub Copilot is Active
+1. **Look** at the bottom-right corner of VS Code
+2. **Find** the GitHub Copilot icon (looks like this: </>)
+3. **Check** the status:
+   - ✅ If it shows "GitHub Copilot" → You're ready!
+   - ❌ If it shows an error → Click it and sign in
+   - ❌ If you don't see it → Install the extension first
+
+##### Step 5: Type the Magic Comment
+**IMPORTANT**: Type this comment EXACTLY as shown (copy-paste is OK):
 
 #### ☕ For Java Users
 
+1. **Click** at the beginning of line 1 in your empty file
+2. **Type** this comment EXACTLY (or copy-paste it):
+   ```java
+   // Create a simple calculator class with add, subtract, multiply, and divide methods
+   ```
+3. **Press** `Enter` twice to create a blank line
+4. **Wait 2-3 seconds** - You should see gray text appear!
 
+##### Step 6: Accept AI Suggestions
+1. **Look for gray text** (this is GitHub Copilot's suggestion)
+2. **Read** what it suggests - it should show a class definition
+3. **To accept**: Press the `Tab` key
+4. **To reject**: Press `Esc` key or just keep typing
+
+##### What You Should See:
+After accepting the suggestion, your code should look similar to this:
 
 ```java
-// Type this comment exactly:
 // Create a simple calculator class with add, subtract, multiply, and divide methods
 
-/* 
-AI will suggest something like this:
-*/
 public class Calculator {
     
     // Addition method
@@ -904,17 +941,52 @@ public class Calculator {
 }
 ```
 
+##### Step 7: Continue Accepting Suggestions
+1. **After accepting the class definition**, Copilot will suggest the first method
+2. **Keep pressing `Tab`** to accept each suggestion
+3. **Continue until** you have all 4 methods (add, subtract, multiply, divide)
+4. **If suggestions stop**, press `Enter` and wait 2-3 seconds
+
+##### Step 8: Save and Test Your Code
+1. **Save the file**: Press `Ctrl+S` (Windows/Linux) or `Cmd+S` (Mac)
+2. **Open terminal in VS Code**:
+   - Click `Terminal` → `New Terminal` in the menu
+   - Or press `` Ctrl+` `` (backtick key)
+3. **Compile and run**:
+   ```bash
+   javac Calculator.java
+   java Calculator
+   ```
+4. **Expected output**:
+   ```
+   5 + 3 = 8.0
+   5 - 3 = 2.0
+   5 * 3 = 15.0
+   5 / 3 = 1.6666666666666667
+   ```
+
 #### 🔷 For C# Users
 
+1. **Click** at the beginning of line 1 in your empty file
+2. **Type** this comment EXACTLY (or copy-paste it):
+   ```csharp
+   // Create a simple calculator class with add, subtract, multiply, and divide methods
+   ```
+3. **Press** `Enter` twice to create a blank line
+4. **Wait 2-3 seconds** - You should see gray text appear!
 
+##### Step 6: Accept AI Suggestions
+1. **Look for gray text** (this is GitHub Copilot's suggestion)
+2. **Read** what it suggests - it should show `using System;` and a class definition
+3. **To accept**: Press the `Tab` key
+4. **To reject**: Press `Esc` key or just keep typing
+
+##### What You Should See:
+After accepting the suggestion, your code should look similar to this:
 
 ```csharp
-// Type this comment exactly:
 // Create a simple calculator class with add, subtract, multiply, and divide methods
 
-/* 
-AI will suggest something like this:
-*/
 using System;
 
 public class Calculator
@@ -959,14 +1031,74 @@ public class Calculator
 }
 ```
 
+##### Step 7: Continue Accepting Suggestions
+1. **After accepting the class definition**, Copilot will suggest the first method
+2. **Keep pressing `Tab`** to accept each suggestion
+3. **Continue until** you have all 4 methods (Add, Subtract, Multiply, Divide)
+4. **If suggestions stop**, press `Enter` and wait 2-3 seconds
+
+##### Step 8: Save and Test Your Code
+1. **Save the file**: Press `Ctrl+S` (Windows/Linux) or `Cmd+S` (Mac)
+2. **Open terminal in VS Code**:
+   - Click `Terminal` → `New Terminal` in the menu
+   - Or press `` Ctrl+` `` (backtick key)
+3. **Run the code**:
+   ```bash
+   dotnet run
+   ```
+   - **Note**: If you get an error, you may need to create a project first:
+     ```bash
+     dotnet new console -n Calculator
+     # Copy your Calculator.cs file into the Calculator folder
+     cd Calculator
+     dotnet run
+     ```
+4. **Expected output**:
+   ```
+   5 + 3 = 8
+   5 - 3 = 2
+   5 * 3 = 15
+   5 / 3 = 1.6666666666666667
+   ```
+
 #### 🔧 Troubleshooting AI Suggestions
 
-| ❌ Problem | 🔍 Diagnosis | ✅ Solution |
-|------------|--------------|------------|
-| **No suggestions appear** | Not connected to internet | Check internet connection |
-| **Gray text doesn't show** | Copilot not authenticated | Check Copilot icon in status bar |
-| **Suggestions are wrong** | Comment not specific enough | Make comment more detailed |
-| **Extension not working** | Installation issue | Reload VS Code window (`Ctrl+Shift+P` → "Developer: Reload Window") |
+##### Problem 1: No Gray Text Appears
+**What to check:**
+1. **Bottom-right corner** - Is the Copilot icon there?
+2. **Click the Copilot icon** - Does it say "Ready" or show an error?
+3. **Internet connection** - Are you connected?
+
+**Solution:**
+- If no icon: Install GitHub Copilot extension
+- If error: Click icon → Sign in to GitHub
+- If offline: Connect to internet and restart VS Code
+
+##### Problem 2: Suggestions Are Not What Expected
+**What to do:**
+1. **Delete everything** and start over
+2. **Copy-paste** the exact comment from the workshop
+3. **Wait longer** (sometimes it takes 5-10 seconds)
+4. **Press Enter** after the comment and try again
+
+##### Problem 3: Can't Run the Code
+**For Java:**
+```bash
+# Error: javac not found
+# Solution: Install Java JDK first
+
+# Error: class not found
+# Solution: Make sure filename matches class name exactly
+```
+
+**For C#:**
+```bash
+# Error: dotnet not found
+# Solution: Install .NET SDK first
+
+# Error: No project file
+# Solution: Create a console project first (see Step 8)
+```
 
 > ✅ **Checkpoint:** You should see AI-generated code for a Calculator class
 
