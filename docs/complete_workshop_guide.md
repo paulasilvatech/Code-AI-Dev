@@ -933,6 +933,128 @@ public class Calculator
 
 > ✅ **Checkpoint:** You should see AI-generated code for a Calculator class
 
+### ⚠️ Important: GitHub Copilot Variability
+
+> **🎯 Critical Workshop Note:** GitHub Copilot's suggestions can vary significantly!
+
+#### 🔍 Why Copilot Suggestions Differ
+
+| 🎯 Factor | 📖 Description | 💡 Impact |
+|-----------|----------------|-----------|
+| **🤖 Model Version** | Copilot updates its AI model regularly | Different versions = different suggestions |
+| **📝 Context** | Your file history and open files affect suggestions | More context = more tailored suggestions |
+| **🌍 Training Data** | Model trained on different code patterns over time | Newer models may suggest different patterns |
+| **⚙️ Settings** | IDE settings and Copilot configuration | Different settings = different behavior |
+| **🔄 Randomness** | AI models have inherent randomness | Same prompt can yield different results |
+
+#### ✅ Ensuring Workshop Consistency
+
+To ensure everyone gets similar results:
+
+1. **🎯 Use Exact Comments**: Copy comments exactly as shown in the workshop
+2. **📋 Compare with Examples**: Always compare your generated code with workshop examples
+3. **🔧 Manual Adjustments**: Be prepared to manually adjust generated code
+4. **📚 Reference Code**: Use provided code snippets as the "source of truth"
+
+#### 📝 Expected vs Actual Code
+
+**What You Might See:**
+- ✅ Similar structure but different variable names
+- ✅ Different method order
+- ✅ Additional or missing comments
+- ✅ Different error handling approaches
+- ✅ Various code formatting styles
+
+**What's Important:**
+- ✅ Core functionality (add, subtract, multiply, divide)
+- ✅ Basic error handling (division by zero)
+- ✅ Proper method signatures
+- ✅ Working test/main method
+
+> 💡 **Pro Tip:** If Copilot generates significantly different code, use it as a learning opportunity to understand different implementation approaches!
+
+#### 📚 Reference Implementation
+
+If GitHub Copilot generates very different code, use this reference implementation:
+
+<details>
+<summary>🔍 Click to see the expected Calculator implementation</summary>
+
+**Java Version:**
+```java
+public class Calculator {
+    
+    public double add(double a, double b) {
+        return a + b;
+    }
+    
+    public double subtract(double a, double b) {
+        return a - b;
+    }
+    
+    public double multiply(double a, double b) {
+        return a * b;
+    }
+    
+    public double divide(double a, double b) {
+        if (b == 0) {
+            throw new IllegalArgumentException("Cannot divide by zero");
+        }
+        return a / b;
+    }
+    
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        System.out.println("5 + 3 = " + calc.add(5, 3));
+        System.out.println("5 - 3 = " + calc.subtract(5, 3));
+        System.out.println("5 * 3 = " + calc.multiply(5, 3));
+        System.out.println("5 / 3 = " + calc.divide(5, 3));
+    }
+}
+```
+
+**C# Version:**
+```csharp
+using System;
+
+public class Calculator
+{
+    public double Add(double a, double b)
+    {
+        return a + b;
+    }
+    
+    public double Subtract(double a, double b)
+    {
+        return a - b;
+    }
+    
+    public double Multiply(double a, double b)
+    {
+        return a * b;
+    }
+    
+    public double Divide(double a, double b)
+    {
+        if (b == 0)
+        {
+            throw new ArgumentException("Cannot divide by zero");
+        }
+        return a / b;
+    }
+    
+    static void Main(string[] args)
+    {
+        Calculator calc = new Calculator();
+        Console.WriteLine($"5 + 3 = {calc.Add(5, 3)}");
+        Console.WriteLine($"5 - 3 = {calc.Subtract(5, 3)}");
+        Console.WriteLine($"5 * 3 = {calc.Multiply(5, 3)}");
+        Console.WriteLine($"5 / 3 = {calc.Divide(5, 3)}");
+    }
+}
+```
+</details>
+
 ### 🧠 1.2 Understanding AI Suggestions
 
 > ⏱️ **Time Required:** 10 minutes
