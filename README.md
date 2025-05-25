@@ -61,49 +61,51 @@ The workshop is organized into progressive modules, allowing you to choose the d
 
 ## 🗺️ Learning Path
 
-### Module 1: [Introduction to AI-Powered DevOps](docs/complete_workshop_guide.md#module-1-introduction-to-ai-powered-devops)
+> 📖 **Complete Workshop Guide**: View the [full workshop guide with detailed instructions](docs/complete_workshop_guide.md#-table-of-contents)
+
+### [Module 1: Introduction to AI-Powered DevOps](docs/complete_workshop_guide.md#-core-workshop-module-1-first-ai-code)
 
 * Understanding the AI development paradigm
 * GitHub Copilot fundamentals and capabilities
 * Setting up your AI-enhanced development environment
 
-### Module 2: [Setting Up Your AI Development Environment](docs/complete_workshop_guide.md#module-2-setting-up-your-ai-development-environment)
+### [Module 2: Setting Up Your AI Development Environment](docs/complete_workshop_guide.md#-pre-workshop-preparation)
 
 * Workshop preparation and tool setup
 * Creating your first AI-assisted optimization
 * Exploring GitHub Copilot fundamentals
 
-### Module 3: [Building Your First AI Agent](docs/complete_workshop_guide.md#module-3-building-your-first-ai-agent)
+### [Module 3: Building Your First AI Agent](docs/complete_workshop_guide.md#-core-workshop-module-2-optimization)
 
 * Performance optimization techniques
 * Security vulnerability detection and remediation
 * Using AI for code quality improvements
 
-### Module 4: [Multi-Agent Orchestration](docs/complete_workshop_guide.md#module-4-multi-agent-orchestration)
+### [Module 4: Multi-Agent Orchestration](docs/complete_workshop_guide.md#-module-7-multi-agent-systems-30-minutes)
 
 * Copilot Chat and workspace features
 * Custom AI workflows and automation
 * Advanced code generation patterns
 
-### Module 5: [Advanced AI DevOps Patterns](docs/complete_workshop_guide.md#module-5-advanced-ai-devops-patterns)
+### [Module 5: Advanced AI DevOps Patterns](docs/complete_workshop_guide.md#-module-5-cicd-integration-30-minutes)
 
 * CI/CD pipeline integration
 * Azure AI services integration
 * Enterprise governance and compliance
 
-### Module 6: [Real-World Implementation](docs/complete_workshop_guide.md#module-6-real-world-implementation)
+### [Module 6: Real-World Implementation](docs/complete_workshop_guide.md#-module-6-custom-ai-workflows-30-minutes)
 
 * GitHub Copilot Coding Agent setup
 * Autonomous development workflows
 * Multi-agent collaboration patterns
 
-### Module 7: [Production Optimization](docs/complete_workshop_guide.md#module-7-production-optimization)
+### [Module 7: Production Optimization](docs/complete_workshop_guide.md#-module-10-performance-at-scale-30-minutes)
 
 * Performance monitoring and optimization
 * AI-powered incident response
 * Continuous improvement strategies
 
-### Module 8: [Hands-On Challenge Labs](docs/complete_workshop_guide.md#module-8-hands-on-challenge-labs)
+### [Module 8: Hands-On Challenge Labs](docs/complete_workshop_guide.md#-core-workshop-module-3-security)
 
 * Real-world optimization scenarios
 * End-to-end implementation exercises
@@ -148,7 +150,8 @@ The workshop is organized into progressive modules, allowing you to choose the d
    - Complete setup verification and your first AI-assisted optimization
 
 3. **Follow the Workshop Structure**
-   - Start with [Introduction to AI-Powered DevOps](docs/complete_workshop_guide.md#module-1-introduction-to-ai-powered-devops)
+   - Start with [Pre-Workshop Preparation](docs/complete_workshop_guide.md#-pre-workshop-preparation)
+   - Begin with [Module 1: First AI Code](docs/complete_workshop_guide.md#-core-workshop-module-1-first-ai-code)
    - Progress through modules based on your experience level
    - Use the [Troubleshooting Guide](docs/troubleshooting_guide.md) if needed
 

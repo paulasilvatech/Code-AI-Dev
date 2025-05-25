@@ -1,6 +1,7 @@
 # 🚀 AI-Powered Development Complete Workshop
-## 🤖 Module 2: Comprehensive Hands-On Implementation Guide
+## 🤖 Comprehensive Hands-On Implementation Guide
 
+<a id="table-of-contents"></a>
 ## 📋 Table of Contents
 
 1. [🎯 Progressive Learning Framework](#-progressive-learning-framework)
@@ -51,6 +52,7 @@
 
 ---
 
+<a id="progressive-learning-framework"></a>
 ## 🎯 Progressive Learning Framework
 
 ```mermaid
@@ -304,6 +306,7 @@ gantt
 
 ---
 
+<a id="pre-workshop-preparation"></a>
 ## 🛠️ Pre-Workshop Preparation
 
 > **📁 Automation Resources:** Before starting, explore the automation tools available in [`/resources/`](/resources/) to accelerate your setup process.
@@ -766,6 +769,7 @@ cp resources/intermediate/module5-cicd/github-actions-workflow.yml your-project/
 
 ---
 
+<a id="basic-workshop"></a>
 ## 🌱 Basic Workshop (90 minutes)
 
 > **🎯 Complete AI development fundamentals in 90 minutes**
