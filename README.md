@@ -55,8 +55,8 @@ The workshop is organized into progressive modules, allowing you to choose the d
 
 | Level          | Duration | Focus                           | Best For                               |
 | -------------- | -------- | ------------------------------- | -------------------------------------- |
-| **Essential**  | 90 min   | Core concepts and basic setup   | Beginners, time-constrained sessions  |
-| **Standard**   | 2 hours  | Complete AI workflow implementation | Intermediate users, standard workshops |
+| **Basic**  | 90 min   | Core concepts and basic setup   | Beginners, time-constrained sessions  |
+| **Intermediate**   | 2 hours  | Complete AI workflow implementation | Intermediate users, standard workshops |
 | **Advanced**   | 3+ hours | Enterprise-scale solutions      | Experienced practitioners, deep dives  |
 
 ## 🗺️ Learning Path
