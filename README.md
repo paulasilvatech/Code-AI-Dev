@@ -63,49 +63,49 @@ The workshop is organized into progressive modules, allowing you to choose the d
 
 > 📖 **Complete Workshop Guide**: View the [full workshop guide with detailed instructions](docs/complete_workshop_guide.md#-table-of-contents)
 
-### [Module 1: Introduction to AI-Powered DevOps](docs/complete_workshop_guide.md#-core-workshop-module-1-first-ai-code)
+### Module 1: [Introduction to AI-Powered DevOps](docs/complete_workshop_guide.md#-core-workshop-module-1-first-ai-code)
 
 * Understanding the AI development paradigm
 * GitHub Copilot fundamentals and capabilities
 * Setting up your AI-enhanced development environment
 
-### [Module 2: Setting Up Your AI Development Environment](docs/complete_workshop_guide.md#-pre-workshop-preparation)
+### Module 2: [Setting Up Your AI Development Environment](docs/complete_workshop_guide.md#-pre-workshop-preparation)
 
 * Workshop preparation and tool setup
 * Creating your first AI-assisted optimization
 * Exploring GitHub Copilot fundamentals
 
-### [Module 3: Building Your First AI Agent](docs/complete_workshop_guide.md#-core-workshop-module-2-optimization)
+### Module 3: [Building Your First AI Agent](docs/complete_workshop_guide.md#-core-workshop-module-2-optimization)
 
 * Performance optimization techniques
 * Security vulnerability detection and remediation
 * Using AI for code quality improvements
 
-### [Module 4: Multi-Agent Orchestration](docs/complete_workshop_guide.md#-module-7-multi-agent-systems-30-minutes)
+### Module 4: [Multi-Agent Orchestration](docs/complete_workshop_guide.md#-module-7-multi-agent-systems-30-minutes)
 
 * Copilot Chat and workspace features
 * Custom AI workflows and automation
 * Advanced code generation patterns
 
-### [Module 5: Advanced AI DevOps Patterns](docs/complete_workshop_guide.md#-module-5-cicd-integration-30-minutes)
+### Module 5: [Advanced AI DevOps Patterns](docs/complete_workshop_guide.md#-module-5-cicd-integration-30-minutes)
 
 * CI/CD pipeline integration
 * Azure AI services integration
 * Enterprise governance and compliance
 
-### [Module 6: Real-World Implementation](docs/complete_workshop_guide.md#-module-6-custom-ai-workflows-30-minutes)
+### Module 6: [Real-World Implementation](docs/complete_workshop_guide.md#-module-6-custom-ai-workflows-30-minutes)
 
 * GitHub Copilot Coding Agent setup
 * Autonomous development workflows
 * Multi-agent collaboration patterns
 
-### [Module 7: Production Optimization](docs/complete_workshop_guide.md#-module-10-performance-at-scale-30-minutes)
+### Module 7: [Production Optimization](docs/complete_workshop_guide.md#-module-10-performance-at-scale-30-minutes)
 
 * Performance monitoring and optimization
 * AI-powered incident response
 * Continuous improvement strategies
 
-### [Module 8: Hands-On Challenge Labs](docs/complete_workshop_guide.md#-core-workshop-module-3-security)
+### Module 8: [Hands-On Challenge Labs](docs/complete_workshop_guide.md#-core-workshop-module-3-security)
 
 * Real-world optimization scenarios
 * End-to-end implementation exercises
