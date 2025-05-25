@@ -41,7 +41,9 @@ APP_INSIGHTS_NAME="${WORKSHOP_PREFIX}-appinsights"
 LOG_ANALYTICS_NAME="${WORKSHOP_PREFIX}-loganalytics"
 AI_SERVICES_NAME="${WORKSHOP_PREFIX}-ai-services"
 STORAGE_ACCOUNT_NAME="${WORKSHOP_PREFIX}storage$(date +%s | tail -c 6)"
-KEY_VAULT_NAME="${WORKSHOP_PREFIX}-keyvault-$(date +%s)"
+# Use a short random suffix for Key Vault name to ensure it meets Azure's requirements
+RANDOM_SUFFIX=$(date +%s | tail -c 6)
+KEY_VAULT_NAME="${WORKSHOP_PREFIX}-kv-${RANDOM_SUFFIX}"
 
 # Check if Azure CLI is installed
 if ! command -v az &> /dev/null; then
