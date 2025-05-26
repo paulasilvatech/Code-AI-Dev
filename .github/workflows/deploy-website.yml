@@ -1,13 +1,11 @@
-name: Deploy Static Website to GitHub Pages
+name: Deploy React Landing Page to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
     branches: [main]
     paths:
-      - 'website/**'
-      - 'docs/**'
-      - 'resources/**'
+      - 'landing_page/**'
       - '.github/workflows/deploy-website.yml'
 
   # Allows you to run this workflow manually from the Actions tab
@@ -35,14 +33,29 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: './landing_page/package-lock.json'
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ./landing_page
+
+      - name: Build React app
+        run: npm run build
+        working-directory: ./landing_page
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload the website directory
-          path: ./website
+          # Upload the build output directory
+          path: ./landing_page/dist
 
   # Deployment job
   deploy:
