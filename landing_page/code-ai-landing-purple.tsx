@@ -132,8 +132,8 @@ const LandingPage = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://code-ai.dev" target="_blank" rel="noopener noreferrer" className="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all transform hover:scale-105">
-              <span>Visit Workshop Website</span>
+            <a href="https://github.com/paulasilvatech/Code-AI-Dev/blob/main/README.md" target="_blank" rel="noopener noreferrer" className="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all transform hover:scale-105">
+              <span>Visit GitHub Repository</span>
               <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a href="#start" className="bg-gray-800 hover:bg-gray-700 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all">
@@ -412,7 +412,7 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-400 mb-4">
             Developed by{' '}
-            <a href="https://github.com/paulasilvatech" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300">
+            <a href="https://github.com/paulanunes85" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300">
               Paula Silva
             </a>
             , Developer Productivity Global Black Belt at Microsoft Americas
