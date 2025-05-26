@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Code-AI-Dev/static/css/main.f280079e.css",
+    "main.js": "/Code-AI-Dev/static/js/main.1780e181.js",
+    "static/js/453.02e786f6.chunk.js": "/Code-AI-Dev/static/js/453.02e786f6.chunk.js",
+    "index.html": "/Code-AI-Dev/index.html",
+    "main.f280079e.css.map": "/Code-AI-Dev/static/css/main.f280079e.css.map",
+    "main.1780e181.js.map": "/Code-AI-Dev/static/js/main.1780e181.js.map",
+    "453.02e786f6.chunk.js.map": "/Code-AI-Dev/static/js/453.02e786f6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f280079e.css",
+    "static/js/main.1780e181.js"
+  ]
+}
