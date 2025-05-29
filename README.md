@@ -149,7 +149,7 @@ The workshop is organized into progressive modules, allowing you to choose the d
 
 ## 🔗 Related Repositories
 
-### [AI Code Development](https://github.com/paulasilvatech/Code-AI-Dev)
+### [AI Code Development](https://github.com/paulasilvatech/Code-AI-Dev) *(This Workshop)*
 Complete workshop for leveraging AI tools like GitHub Copilot to optimize and improve code quality in enterprise environments. Learn advanced AI-assisted workflows, refactoring techniques, and best practices for integrating AI tools into development processes.
 
 ### [Secure Code AI Development](https://github.com/paulasilvatech/Secure-Code-AI-Dev)
