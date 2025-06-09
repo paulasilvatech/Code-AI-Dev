@@ -1,58 +1,111 @@
-# AI Code Development Workshop Website
+# AI Code Development Landing Page
 
-This is a static HTML website for the AI Code Development Workshop.
+Esta é a landing page do workshop **AI-Powered Code Development** construída com React, TypeScript, Vite e Tailwind CSS.
 
-## Structure
+## 🚀 Deploy Automático via GitHub Actions
 
-- `index.html` - Homepage
-- `vision.html` - Workshop vision page
-- `differentiators.html` - Key differentiators page
-- `workshop-levels.html` - Workshop levels overview
-- `prerequisites.html` - Prerequisites page
-- `resources.html` - Resources page
-- `faq.html` - Frequently Asked Questions
-- `static/` - Static assets (CSS, images, JavaScript)
+O deploy é feito automaticamente via GitHub Actions para GitHub Pages sempre que houver:
 
-## Deployment
+- Push para a branch `main` com alterações no diretório `website/`
+- Execução manual do workflow
 
-The website is automatically deployed to GitHub Pages when changes are pushed to the main branch. The deployment is handled by GitHub Actions workflow located at `.github/workflows/deploy-website.yml`.
+### Como funciona o deploy:
 
-### GitHub Pages URL
+1. **Trigger**: Push para `main` ou execução manual
+2. **Build**: 
+   - Instala dependências com `npm ci`
+   - Executa build com `npm run build`
+   - Gera arquivos estáticos na pasta `dist/`
+3. **Deploy**: Publica automaticamente no GitHub Pages
 
-Once deployed, the website will be available at:
+## 🛠️ Desenvolvimento Local
+
+### Pré-requisitos
+- Node.js 18+
+- npm
+
+### Comandos disponíveis:
+
+```bash
+# Instalar dependências
+npm install
+
+# Desenvolvimento (servidor local)
+npm run dev
+
+# Build para produção
+npm run build
+
+# Preview do build
+npm run preview
+
+# Linting
+npm run lint
 ```
-https://paulanunes85.github.io/Code-AI-Dev/
+
+## 📁 Estrutura do Projeto
+
+```
+website/
+├── src/
+│   ├── components/
+│   │   └── LandingPageComplete.tsx  # Componente principal
+│   ├── App.tsx                      # App principal
+│   ├── main.tsx                     # Ponto de entrada
+│   └── index.css                    # Estilos globais
+├── public/                          # Arquivos estáticos
+├── index.html                       # Template HTML
+├── package.json                     # Dependências
+├── vite.config.ts                   # Configuração Vite
+├── tailwind.config.js               # Configuração Tailwind
+└── tsconfig.json                    # Configuração TypeScript
 ```
 
-## Content Synchronization
+## 🎨 Tecnologias
 
-Documentation content is automatically synchronized from the main repository docs when changes are made. This is handled by the GitHub Actions workflow at `.github/workflows/sync-docs-content.yml`.
+- **React 18** - Biblioteca UI
+- **TypeScript** - Tipagem estática
+- **Vite** - Build tool e dev server
+- **Tailwind CSS** - Framework CSS
+- **Lucide React** - Ícones
 
-## Local Development
+## 🌐 URLs
 
-To view the website locally:
+- **Site ao vivo**: https://paulasilvatech.github.io/Code-AI-Dev/
+- **Repositório**: https://github.com/paulasilvatech/Code-AI-Dev
 
-1. Open `index.html` in a web browser
-2. Or use a local web server:
-   ```bash
-   # Using Python 3
-   python -m http.server 8000
-   
-   # Using Node.js
-   npx http-server
-   ```
+## 📋 Features Implementadas
 
-## Making Changes
+✅ **Modal interativo** para módulos do workshop  
+✅ **Formulário de solicitação de acesso** com validação  
+✅ **Design responsivo** com gradientes purple/pink  
+✅ **Logo customizado** com animações  
+✅ **Seções completas**: Hero, Módulos, Impacto, Formulário  
+✅ **Deploy automático** via GitHub Actions  
 
-1. Edit the HTML files directly
-2. Update styles in `static/css/`
-3. Add images to `static/img/`
-4. Commit and push changes to trigger automatic deployment
+## 🔄 Fluxo de Deploy
 
-## Content Updates
+1. Desenvolva localmente
+2. Commit e push para `main`
+3. GitHub Actions automaticamente:
+   - Faz build do projeto
+   - Deploy para GitHub Pages
+   - Site atualizado em ~2-3 minutos
 
-The website content is based on the workshop documentation in the repository. When documentation is updated:
+## 🐛 Troubleshooting
 
-1. The sync workflow will automatically create a pull request
-2. Review and merge the PR to update the website
-3. The deployment workflow will publish the changes to GitHub Pages 
+### Build falhando:
+- Verifique se todas as dependências estão instaladas
+- Execute `npm run build` localmente para testar
+
+### Deploy não funcionando:
+- Verifique se GitHub Pages está habilitado no repositório
+- Confirme que as permissões do workflow estão corretas
+- Veja os logs do GitHub Actions para detalhes
+
+## 📞 Suporte
+
+Em caso de problemas com o deploy ou desenvolvimento, verifique:
+1. Logs do GitHub Actions
+2. Console do navegador para erros
+3. Configurações do repositório no GitHub 
