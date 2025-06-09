@@ -5,7 +5,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'landing_page/**'
+      - 'website/**'
       - '.github/workflows/deploy-website.yml'
 
   # Allows you to run this workflow manually from the Actions tab
@@ -38,15 +38,15 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: './landing_page/package-lock.json'
+          cache-dependency-path: './website/package-lock.json'
 
       - name: Install dependencies
         run: npm ci
-        working-directory: ./landing_page
+        working-directory: ./website
 
       - name: Build React app
         run: npm run build
-        working-directory: ./landing_page
+        working-directory: ./website
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -55,7 +55,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload the build output directory
-          path: ./landing_page/dist
+          path: ./website/dist
 
   # Deployment job
   deploy:
