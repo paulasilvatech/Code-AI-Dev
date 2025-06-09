@@ -215,24 +215,28 @@ const LandingPage = () => {
 
   const relatedRepos = [
     {
-      title: "Design-to-Code",
-      description: "Transform Figma designs into production-ready code with AI assistance",
-      link: "https://paulasilvatech.github.io/Design-to-Code-Dev"
+      title: "Design-to-Code Development",
+      description: "Transform Figma designs into production-ready code with AI assistance and automated workflows",
+      link: "https://paulasilvatech.github.io/Design-to-Code-Dev",
+      tag: "AI Design Automation"
     },
     {
-      title: "Secure Code AI",
-      description: "Build secure applications with AI-powered security analysis and best practices",
-      link: "https://paulasilvatech.github.io/Secure-Code-AI-Dev"
+      title: "Secure Code AI Development", 
+      description: "Build secure applications with AI-powered security analysis and vulnerability detection",
+      link: "https://paulasilvatech.github.io/Secure-Code-AI-Dev",
+      tag: "Security & AI"
     },
     {
-      title: "Agentic Operations",
-      description: "Implement comprehensive observability solutions for cloud applications",
-      link: "https://paulasilvatech.github.io/Agentic-Ops-Dev"
+      title: "Agentic Operations Development",
+      description: "Implement autonomous operations and comprehensive observability with AI agents",
+      link: "https://paulasilvatech.github.io/Agentic-Ops-Dev",
+      tag: "AI Operations"
     },
     {
-      title: "Figma-to-Code",
-      description: "Convert Figma designs directly to functional code using AI-powered automation",
-      link: "https://paulasilvatech.github.io/Figma-to-Code-Dev"
+      title: "Figma-to-Code Development",
+      description: "Convert Figma designs directly to functional code using advanced AI automation",
+      link: "https://paulasilvatech.github.io/Figma-to-Code-Dev",
+      tag: "Design Automation"
     }
   ];
 
@@ -311,14 +315,14 @@ const LandingPage = () => {
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#modules" className="hover:text-purple-400 transition-colors">Modules</a>
-              <a href="#impact" className="hover:text-purple-400 transition-colors">Impact</a>
-              <a href="#stages" className="hover:text-purple-400 transition-colors">Maturity Stages</a>
+              <a href="#modules" className="hover:text-purple-400 transition-colors">Workshop Modules</a>
+              <a href="#impact" className="hover:text-purple-400 transition-colors">Business Impact</a>
+              <a href="#stages" className="hover:text-purple-400 transition-colors">AI Maturity</a>
               <a href="#access-request" className="hover:text-purple-400 transition-colors">Request Access</a>
               <a href="#start" className="hover:text-purple-400 transition-colors">Get Started</a>
               <button onClick={scrollToAccessForm} className="flex items-center space-x-1 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg transition-colors">
                 <Star className="w-4 h-4" />
-                <span>Learn More</span>
+                <span>Request Access</span>
               </button>
             </div>
 
@@ -332,9 +336,9 @@ const LandingPage = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-gray-900/95 backdrop-blur-md">
             <div className="px-4 pt-2 pb-3 space-y-1">
-              <a href="#modules" className="block px-3 py-2 hover:bg-gray-800 rounded-md">Modules</a>
-              <a href="#impact" className="block px-3 py-2 hover:bg-gray-800 rounded-md">Impact</a>
-              <a href="#stages" className="block px-3 py-2 hover:bg-gray-800 rounded-md">Maturity Stages</a>
+              <a href="#modules" className="block px-3 py-2 hover:bg-gray-800 rounded-md">Workshop Modules</a>
+              <a href="#impact" className="block px-3 py-2 hover:bg-gray-800 rounded-md">Business Impact</a>
+              <a href="#stages" className="block px-3 py-2 hover:bg-gray-800 rounded-md">AI Maturity</a>
               <a href="#access-request" className="block px-3 py-2 hover:bg-gray-800 rounded-md">Request Access</a>
               <a href="#start" className="block px-3 py-2 hover:bg-gray-800 rounded-md">Get Started</a>
             </div>
@@ -361,7 +365,7 @@ const LandingPage = () => {
           {/* Badge - Second element */}
           <div className="flex justify-center mb-6">
             <span className="bg-purple-600/20 text-purple-300 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
-              🚀 Enterprise AI-Assisted Development Workshop
+              🤖 Enterprise AI-Powered Development Workshop
             </span>
           </div>
           
@@ -921,9 +925,9 @@ const LandingPage = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Related Resources</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Related Workshops</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Explore our comprehensive ecosystem of AI-powered development workshops
+              Explore our comprehensive ecosystem of AI-powered development workshops and training programs
             </p>
           </div>
 
@@ -931,17 +935,23 @@ const LandingPage = () => {
             {relatedRepos.map((repo, index) => (
               <a key={index} href={repo.link} target="_blank" rel="noopener noreferrer" className="group bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 hover:bg-gray-800/70 transition-all hover:transform hover:scale-105">
                 <div className="flex items-start justify-between mb-4">
-                  <Book className="w-8 h-8 text-purple-400" />
+                  <div className="flex flex-col">
+                    <Book className="w-8 h-8 text-purple-400 mb-2" />
+                    <span className="text-xs px-2 py-1 bg-purple-600/20 text-purple-300 rounded-full font-medium">
+                      {repo.tag}
+                    </span>
+                  </div>
                   <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-colors" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-400 transition-colors">
+                <h3 className="text-lg font-semibold mb-3 group-hover:text-purple-400 transition-colors leading-tight">
                   {repo.title}
                 </h3>
-                <p className="text-gray-300 mb-4">
+                <p className="text-gray-300 mb-4 text-sm leading-relaxed">
                   {repo.description}
                 </p>
-                <div className="text-purple-400 text-sm font-medium">
-                  Visit Workshop →
+                <div className="flex items-center text-purple-400 text-sm font-medium">
+                  <span>Visit Workshop</span>
+                  <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </div>
               </a>
             ))}
