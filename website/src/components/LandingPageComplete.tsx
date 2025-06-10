@@ -586,11 +586,11 @@ AI Code Development Team
         </div>
       )}
 
-      {/* Business Impact Section */}
+      {/* Key Impact Section */}
       <section id="impact" className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Business Impact</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Key Impact</h2>
             <p className="text-xl text-gray-300">
               Organizations implementing AI-assisted development report transformative results
             </p>
