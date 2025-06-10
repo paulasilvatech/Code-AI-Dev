@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import { Clock, Users, Zap, Check, ExternalLink, Star, Book, Code, Cpu, Menu, X, GitBranch, Shield, Rocket, Lock, AlertTriangle, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ChevronRight, Clock, Users, Zap, Check, ExternalLink, Star, Book, Code, Cpu, ArrowRight, Menu, X, GitBranch, Shield, Rocket, Lock, Mail, Phone, MessageSquare, AlertTriangle } from 'lucide-react';
 
 // Custom AI Code Development Logo Component
-const AICodeLogo = ({ className }: { className?: string }) => (
+const AICodeLogo = ({ className }) => (
   <svg className={className} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="codeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -58,15 +58,14 @@ const LandingPage = () => {
     fullName: '',
     company: '',
     jobTitle: '',
-    githubUsername: '',
-    moduleInterest: [] as string[],
+    teamSize: '',
+    deliveryFormat: '',
+    contactMethod: [] as string[],
+    workshopInterest: [] as string[],
     message: '',
     gdprConsent: false
   });
   const [formStatus, setFormStatus] = useState({ type: '', message: '' });
-  const [emailVerificationStep, setEmailVerificationStep] = useState(false);
-  const [verificationCode, setVerificationCode] = useState('');
-  const [enteredCode, setEnteredCode] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -198,6 +197,13 @@ const LandingPage = () => {
     { metric: "60%", description: "Less security vulnerabilities" }
   ];
 
+  const maturityStages = [
+    { stage: "Manual", description: "Traditional development processes", icon: "⚙️" },
+    { stage: "Assisted", description: "AI-powered code completion", icon: "🤖" },
+    { stage: "Augmented", description: "Intelligent workflows", icon: "⚡" },
+    { stage: "Autonomous", description: "Self-optimizing systems", icon: "🚀" }
+  ];
+
   const prerequisites = [
     "Azure Free Account",
     "GitHub account with Copilot",
@@ -209,28 +215,24 @@ const LandingPage = () => {
 
   const relatedRepos = [
     {
-      title: "Design-to-Code Development",
-      description: "Transform Figma designs into production-ready code with AI assistance and automated workflows",
-      link: "https://paulasilvatech.github.io/Design-to-Code-Dev",
-      tag: "AI Design Automation"
+      title: "Design-to-Code",
+      description: "Transform Figma designs into production-ready code with AI assistance",
+      link: "https://paulasilvatech.github.io/Design-to-Code-Dev"
     },
     {
-      title: "Secure Code AI Development", 
-      description: "Build secure applications with AI-powered security analysis and vulnerability detection",
-      link: "https://paulasilvatech.github.io/Secure-Code-AI-Dev",
-      tag: "Security & AI"
+      title: "Secure Code AI",
+      description: "Build secure applications with AI-powered security analysis and best practices",
+      link: "https://paulasilvatech.github.io/Secure-Code-AI-Dev"
     },
     {
-      title: "Agentic Operations Development",
-      description: "Implement autonomous operations and comprehensive observability with AI agents",
-      link: "https://paulasilvatech.github.io/Agentic-Ops-Dev",
-      tag: "AI Operations"
+      title: "Agentic Operations",
+      description: "Implement comprehensive observability solutions for cloud applications",
+      link: "https://paulasilvatech.github.io/Agentic-Ops-Dev"
     },
     {
-      title: "Figma-to-Code Development",
-      description: "Convert Figma designs directly to functional code using advanced AI automation",
-      link: "https://paulasilvatech.github.io/Figma-to-Code-Dev",
-      tag: "Design Automation"
+      title: "Figma-to-Code",
+      description: "Convert Figma designs directly to functional code using AI-powered automation",
+      link: "https://paulasilvatech.github.io/Figma-to-Code-Dev"
     }
   ];
 
@@ -241,17 +243,15 @@ const LandingPage = () => {
     return domain && !personalDomains.includes(domain.toLowerCase());
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
-    const checked = 'checked' in e.target ? e.target.checked : false;
-    
+  const handleInputChange = (e: any) => {
+    const { name, value, type, checked } = e.target;
     if (type === 'checkbox') {
-      if (name === 'moduleInterest') {
+      if (name === 'contactMethod' || name === 'workshopInterest') {
         setFormData(prev => ({
           ...prev,
           [name]: checked 
-            ? [...(prev[name as keyof typeof prev] as string[]), value]
-            : (prev[name as keyof typeof prev] as string[]).filter((item: string) => item !== value)
+            ? [...prev[name], value]
+            : prev[name].filter(item => item !== value)
         }));
       } else {
         setFormData(prev => ({ ...prev, [name]: checked }));
@@ -261,48 +261,11 @@ const LandingPage = () => {
     }
   };
 
-  const generateVerificationCode = () => {
-    return Math.floor(100000 + Math.random() * 900000).toString();
-  };
-
-  const sendNotificationEmail = (data: typeof formData) => {
-    // In production, this would send an actual email to paulasilva@microsoft.com
-    const emailContent = `
-New Workshop Access Request
-
-Full Name: ${data.fullName}
-Email: ${data.email}
-Company: ${data.company}
-Job Title: ${data.jobTitle}
-GitHub Username: ${data.githubUsername}
-Modules of Interest: ${data.moduleInterest.join(', ')}
-Message: ${data.message || 'N/A'}
-
-Submitted at: ${new Date().toISOString()}
-    `;
-    console.log('Email to paulasilva@microsoft.com:', emailContent);
-  };
-
-  const sendConfirmationEmail = (email: string) => {
-    // In production, this would send an actual confirmation email
-    const confirmationContent = `
-Thank you for your interest in the AI Code Development Workshop.
-
-Your access request has been received and is being reviewed. You can expect a response within 48 hours.
-
-If you have any urgent questions, please contact paulasilva@microsoft.com
-
-Best regards,
-AI Code Development Team
-    `;
-    console.log('Confirmation email to:', email, confirmationContent);
-  };
-
   const handleFormSubmit = (e: any) => {
     e.preventDefault();
     
     // Validate required fields
-    if (!formData.email || !formData.fullName || !formData.company || !formData.jobTitle || !formData.githubUsername) {
+    if (!formData.email || !formData.fullName || !formData.company || !formData.jobTitle) {
       setFormStatus({ type: 'error', message: 'Please fill in all required fields.' });
       return;
     }
@@ -318,45 +281,15 @@ AI Code Development Team
       setFormStatus({ type: 'error', message: 'Please agree to the data processing terms.' });
       return;
     }
-
-    // If not verified, send verification code
-    if (!emailVerificationStep) {
-      const code = generateVerificationCode();
-      setVerificationCode(code);
-      setEmailVerificationStep(true);
-      setFormStatus({ 
-        type: 'info', 
-        message: `A verification code has been sent to ${formData.email}. Please enter it below.` 
-      });
-      // In production, send actual email with code
-      console.log('Verification code:', code);
-      return;
-    }
-
-    // Verify the code
-    if (enteredCode !== verificationCode) {
-      setFormStatus({ type: 'error', message: 'Invalid verification code. Please try again.' });
-      return;
-    }
     
-    // Submit form
+    // Simulate form submission
     setFormStatus({ type: 'loading', message: 'Submitting your request...' });
     
     setTimeout(() => {
-      // Send notification email to Paula
-      sendNotificationEmail(formData);
-      // Send confirmation email to requester
-      sendConfirmationEmail(formData.email);
-      
       setFormStatus({ 
         type: 'success', 
-        message: 'Request submitted successfully! You will receive a confirmation email shortly. We will respond within 48 hours.' 
+        message: 'Request submitted successfully! We\'ll contact you within 24 hours.' 
       });
-      
-      // Reset form
-      setEmailVerificationStep(false);
-      setVerificationCode('');
-      setEnteredCode('');
     }, 2000);
   };
 
@@ -378,11 +311,12 @@ AI Code Development Team
             <div className="hidden md:flex items-center space-x-8">
               <a href="#modules" className="hover:text-purple-400 transition-colors">Modules</a>
               <a href="#impact" className="hover:text-purple-400 transition-colors">Impact</a>
-              <a href="#prerequisites" className="hover:text-purple-400 transition-colors">Prerequisites</a>
+              <a href="#stages" className="hover:text-purple-400 transition-colors">Maturity Stages</a>
+              <a href="#access-request" className="hover:text-purple-400 transition-colors">Request Access</a>
               <a href="#start" className="hover:text-purple-400 transition-colors">Get Started</a>
               <button onClick={scrollToAccessForm} className="flex items-center space-x-1 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg transition-colors">
                 <Star className="w-4 h-4" />
-                <span>Request Access</span>
+                <span>Learn More</span>
               </button>
             </div>
 
@@ -398,12 +332,9 @@ AI Code Development Team
             <div className="px-4 pt-2 pb-3 space-y-1">
               <a href="#modules" className="block px-3 py-2 hover:bg-gray-800 rounded-md">Modules</a>
               <a href="#impact" className="block px-3 py-2 hover:bg-gray-800 rounded-md">Impact</a>
-              <a href="#prerequisites" className="block px-3 py-2 hover:bg-gray-800 rounded-md">Prerequisites</a>
+              <a href="#stages" className="block px-3 py-2 hover:bg-gray-800 rounded-md">Maturity Stages</a>
+              <a href="#access-request" className="block px-3 py-2 hover:bg-gray-800 rounded-md">Request Access</a>
               <a href="#start" className="block px-3 py-2 hover:bg-gray-800 rounded-md">Get Started</a>
-              <button onClick={scrollToAccessForm} className="mt-2 w-full flex items-center justify-center space-x-2 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg transition-colors">
-                <Star className="w-4 h-4" />
-                <span>Request Access</span>
-              </button>
             </div>
           </div>
         )}
@@ -428,7 +359,7 @@ AI Code Development Team
           {/* Badge - Second element */}
           <div className="flex justify-center mb-6">
             <span className="bg-purple-600/20 text-purple-300 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
-              🤖 Enterprise AI-Powered Development Workshop
+              🚀 Enterprise AI-Assisted Development Workshop
             </span>
           </div>
           
@@ -442,12 +373,16 @@ AI Code Development Team
             Transform your development workflow with GitHub Copilot, Azure AI, and agentic DevOps practices for enterprise-scale applications.
           </p>
           
-          {/* Button - Fifth element */}
-          <div className="flex justify-center">
-            <button onClick={scrollToAccessForm} className="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-12 py-4 rounded-lg font-semibold flex items-center justify-center space-x-3 transition-all transform hover:scale-105 text-lg">
-              <span>Request Workshop Access</span>
+          {/* Buttons - Fifth element */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button onClick={scrollToAccessForm} className="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all transform hover:scale-105">
+              <span>Request Access</span>
               <Lock className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
+            <a href="#start" className="bg-gray-800 hover:bg-gray-700 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all">
+              <span>Learn More</span>
+              <ChevronRight className="w-5 h-5" />
+            </a>
           </div>
 
           <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-gray-400">
@@ -467,12 +402,90 @@ AI Code Development Team
         </div>
       </section>
 
+      {/* Developer Time Stats Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-2xl p-8 md:p-12 backdrop-blur-sm">
+            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center">The Developer Productivity Challenge</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-purple-400 mb-2">60%</div>
+                <p className="text-gray-300">Time on non-coding tasks</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-pink-400 mb-2">30%</div>
+                <p className="text-gray-300">Maintaining existing code</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-violet-400 mb-2">10%</div>
+                <p className="text-gray-300">Writing new value code</p>
+              </div>
+            </div>
+            <p className="text-center mt-8 text-lg text-gray-300">
+              AI-assisted development helps shift this balance towards value creation
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Business Impact Section */}
+      <section id="impact" className="py-20 px-4 bg-gray-900/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Business Impact</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Organizations implementing AI-assisted development report transformative results
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => (
+              <div key={index} className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 text-center transform hover:scale-105 transition-all">
+                <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">
+                  {benefit.metric}
+                </div>
+                <p className="text-gray-300">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Maturity Stages Section */}
+      <section id="stages" className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">AI Adoption Maturity Stages</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Progress through four stages of AI-enhanced development maturity
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {maturityStages.map((stage, index) => (
+              <div key={index} className="relative">
+                <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 hover:bg-gray-800/70 transition-all">
+                  <div className="text-4xl mb-4">{stage.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2 text-purple-400">{stage.stage}</h3>
+                  <p className="text-gray-300 text-sm">{stage.description}</p>
+                </div>
+                {index < maturityStages.length - 1 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                    <ArrowRight className="w-6 h-6 text-purple-400" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Modules Section */}
       <section id="modules" className="py-20 px-4 bg-gray-900/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Workshop Modules</h2>
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Comprehensive learning path for AI-powered development mastery
             </p>
           </div>
@@ -544,7 +557,7 @@ AI Code Development Team
                 🎯 Learning Objectives
               </h3>
               <ul className="space-y-2">
-                {selectedModule.objectives.map((objective: string, index: number) => (
+                {selectedModule.objectives.map((objective, index) => (
                   <li key={index} className="flex items-start space-x-2 text-gray-300">
                     <span className="text-green-400 flex-shrink-0">✓</span>
                     <span>{objective}</span>
@@ -558,7 +571,7 @@ AI Code Development Team
                 ⚙️ Technologies & Tools
               </h3>
               <div className="flex flex-wrap gap-2">
-                {selectedModule.technologies.map((tech: string, index: number) => (
+                {selectedModule.technologies.map((tech, index) => (
                   <span key={index} className="bg-purple-600/20 text-purple-300 px-3 py-1 rounded-full text-sm font-medium">
                     {tech}
                   </span>
@@ -585,29 +598,6 @@ AI Code Development Team
           </div>
         </div>
       )}
-
-      {/* Business Impact Section */}
-      <section id="impact" className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Business Impact</h2>
-            <p className="text-xl text-gray-300">
-              Organizations implementing AI-assisted development report transformative results
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 text-center transform hover:scale-105 transition-all">
-                <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">
-                  {benefit.metric}
-                </div>
-                <p className="text-gray-300">{benefit.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Prerequisites Section */}
       <section id="prerequisites" className="py-20 px-4">
@@ -665,157 +655,175 @@ AI Code Development Team
 
           <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8">
             <form onSubmit={handleFormSubmit} className="space-y-6">
-              {!emailVerificationStep ? (
-                <>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Corporate Email *</label>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
-                        placeholder="your.email@company.com"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Full Name *</label>
-                      <input
-                        type="text"
-                        name="fullName"
-                        required
-                        value={formData.fullName}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
-                        placeholder="John Smith"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Company Name *</label>
-                      <input
-                        type="text"
-                        name="company"
-                        required
-                        value={formData.company}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
-                        placeholder="Your Company"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Job Title *</label>
-                      <input
-                        type="text"
-                        name="jobTitle"
-                        required
-                        value={formData.jobTitle}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
-                        placeholder="Senior Developer"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2">GitHub Username *</label>
-                    <input
-                      type="text"
-                      name="githubUsername"
-                      required
-                      value={formData.githubUsername}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
-                      placeholder="@yourusername"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Modules of Interest</label>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                      {modules.map((module) => (
-                        <label key={module.id} className="flex items-center">
-                          <input
-                            type="checkbox"
-                            name="moduleInterest"
-                            value={module.title}
-                            checked={formData.moduleInterest.includes(module.title)}
-                            onChange={handleInputChange}
-                            className="mr-2 text-purple-600"
-                            title={`Select ${module.title}`}
-                          />
-                          <span className="text-sm">{module.title}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Message / Additional Requirements</label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      rows={4}
-                      className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
-                      placeholder="Tell us about your specific requirements or questions..."
-                    />
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <input
-                      type="checkbox"
-                      name="gdprConsent"
-                      checked={formData.gdprConsent}
-                      onChange={handleInputChange}
-                      className="mt-1 text-purple-600"
-                      required
-                      title="GDPR consent for data processing"
-                    />
-                    <label className="text-sm text-gray-300">
-                      I agree to the processing of my personal data for the purpose of this workshop access request and related communications. *
-                    </label>
-                  </div>
-                </>
-              ) : (
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Enter Verification Code *</label>
-                    <input
-                      type="text"
-                      value={enteredCode}
-                      onChange={(e) => setEnteredCode(e.target.value)}
-                      className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white text-center font-mono text-xl"
-                      placeholder="000000"
-                      maxLength={6}
-                    />
-                    <p className="text-sm text-gray-400 mt-2">
-                      Please enter the 6-digit code sent to {formData.email}
-                    </p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setEmailVerificationStep(false);
-                      setFormStatus({ type: '', message: '' });
-                    }}
-                    className="text-purple-400 hover:text-purple-300 text-sm"
-                  >
-                    ← Back to form
-                  </button>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Corporate Email *</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                    placeholder="your.email@company.com"
+                  />
                 </div>
-              )}
+                <div>
+                  <label className="block text-sm font-medium mb-2">Full Name *</label>
+                  <input
+                    type="text"
+                    name="fullName"
+                    required
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                    placeholder="John Smith"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Company Name *</label>
+                  <input
+                    type="text"
+                    name="company"
+                    required
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                    placeholder="Your Company"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Job Title *</label>
+                  <input
+                    type="text"
+                    name="jobTitle"
+                    required
+                    value={formData.jobTitle}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                    placeholder="Senior Developer"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Team Size</label>
+                  <select
+                    name="teamSize"
+                    value={formData.teamSize}
+                    onChange={handleInputChange}
+                    title="Select your team size"
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                  >
+                    <option value="">Select team size</option>
+                    <option value="1-5">1-5 people</option>
+                    <option value="6-20">6-20 people</option>
+                    <option value="21-50">21-50 people</option>
+                    <option value="50+">50+ people</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Delivery Format Preference</label>
+                  <div className="space-y-2">
+                    {['Virtual', 'On-site', 'Hybrid'].map((format) => (
+                      <label key={format} className="flex items-center">
+                        <input
+                          type="radio"
+                          name="deliveryFormat"
+                          value={format}
+                          checked={formData.deliveryFormat === format}
+                          onChange={handleInputChange}
+                          className="mr-2 text-purple-600"
+                          title={`Select ${format} delivery format`}
+                        />
+                        <span className="text-sm">{format}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">Preferred Contact Method</label>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {[
+                    { value: 'email', label: 'Email', icon: Mail },
+                    { value: 'phone', label: 'Phone', icon: Phone },
+                    { value: 'teams', label: 'Microsoft Teams', icon: MessageSquare }
+                  ].map(({ value, label, icon: Icon }) => (
+                    <label key={value} className="flex items-center">
+                      <input
+                        type="checkbox"
+                        name="contactMethod"
+                        value={value}
+                        checked={formData.contactMethod.includes(value)}
+                        onChange={handleInputChange}
+                        className="mr-2 text-purple-600"
+                        title={`Select ${label} as preferred contact method`}
+                      />
+                      <Icon className="w-4 h-4 mr-1" />
+                      <span className="text-sm">{label}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">Workshop Interest</label>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  {['AI Code Development', 'Design-to-Code', 'Secure Code AI', 'Agentic Operations', 'Figma-to-Code'].map((workshop) => (
+                    <label key={workshop} className="flex items-center">
+                      <input
+                        type="checkbox"
+                        name="workshopInterest"
+                        value={workshop}
+                        checked={formData.workshopInterest.includes(workshop)}
+                        onChange={handleInputChange}
+                        className="mr-2 text-purple-600"
+                        title={`Select ${workshop} workshop`}
+                      />
+                      <span className="text-sm">{workshop}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">Message / Additional Requirements</label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={4}
+                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                  placeholder="Tell us about your specific requirements or questions..."
+                />
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <input
+                  type="checkbox"
+                  name="gdprConsent"
+                  checked={formData.gdprConsent}
+                  onChange={handleInputChange}
+                  className="mt-1 text-purple-600"
+                  required
+                  title="GDPR consent for data processing"
+                />
+                <label className="text-sm text-gray-300">
+                  I agree to the processing of my personal data for the purpose of this workshop access request and related communications. *
+                </label>
+              </div>
 
               {formStatus.message && (
                 <div className={`p-4 rounded-lg ${
                   formStatus.type === 'error' ? 'bg-red-600/20 text-red-300' :
                   formStatus.type === 'success' ? 'bg-green-600/20 text-green-300' :
-                  formStatus.type === 'info' ? 'bg-blue-600/20 text-blue-300' :
-                  'bg-purple-600/20 text-purple-300'
+                  'bg-blue-600/20 text-blue-300'
                 }`}>
                   {formStatus.message}
                 </div>
@@ -826,8 +834,7 @@ AI Code Development Team
                 disabled={formStatus.type === 'loading'}
                 className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 disabled:opacity-50 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105"
               >
-                {formStatus.type === 'loading' ? 'Submitting...' : 
-                 emailVerificationStep ? 'Verify & Submit' : 'Continue'}
+                {formStatus.type === 'loading' ? 'Submitting...' : 'Submit Access Request'}
               </button>
             </form>
           </div>
@@ -837,7 +844,7 @@ AI Code Development Team
       {/* Getting Started Section */}
       <section id="start" className="py-20 px-4 bg-gray-900/50">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Get Started</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Start Your AI Development Journey</h2>
           <p className="text-xl text-gray-300 mb-12">
             Begin transforming your development workflow in just a few steps
           </p>
@@ -908,13 +915,13 @@ AI Code Development Team
         </div>
       </section>
 
-      {/* Related Workshops */}
+      {/* Related Repositories */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Related Workshops</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Related Resources</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Explore our comprehensive ecosystem of AI-powered development workshops and training programs
+              Explore our comprehensive ecosystem of AI-powered development workshops
             </p>
           </div>
 
@@ -922,23 +929,17 @@ AI Code Development Team
             {relatedRepos.map((repo, index) => (
               <a key={index} href={repo.link} target="_blank" rel="noopener noreferrer" className="group bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 hover:bg-gray-800/70 transition-all hover:transform hover:scale-105">
                 <div className="flex items-start justify-between mb-4">
-                  <div className="flex flex-col">
-                    <Book className="w-8 h-8 text-purple-400 mb-2" />
-                    <span className="text-xs px-2 py-1 bg-purple-600/20 text-purple-300 rounded-full font-medium">
-                      {repo.tag}
-                    </span>
-                  </div>
+                  <Book className="w-8 h-8 text-purple-400" />
                   <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-colors" />
                 </div>
-                <h3 className="text-lg font-semibold mb-3 group-hover:text-purple-400 transition-colors leading-tight">
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-400 transition-colors">
                   {repo.title}
                 </h3>
-                <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                <p className="text-gray-300 mb-4">
                   {repo.description}
                 </p>
-                <div className="flex items-center text-purple-400 text-sm font-medium">
-                  <span>Visit Workshop</span>
-                  <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                <div className="text-purple-400 text-sm font-medium">
+                  Visit Workshop →
                 </div>
               </a>
             ))}
@@ -962,7 +963,31 @@ AI Code Development Team
         </div>
       </footer>
 
-
+      <style jsx>{`
+        @keyframes blob {
+          0% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
     </div>
   );
 };
