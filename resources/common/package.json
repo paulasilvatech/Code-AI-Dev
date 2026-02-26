@@ -21,7 +21,7 @@
   "author": "AI Workshop Team",
   "license": "MIT",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.5.0",
+    "@modelcontextprotocol/sdk": "^1.27.1",
     "openai": "^4.24.0",
     "dotenv": "^16.3.1"
   },
